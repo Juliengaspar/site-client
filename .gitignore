@@ -7,3 +7,7 @@ wp-content/themes/*
 !wp-content/themes/PLAI
 !wp-content/themes/PLAI/*
 !wp-content/themes/PLAI/**/**
+node_modules
+!postcss.config.js
+!vite.config.js
+!package.json
