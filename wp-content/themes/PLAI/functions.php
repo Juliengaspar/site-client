@@ -1,4 +1,32 @@
 <?php
+
+
+include ('core/theme/configuration.php');
+
+//travailler avec la session PHP
+function hepl_sessio_flash($key, $value){
+    if (! isset($_SESSION['hepl_flash'])){
+        $_SESSION['hepl_flash'] = [];
+    }
+    $_SESSION['hepl_flash'][$key] = $value;
+}
+
+function hepl_session_get($key){
+    if (isset($_SESSION['hepl_flash'][$key]) && array_key_exists($key, $_SESSION['hepl_flash'])){
+        //1. Récupérer la donnée qui à été flash
+        $value = $_SESSION['hepl_flash'][$key];
+        //2. Suprimer la donnée de la session
+        unset($_SESSION['hepl_flash'][$key]);
+        //3. Retourner la données récupére
+        return $value;
+    }
+    //La donnée n’existait pas dans la session flash, donc je retourne
+    return null;
+}
+{
+
+}
+
 // Gutenberg est le nouvel éditeur de contenu propre à Wordpress
 // il ne nous intéresse pas pour l'utilisation du thème que nous
 // allons créer. On va donc le désactiver :
@@ -17,7 +45,50 @@ add_action( 'wp_enqueue_scripts', function() {
     wp_dequeue_style( 'global-styles' );
 }, 20 );
 
+add_action('init', 'init_remove_support', 100);
 
+// Fonction qui permet de supprimer les Text-area de base sur les pages
+function init_remove_support(): void
+{
+    remove_post_type_support('post', 'editor');
+    remove_post_type_support('page', 'editor');
+    remove_post_type_support('product', 'editor');
+}
+
+//definir mes menu
+//metttre tous les lien dedans
+
+// Déclaration des menus dans wordpress
+register_nav_menu('header', 'Le menu de navigation principal qui se trouve en haut de la page');
+register_nav_menu('footer', 'Le menu de navigation de fin de page');
+register_nav_menu('social-media', 'Le menu de navigation pour les réseaux sociaux');
+register_nav_menu('utils', 'Le menu de navigation pour les ressources utiles');
+
+function dw_get_navigation_links(string $location): array
+{
+    //recupérer l'objet W pour le menu
+    // Récupérer l'objet W¨pour le menu
+    $locations = get_nav_menu_locations();
+
+    if (!isset( $locations[ $location ])) {
+        return [];
+    }
+    $nav_id = $locations[ $location ];
+    $nav =  wp_get_nav_menu_items( $nav_id );//retour les parametre du menu
+    //Transformer le menu en tableaux de lien, chaque lien va être un objet personalisé
+
+    $links = [];
+    //tableaux d'element , ou on va boucler ou on declarer un nouveuax obj et on dis la clef href vaux l'url de l'obj link <=> pour le labell a la fin on retourn le tableaux des lien
+    foreach ($nav as $post) {
+        $link = new stdClass();
+        $link->href = $post->url;
+        $link->label = $post->title;
+
+        $links[] = $link;
+    }
+    return $links;
+}
+dw_get_navigation_links('header');
 //parametre un string et en retour (:) en string
 // function regarder si une clef est bien present dans le fichier si oui ob le fais
 function dw_asset(string $file): string {
@@ -36,45 +107,28 @@ function dw_asset(string $file): string {
 
     }
     return '';
-
-    //definir mes menu
-//metttre tous les lien dedans
-
-
 }
-// Déclaration des menus dans wordpress
-register_nav_menu('header', 'Le menu de navigation principal qui se trouve en haut de la page');
-register_nav_menu('footer', 'Le menu de navigation de fin de page');
 
-function hepl_execute_contact_form()
+//creation de nos premiers post type https://learn.wordpress.org/lesson/custom-post-types/
+//https://developer.wordpress.org/resource/dashicons/#editor-underline
+
+// Ajouts d'une page d'option (exemple de la documentation)
+acf_add_options_page(array(
+    'page_title'    => 'Theme General Settings',
+    'menu_title'    => 'Theme Settings',
+    'menu_slug'     => 'theme-general-settings',
+    'capability'    => 'edit_posts',
+    'redirect'      => false
+));
+
+//fonction pour les chaine de traduction perssonalisées
+
+//charger la fonction de dommaine
+//charger les traduction existantes
+load_theme_textdomain('hepl-trad', get_template_directory() . '/locales');
+//Crée un endroits ou il y a tous les traduction
+function __hepl($translation): ?string
 {
-    $config = [
-        //on vas récupérer le name d'un nonce(jeton de sécuriter) que nous avecs crée dans le template du formulaire
-        'nonce_field'=>'contact_nonce',
-        //on vas récupérer l’action d'un formulaoire qui contient le nonce
-        'nonce_identifier'=>'hepl_contact_nonce',
-    ];//contenir tous les jetons de sécuriser
-    (new ContactForm($config, $_POST))->sanitize([
-        'name'=>'text_field',
-        'email'=>'email_field',
-        'object'=>'text_field',
-        'message'=>'textarea_field',
-    ])
-        ->validate([
-            'name'=>['required'],
-            'email'=>['required', 'email'],//verifier si la chaine n'est pa vide et si c'est bien un emial qui est bien entrée
-            'object'=>[],//peux etres vide null
-            'message'=>['required'],
-        ])
-        ->save(
-        //Julien Gaspar - julien.gaspar@student.hepl.be - Objet du message
-            title: fn($data) => $data['name'] . ' - ' .$data['email'] . ' -  ' . $data['object'],//la valeur du title avec une fonction anonyme avec une tableaux contenat la valeur du champs name
-            content: fn($data) => $data['message'],//le contenu de la message
-        )//stoker les message de de formulaire
-        ->send(
-            title: fn($data) => 'Nouveaux message de ' . $data['name'],
-            content: fn($data) => 'Nom complet :  ' . $data['name'] .PHP_EOL . 'Adresse mail: ' . $data['email'] . PHP_EOL . 'Objet: ' . $data['object'] . PHP_EOL . 'Message: ' . $data['message'],
-        )//message envoyer par l'utilisateur par mail
-        ->feedback();//les parrametres passer dans le constructor qui permetre de verifier les donner envoyer et apres de valider les reponser avec une autre methode puis les sauvgarder puis les envoyer a l'utilisateur et envoi un feedback si on a bien tous remplis et si pas d'erreur
-
+    //fonction lancer en arriers plans
+    return __($translation, 'hepl-trad');
 }

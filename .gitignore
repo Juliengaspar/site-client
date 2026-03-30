@@ -1,4 +1,5 @@
 *
+!readme.md
 !.gitignore
 !wp-content/
 wp-content/*
@@ -6,7 +7,10 @@ wp-content/*
 wp-content/themes/*
 !wp-content/themes/PLAI
 !wp-content/themes/PLAI/*
-!wp-content/themes/PLAI/**/**
+!wp-content/themes/PLAI/**/*
+wp-content/themes/PLAI/node_modules
+wp-content/themes/PLAI/public
+wp-content/themes/PLAI/public/*
 node_modules
 !postcss.config.js
 !vite.config.js
