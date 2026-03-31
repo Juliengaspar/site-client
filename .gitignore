@@ -15,3 +15,6 @@ node_modules
 !postcss.config.js
 !vite.config.js
 !package.json
+
+# Ignorer build
+wp-content/themes/dw/public/
