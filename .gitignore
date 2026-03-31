@@ -1,20 +1,31 @@
+# Ignore tout
 *
-!readme.md
+
+# Autoriser fichiers utiles
 !.gitignore
-!wp-content/
-wp-content/*
-!wp-content/themes/
-wp-content/themes/*
-!wp-content/themes/PLAI
-!wp-content/themes/PLAI/*
-!wp-content/themes/PLAI/**/*
-wp-content/themes/PLAI/node_modules
-wp-content/themes/PLAI/public
-wp-content/themes/PLAI/public/*
-node_modules
-!postcss.config.js
-!vite.config.js
+!readme.md
 !package.json
+!vite.config.js
+!postcss.config.js
+
+# Autoriser wp-content
+!wp-content/
+
+# Bloquer tout dedans
+wp-content/*
+
+# Autoriser themes
+!wp-content/themes/
+
+# Bloquer tous les themes
+wp-content/themes/*
+
+!wp-content/themes/PLAI/
+!wp-content/themes/PLAI/**
+
+# Ignorer node_modules
+node_modules/
+wp-content/themes/PLAI/node_modules/
 
 # Ignorer build
-wp-content/themes/dw/public/
+wp-content/themes/PLAI/public/
