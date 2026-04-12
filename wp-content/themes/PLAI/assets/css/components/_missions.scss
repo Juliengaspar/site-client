@@ -1,0 +1,89 @@
+.missions {
+  background: $bakground;
+  padding: 40px;
+
+  h1 {
+    border: 2px solid #c75b2c;
+    display: inline-block;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .breadcrumb {
+    background: #f08c5a;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .arrow {
+      margin: 0 10px;
+      color: white;
+    }
+
+    span {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  &__section {
+    margin-top: 30px;
+
+    h2 {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+  }
+
+  .accordion-item {
+    border: 2px solid #c75b2c;
+    margin-bottom: 10px;
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      background: #fff;
+
+      .arrow {
+        margin-right: 10px;
+        color: #c75b2c;
+        transition: transform 0.3s;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 10px;
+      background: #fafafa;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    &.active {
+      .accordion-content {
+        display: block;
+      }
+
+      .arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

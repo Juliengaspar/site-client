@@ -7,15 +7,23 @@
 
 # Inclure wp-content et ses sous-dossiers jusqu'au thème PLAI
 !wp-content/
+wp-content/*
 !wp-content/themes/
+wp-content/themes/*
 !wp-content/themes/PLAI/
 
+
+!wp-content/themes/PLAI
+!wp-content/themes/PLAI/*
 # Inclure tous les fichiers du thème PLAI (comme dans l’image)
 !wp-content/themes/PLAI/**/*
 
 # Exclure ce qu’on ne veut pas versionner dans le thème
-wp-content/themes/PLAI/node_modules/
-wp-content/themes/PLAI/public/
+
+wp-content/themes/PLAI/node_modules
+wp-content/themes/PLAI/public
+wp-content/themes/PLAI/public/*
+node_modules
 wp-content/themes/PLAI/public/**/*
 
 # Inclure les fichiers de config à la racine (comme dans l’image)
