@@ -1,31 +1,24 @@
-# Ignore tout
+# Ignorer tout par défaut
 *
 
-# Autoriser fichiers utiles
-!.gitignore
+# Mais inclure les dossiers et fichiers essentiels
 !readme.md
-!package.json
-!vite.config.js
-!postcss.config.js
+!.gitignore
 
-# Autoriser wp-content
+# Inclure wp-content et ses sous-dossiers jusqu'au thème PLAI
 !wp-content/
-
-# Bloquer tout dedans
-wp-content/*
-
-# Autoriser themes
 !wp-content/themes/
-
-# Bloquer tous les themes
-wp-content/themes/*
-
 !wp-content/themes/PLAI/
-!wp-content/themes/PLAI/**
 
-# Ignorer node_modules
-node_modules/
+# Inclure tous les fichiers du thème PLAI (comme dans l’image)
+!wp-content/themes/PLAI/**/*
+
+# Exclure ce qu’on ne veut pas versionner dans le thème
 wp-content/themes/PLAI/node_modules/
-
-# Ignorer build
 wp-content/themes/PLAI/public/
+wp-content/themes/PLAI/public/**/*
+
+# Inclure les fichiers de config à la racine (comme dans l’image)
+!package.json
+!postcss.config.js
+!vite.config.js
