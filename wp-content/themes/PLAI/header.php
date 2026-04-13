@@ -219,6 +219,16 @@
                    href="<?= $lang['url'] ?>"><?= strtoupper($lang['slug']) ?></a>
             </li>
         <?php endforeach; ?>
+       <?php // On récupère l'URL actuelle sans les paramètres existants pour éviter les doublons
+        $current_path = strtok($_SERVER["REQUEST_URI"], '?');
+        ?>
+        <?php $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : ''; ?>
+
+        <a href="<?= $current_path . ($falc ? '' : '?falc=true'); ?>" title="">
+            <?= $falc ? 'Classique' : 'Mode FALC'; ?>
+        </a>
+
+<!--        <a href="/--><?php //= $falc ? '' : '?falc=true'; ?><!--" title="">--><?php //= $falc ? 'Classique' : 'Mode falc'; ?><!--</a>-->
         <?php get_search_form(); ?>
     </ul>
 </nav>

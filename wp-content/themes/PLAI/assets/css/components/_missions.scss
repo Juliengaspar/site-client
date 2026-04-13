@@ -1,5 +1,6 @@
+@use "../general/general" as *;
 .missions {
-  background: $bakground;
+  background: $bakcground;
   padding: 40px;
 
   h1 {
