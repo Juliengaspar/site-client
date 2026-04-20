@@ -9,5 +9,4 @@ $linkFilleArriane = get_field('file__arriane__link');
     </div>
     <h3 class="acceuil__title"><?= $titleAcceuil ?></h3>
 
-    <a href="<?= $linkFilleArriane?>" class="acceuil__link">Acceuil</a>
 </section>

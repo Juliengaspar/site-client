@@ -133,6 +133,99 @@ function __hepl($translation): ?string
     return __($translation, 'hepl-trad');
 }
 
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_ressources',
+        'title' => 'Page Ressources',
+        'fields' => array(
+
+            array(
+                'key' => 'field_titre_page',
+                'label' => 'Titre',
+                'name' => 'titre_page',
+                'type' => 'text',
+            ),
+
+            array(
+                'key' => 'field_description_page',
+                'label' => 'Description',
+                'name' => 'description_page',
+                'type' => 'textarea',
+            ),
+
+            array(
+                'key' => 'field_categories',
+                'label' => 'Catégories',
+                'name' => 'categories',
+                'type' => 'repeater',
+                'sub_fields' => array(
+
+                    array(
+                        'key' => 'field_nom_categorie',
+                        'label' => 'Nom de la catégorie',
+                        'name' => 'nom_categorie',
+                        'type' => 'text',
+                    ),
+
+                    array(
+                        'key' => 'field_ressources',
+                        'label' => 'Ressources',
+                        'name' => 'ressources',
+                        'type' => 'repeater',
+                        'sub_fields' => array(
+
+                            array(
+                                'key' => 'field_titre',
+                                'label' => 'Titre',
+                                'name' => 'titre',
+                                'type' => 'text',
+                            ),
+
+                            array(
+                                'key' => 'field_description',
+                                'label' => 'Description',
+                                'name' => 'description',
+                                'type' => 'textarea',
+                            ),
+
+                            array(
+                                'key' => 'field_lien',
+                                'label' => 'Lien',
+                                'name' => 'lien',
+                                'type' => 'url',
+                            ),
+
+                            array(
+                                'key' => 'field_image',
+                                'label' => 'Image',
+                                'name' => 'image',
+                                'type' => 'image',
+                                'return_format' => 'url',
+                            ),
+
+                        ),
+                    ),
+
+                ),
+            ),
+
+        ),
+
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page',
+                    'operator' => '==',
+                    'value' => 'ID_DE_TA_PAGE', // remplace par l'ID
+                ),
+            ),
+        ),
+
+    ));
+
+endif;
+
 add_image_size('sqaure-small', 400, 400, true );//nom /size/recadrage;
 add_image_size('sqaure-medium', 800, 800, true );//nom /size/recadrage;
 add_image_size('sqaure-large', 1200, 1200, true );//nom /size/recadrage;

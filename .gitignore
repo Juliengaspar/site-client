@@ -30,3 +30,4 @@ wp-content/themes/PLAI/public/**/*
 !package.json
 !postcss.config.js
 !vite.config.js
+/wp-content/themes/PLAI/text/
