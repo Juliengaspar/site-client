@@ -1,12 +1,10 @@
 <?php
 /*
- * Template Name: //School template
+ * Template Name: School template
  */
-?>
 
-<?= get_header(); ?>
+get_header();
 
-<?php
 if (!\wtl\Authentication::is_logged_in()) {
     wp_safe_redirect(home_url('/connexion/'));
     exit;
@@ -17,38 +15,22 @@ if (!\wtl\Authentication::has_school_access()) {
     exit;
 }
 
-$school_title = \wtl\Helpers::shortcode_school_title();
-$school_content = \wtl\Helpers::shortcode_school_content();
-$school_address = \wtl\Helpers::get_field('school_address');
-$school_phone = \wtl\Helpers::shortcode_school_field([
-    'name' => 'school_phone',
-    'label' => 'Téléphone',
-]);
-$school_mail = \wtl\Helpers::shortcode_school_field([
-    'name' => 'school_email',
-    'label' => 'Email',
-]);
-
-$s_link = \wtl\Helpers::get_field('link');
-
-var_dump($s_link);
-die();
+// Injection du contexte école
+if (!\wtl\Helpers::setup_school_post_context()) {
+    echo '<p>Aucune école disponible.</p>';
+    get_footer();
+    return;
+}
 ?>
 
-    <section>
-        <h2><?= $school_title ?></h2>
-        <div>
-            <?= $school_content ?>
-        </div>
-        <p>
-            <?= $school_address ?>
-        </p>
-        <p>
-            <?= $school_phone ?>
-        </p>
-        <p>
-            <?= $school_mail ?>
-        </p>
-    </section>
+<?php get_template_part( 'templates/components/stage/stage'); ?>
+<?php get_template_part('templates/components/fase/fase-warning'); ?>
+<?php if (have_rows('content')) : ?>
+    <?php while (have_rows('content')) : the_row(); ?>
+        <?php include locate_template('templates/components/flexible.php'); ?>
+    <?php endwhile; ?>
+<?php endif; ?>
 
-<?= get_footer(); ?>
+<?php
+\wtl\Helpers::reset_post_context();
+get_footer(); ?>

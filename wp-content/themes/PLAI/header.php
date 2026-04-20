@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="site crée avec woordpresse pour un site client pour le PLAI pour le cours de design web de deuxiéme années a l'hepl" />
     <meta name="keywords" content="référencement,SEO,balise meta keywords, help, PLAI, liége, aide, julien, gaspar, woordpresse, developeur, UX, UI, ">    <title><?= get_the_title()?></title>
-
+    <meta name="author" content="Julien Gaspar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= get_the_title()?></title>
     <link rel="stylesheet" type="text/css" href="<?=dw_asset('css')?>">
     <script src="<?= dw_asset('js')?>" defer ></script>
@@ -216,12 +217,6 @@
                 <a class="navigation__link" href="<?= $link->href ?>"><?= $link->label ?></a>
             </li>
         <?php endforeach; ?>
-        <?php foreach (pll_the_languages(['raw' => true]) as $lang): ?>
-            <li class="navigation__list-item-language <?= $lang['current_lang'] ? 'navigation__list-item-language--active' : '' ?>">
-                <a class="navigation__link-language" lang="<?= $lang['locale'] ?>" hreflang="<?= $lang['locale'] ?>"
-                   href="<?= $lang['url'] ?>"><?= strtoupper($lang['slug']) ?></a>
-            </li>
-        <?php endforeach; ?>
        <?php // On récupère l'URL actuelle sans les paramètres existants pour éviter les doublons
         $current_path = strtok($_SERVER["REQUEST_URI"], '?');
         ?>
@@ -249,7 +244,3 @@
         </ul>
     </nav>
 <?php endif; ?>
-<?php
-//affiche les 2 lange
-//pll_the_languages(['show_flags'=>1, 'show_name'=>0]);
-?>
