@@ -3,7 +3,19 @@
 <?php get_header()?>
     <h3><?php the_field('titre_page'); ?></h3>
     <p><?php the_field('description_page'); ?></p>
+<section>
+    <?php
+    include './archive-ressource.php'
+    ?>
+</section>
 
+
+<?php get_footer()?>
+<?php
+
+/*
+ *
+ *
 <?php if( have_rows('categories') ): ?>
 
     <?php while( have_rows('categories') ): the_row(); ?>
@@ -35,5 +47,4 @@
     <?php endwhile; ?>
 
 <?php endif; ?>
-
-<?php get_footer()?>
+ * */

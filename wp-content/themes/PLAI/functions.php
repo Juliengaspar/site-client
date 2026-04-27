@@ -59,7 +59,7 @@ function init_remove_support(): void
 //metttre tous les lien dedans
 
 // Déclaration des menus dans wordpress
-register_nav_menu('header', 'Le menu de navigation principal qui se trouve en haut de la page');
+register_nav_menu('header', 'Menu principal');
 register_nav_menu('footer', 'Le menu de navigation de fin de page');
 register_nav_menu('social-media', 'Le menu de navigation pour les réseaux sociaux');
 register_nav_menu('utils', 'Le menu de navigation pour les ressources utiles');
@@ -133,98 +133,105 @@ function __hepl($translation): ?string
     return __($translation, 'hepl-trad');
 }
 
-if( function_exists('acf_add_local_field_group') ):
+if( function_exists('acf_add_options_page') ) {
 
-    acf_add_local_field_group(array(
-        'key' => 'group_ressources',
-        'title' => 'Page Ressources',
-        'fields' => array(
+    // Page parente
+    $parent = acf_add_options_page([
+        'page_title' => 'Options du thème',
+        'menu_title' => 'Options',
+        'menu_slug'  => 'theme-options',
+        'capability' => 'edit_posts',
+        'redirect'   => false,
+        'icon_url'   => 'dashicons-admin-settings', // Icône dans le menu
+        'position'   => 58 // Position dans le menu admin
+    ]);
 
-            array(
-                'key' => 'field_titre_page',
-                'label' => 'Titre',
-                'name' => 'titre_page',
-                'type' => 'text',
-            ),
+    // Sous-page Header
+    acf_add_options_page([
+        'page_title'  => 'Header',
+        'menu_title'  => 'Header',
+        'menu_slug'   => 'header-settings',
+        'parent_slug' => $parent['menu_slug'], // Rattachement au parent
+        'capability'  => 'edit_posts',
+        'redirect'    => false
+    ]);
 
-            array(
-                'key' => 'field_description_page',
-                'label' => 'Description',
-                'name' => 'description_page',
-                'type' => 'textarea',
-            ),
+    // Sous-page Footer
+    acf_add_options_page([
+        'page_title'  => 'Footer',
+        'menu_title'  => 'Footer',
+        'menu_slug'   => 'footer-settings',
+        'parent_slug' => $parent['menu_slug'],
+        'capability'  => 'edit_posts',
+        'redirect'    => false
+    ]);
+}
 
-            array(
-                'key' => 'field_categories',
-                'label' => 'Catégories',
-                'name' => 'categories',
-                'type' => 'repeater',
-                'sub_fields' => array(
 
-                    array(
-                        'key' => 'field_nom_categorie',
-                        'label' => 'Nom de la catégorie',
-                        'name' => 'nom_categorie',
-                        'type' => 'text',
-                    ),
+// Custom Post Type pour les ressources
+function create_ressource_post_type() {
+    $labels = array(
+        'name'               => 'Ressources',
+        'singular_name'      => 'Ressource',
+        'menu_name'          => 'Ressources',
+        'add_new'            => 'Ajouter une ressource',
+        'add_new_item'       => 'Ajouter une nouvelle ressource',
+        'edit_item'          => 'Modifier la ressource',
+        'new_item'           => 'Nouvelle ressource',
+        'view_item'          => 'Voir la ressource',
+        'search_items'       => 'Rechercher des ressources',
+        'not_found'          => 'Aucune ressource trouvée',
+        'not_found_in_trash' => 'Aucune ressource trouvée dans la corbeille',
+    );
 
-                    array(
-                        'key' => 'field_ressources',
-                        'label' => 'Ressources',
-                        'name' => 'ressources',
-                        'type' => 'repeater',
-                        'sub_fields' => array(
+    $args = array(
+        'labels'              => $labels,
+        'public'              => true,
+        'publicly_queryable'  => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'query_var'           => true,
+        'rewrite'             => array('slug' => 'ressources'),
+        'capability_type'     => 'post',
+        'has_archive'         => true,
+        'hierarchical'        => false,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-book-alt',
+        'supports'            => array('title', 'editor', 'thumbnail'),
+        'show_in_rest'        => true, // Gutenberg support
+    );
 
-                            array(
-                                'key' => 'field_titre',
-                                'label' => 'Titre',
-                                'name' => 'titre',
-                                'type' => 'text',
-                            ),
+    register_post_type('ressource', $args);
+}
+add_action('init', 'create_ressource_post_type');
 
-                            array(
-                                'key' => 'field_description',
-                                'label' => 'Description',
-                                'name' => 'description',
-                                'type' => 'textarea',
-                            ),
+// Ajouter des taxonomies pour les catégories de ressources
+function create_ressource_taxonomies() {
+    $labels = array(
+        'name'              => 'Catégories de ressources',
+        'singular_name'     => 'Catégorie',
+        'search_items'      => 'Rechercher des catégories',
+        'all_items'         => 'Toutes les catégories',
+        'parent_item'       => 'Catégorie parente',
+        'parent_item_colon' => 'Catégorie parente :',
+        'edit_item'         => 'Modifier la catégorie',
+        'update_item'       => 'Mettre à jour la catégorie',
+        'add_new_item'      => 'Ajouter une nouvelle catégorie',
+        'new_item_name'     => 'Nom de la nouvelle catégorie',
+        'menu_name'         => 'Catégories',
+    );
 
-                            array(
-                                'key' => 'field_lien',
-                                'label' => 'Lien',
-                                'name' => 'lien',
-                                'type' => 'url',
-                            ),
-
-                            array(
-                                'key' => 'field_image',
-                                'label' => 'Image',
-                                'name' => 'image',
-                                'type' => 'image',
-                                'return_format' => 'url',
-                            ),
-
-                        ),
-                    ),
-
-                ),
-            ),
-
-        ),
-
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page',
-                    'operator' => '==',
-                    'value' => 'ID_DE_TA_PAGE', // remplace par l'ID
-                ),
-            ),
-        ),
-
+    register_taxonomy('ressource_category', 'ressource', array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'categorie-ressource'),
     ));
-
-endif;
+}
+add_action('init', 'create_ressource_taxonomies');
 
 add_image_size('sqaure-small', 400, 400, true );//nom /size/recadrage;
 add_image_size('sqaure-medium', 800, 800, true );//nom /size/recadrage;
