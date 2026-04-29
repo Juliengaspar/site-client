@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="site crée avec woordpresse pour un site client pour le PLAI pour le cours de design web de deuxiéme années a l'hepl" />
+    <meta name="description" content="Projet de création d’un site web, pour le pôle PLAI, réalisé avec WordPress  dans le cadre du cours de design web de deuxième année à la Haute École de la Province de Liège (HEPL)." />
     <meta name="keywords" content="référencement,SEO,balise meta keywords, help, PLAI, liége, aide, julien, gaspar, woordpresse, developeur, UX, UI, ">
     <meta name="author" content="Julien Gaspar">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +18,7 @@
 <body <?php body_class(); ?>>
 
 <header class="header">
+    <h1 class="sro">Header</h1>
 
     <!-- LOGO -->
     <div class="header__logo">
@@ -34,6 +35,8 @@
 
     <!-- NAVIGATION -->
     <nav class="header__nav">
+        <h2 class="sro">Barre de navigation</h2>
+
         <?php
         wp_nav_menu([
                 'theme_location' => 'header',

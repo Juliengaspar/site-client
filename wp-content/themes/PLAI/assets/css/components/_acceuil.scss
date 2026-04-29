@@ -1,0 +1,91 @@
+@use "../general/general" as *;
+
+@media (min-width: 1024px) {
+  .acceuil{
+    margin: 5%;
+
+
+  }
+  .acceuil__images{
+    margin: 0 auto;
+    width: 20%;
+    height: auto;
+  }
+  .acceuil__title{
+    display: inline-block;  // Clé : le bloc s'adapte au contenu
+    width: auto;
+    background-color: $white;
+    font-size: 5rem;
+    font-weight: 500;
+    border: 1px solid $tarakota__dark;
+  }
+
+  .presentation__pole {
+    display: flex;
+    gap: 5rem;
+
+    &__title {  // ← Seulement le nom de l'élément enfant
+      font-size: 5rem;
+    }
+  }
+
+
+  // SECTION
+  .chiffres {
+    padding: 3rem 1rem;
+    background: $bg-section;
+    text-align: center;
+
+    &__title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    &__grid {
+      background: $bg-container;
+      padding: 2rem;
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  // CARD
+  .chiffre-card {
+    background: $card-bg;
+    padding: 1.5rem;
+    border-radius: 6px;
+
+    text-align: center;
+
+    // CHIFFRE
+    &__number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $accent;
+      margin-bottom: 1rem;
+    }
+
+    // IMAGE
+    &__img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    // TITRE
+    &__title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    // TEXTE
+    &__desc {
+      font-size: 0.85rem;
+      color: #444;
+    }
+  }
+}

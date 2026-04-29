@@ -2,7 +2,24 @@
 body {
   background-color: $background; // ⚠️ corrige ta variable (typo)
 }
-
+.acceuil__title{
+  display: inline-block;  // Clé : le bloc s'adapte au contenu
+  width: auto;
+  background-color: $white;
+  font-size: 2.625rem;
+  font-weight: 500;
+  border: 1px solid $tarakota__dark;
+}
+ .title__second__aceuil{
+  display: inline-block;  // Clé : le bloc s'adapte au contenu
+  width: 100%;
+   text-align: center;
+   margin: 5% auto;
+  background-color: $white;
+  font-size: 2.625rem;
+  font-weight: 500;
+  border: 1px solid $tarakota__dark;
+}
 .header {
   display: flex;
   align-items: center;
