@@ -1,40 +1,77 @@
-<?php if( have_rows('sections_ressources') ): ?>
+<?php get_header(); ?>
 
-    <?php while( have_rows('sections_ressources') ): the_row(); ?>
+<section>
+    <h2><?php the_field('title__page', 'option'); ?></h2>
 
-        <section class="section-ressources">
-            <h2><?php the_sub_field('titre_section'); ?></h2>
+    <section>
+        <h3><?php the_field('title__contenu', 'option'); ?></h3>
+        <div><?php the_field('description__contenu', 'option'); ?></div>
+    </section>
+</section>
 
-            <div class="grid-outils">
+    <section class="ressources">
 
-                <?php if( have_rows('liste_outils') ): ?>
-                    <?php while( have_rows('liste_outils') ): the_row();
+        <h2 class="sro">Ressources</h2>
 
-                        $image = get_sub_field('image_outil');
-                        $titre = get_sub_field('titre_outil');
-                        $desc = get_sub_field('description_outil');
-                        $lien = get_sub_field('lien_outil');
-                        ?>
+        <?php
+        $terms = get_terms(array(
+                'taxonomy' => 'type_ressource',
+                'hide_empty' => true,
+        ));
 
-                        <div class="card-outil">
-                            <a href="<?php echo esc_url($lien); ?>" target="_blank">
+        foreach ($terms as $term) :
+            ?>
 
-                                <?php if($image): ?>
-                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $titre; ?>">
+            <div class="categorie">
+
+                <h2><?php echo $term->name; ?></h2>
+
+                <div class="grid">
+
+                    <?php
+                    $args = array(
+                            'post_type' => 'ressource',
+                            'tax_query' => array(
+                                    array(
+                                            'taxonomy' => 'type_ressource',
+                                            'field' => 'slug',
+                                            'terms' => $term->slug,
+                                    ),
+                            ),
+                    );
+
+                    $query = new WP_Query($args);
+
+                    if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post();
+
+                            $url = get_field('url_ressource');
+                            $desc = get_field('description_ressource');
+                            $image = get_field('image_ressource');
+                            ?>
+
+                            <a href="<?php echo $url; ?>" target="_blank" class="card">
+
+                                <?php if ($image) : ?>
+                                    <img src="<?php echo $image['url']; ?>" alt="">
                                 <?php endif; ?>
 
-                                <h3><?php echo $titre; ?></h3>
+                                <h3><?php the_title(); ?></h3>
                                 <p><?php echo $desc; ?></p>
 
                             </a>
-                        </div>
 
-                    <?php endwhile; ?>
-                <?php endif; ?>
+                        <?php endwhile;
+                        wp_reset_postdata();
+                    endif;
+                    ?>
+
+                </div>
 
             </div>
-        </section>
 
-    <?php endwhile; ?>
+        <?php endforeach; ?>
 
-<?php endif; ?>
+    </section>
+
+<?php get_footer(); ?>

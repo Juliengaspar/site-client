@@ -1,0 +1,14 @@
+@use 'general' as *;
+@media (min-width: 1024px) {
+  .footer {
+  background-color: $tarakota__dark;
+    &__copyright{
+      background-color: $black;
+      color: $white;
+      text-align: center;
+      margin:5% 0;
+      padding: 1rem;
+    }
+  }
+
+}

@@ -1,0 +1,15 @@
+@use "../general/general" as *;
+@media (min-width: 1024px) {
+  .acceuil {
+    margin: 5%;
+
+
+    h2 {
+      border: 2px solid #c75b2c;
+      display: inline-block;
+      padding: 5px 10px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  }
+}
