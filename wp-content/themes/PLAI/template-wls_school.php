@@ -5,6 +5,7 @@
 
 get_header();
 
+
 if (!\wtl\Authentication::is_logged_in()) {
     wp_safe_redirect(home_url('/connexion/'));
     exit;
@@ -22,6 +23,7 @@ if (!\wtl\Helpers::setup_school_post_context()) {
     return;
 }
 ?>
+<main class="main">
 
 <?php get_template_part( 'templates/components/stage/stage'); ?>
 <?php get_template_part('templates/components/fase/fase-warning'); ?>
@@ -29,6 +31,7 @@ if (!\wtl\Helpers::setup_school_post_context()) {
     <?php while (have_rows('content')) : the_row(); ?>
         <?php include locate_template('templates/components/flexible.php'); ?>
     <?php endwhile; ?>
+</main>
 <?php endif; ?>
 
 <?php

@@ -1,0 +1,244 @@
+@use "../general/general" as *;
+
+// Variables
+$color-primary: #c75b2c;
+$color-text: #333;
+$color-light-bg: #f5f5f5;
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+$transition: all 0.3s ease;
+
+// Mixins pour l'accessibilité
+@mixin focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+@mixin responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+// Styles principaux
+.content__ressources {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+
+  .acceuil__title {
+    border: 2px solid $color-primary;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    color: $color-text;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  > section > div {
+    color: $color-text;
+    line-height: 1.6;
+  }
+}
+
+.page-ressources {
+  padding: 1rem;
+
+  .sro {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  &__title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: $color-text;
+    text-align: center;
+  }
+
+  .description {
+    text-align: center;
+    margin-bottom: 2rem;
+    color:$black;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.categorie {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 3rem;
+    background-color: $bg-container;
+    color: $white;
+    margin: .5rem auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.grid-ressources {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  // Style des cartes
+  .card-ressource {
+    display: block;
+    text-decoration: none;
+    color: $black;
+    background: white;
+    border-radius: 8px;
+    transition: $transition;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-hover;
+    }
+
+    &:focus-visible {
+      @include focus-visible;
+    }
+
+    img {
+      @include responsive-image;
+      aspect-ratio: 16 / 9;
+      background-color: $color-light-bg;
+
+      // Fallback si l'image ne charge pas
+      &::after {
+        content: "Image non disponible";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $color-light-bg;
+        color: $color-text;
+        font-size: 0.875rem;
+      }
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      margin: 1rem 1rem 0.5rem;
+      color: $color-primary;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0 1rem 1rem;
+      color:$black;
+    }
+  }
+}
+
+// Tablette (768px et plus)
+@media (min-width: 768px) {
+  .grid-ressources {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  .categorie h2 {
+    font-size: 1.75rem;
+  }
+
+  .card-ressource {
+    h3 {
+      font-size: 1.25rem;
+    }
+    p {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+// Desktop (1024px et plus)
+@media (min-width: 1024px) {
+  .grid-ressources {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .acceuil__title {
+    font-size: 2rem;
+  }
+
+  .container__title {
+    font-size: 2rem;
+  }
+
+  .categorie h2 {
+    font-size: 2rem;
+  }
+
+  .card-ressource {
+    h3 {
+      font-size: 1.125rem;
+    }
+    p {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Grand écran (1440px et plus - optionnel)
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .grid-ressources {
+    gap: 2.5rem;
+  }
+}
+
+// Accessibilité : préférence de réduction de mouvement
+@media (prefers-reduced-motion: reduce) {
+  .card-ressource {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+
+  h2,
+  .card-ressource h3 {
+    border-bottom-color: currentColor;
+  }
+
+
+// Support des images avec fallback
+@supports not (aspect-ratio: 16/9) {
+  .card-ressource img {
+    height: auto;
+    min-height: 180px;
+  }
+}

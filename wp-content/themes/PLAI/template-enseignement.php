@@ -10,7 +10,8 @@ $EnseignanLink = get_field("link__formations");
 ?>
 
 <?php get_header()?>
-<?php include('wp-content/themes/PLAI/templates/componements/enseignement/titles.php')?>
+<main class="main">
+    <?php include('wp-content/themes/PLAI/templates/componements/enseignement/titles.php')?>
     <section class="acceuil">
         <?php if($Enseignanttitle): ?>
             <h2><?= esc_html($Enseignanttitle) ?></h2>
@@ -67,4 +68,6 @@ $EnseignanLink = get_field("link__formations");
             ?>
         </div>
     </section>
+</main>
+
 <?php get_footer()?>

@@ -1,5 +1,6 @@
 <?php /* Template Name: Homepage */?>
 <?php get_header(); ?>
+<main class="main">
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/first.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/second.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/chiffres.php')?>
@@ -8,6 +9,7 @@
 <?php include('wp-content/themes/PLAI/templates/componements/parents/accompagne.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/parents/parler.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/enseignement.php')?>
+</main>
 
 
 

@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
-<section>
+<section class="content__ressources">
     <h2><?php the_field('title__page', 'option'); ?></h2>
+    <h2>Ressources</h2>
 
     <section>
         <h3><?php the_field('title__contenu', 'option'); ?></h3>
@@ -11,7 +12,6 @@
 
     <section class="ressources">
 
-        <h2 class="sro">Ressources</h2>
 
         <?php
         $terms = get_terms(array(

@@ -111,6 +111,42 @@ function create_taxonomie_type_ressource() {
     );
 }
 add_action('init', 'create_taxonomie_type_ressource');
+
+
+//resources
+// CPT ia
+function create_cpt_ia() {
+    register_post_type('ia',
+        array(
+            'labels' => array(
+                'name' => 'ia',
+                'singular_name' => 'ia',
+                'add_new_item' => 'Ajouter une ia',
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-book',
+            'supports' => array('title'),
+        )
+    );
+}
+add_action('init', 'create_cpt_ia');
+
+
+// Taxonomie Type de ia
+function create_taxonomie_type_ia() {
+    register_taxonomy(
+        'type_ia',
+        'ia',
+        array(
+            'label' => 'Types de ia',
+            'hierarchical' => true,
+            'rewrite' => array('slug' => 'type-ia'),
+        )
+    );
+}
+add_action('init', 'create_taxonomie_type_ia');
+
 //resources text
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page([
@@ -127,13 +163,18 @@ function dw_get_navigation_links(string $location): array
     //recupérer l'objet W pour le menu
     // Récupérer l'objet W¨pour le menu
     $locations = get_nav_menu_locations();
-
-    if (!isset( $locations[ $location ])) {
+    if (!isset($locations[$location])) {
         return [];
     }
+
     $nav_id = $locations[ $location ];
     $nav =  wp_get_nav_menu_items( $nav_id );//retour les parametre du menu
     //Transformer le menu en tableaux de lien, chaque lien va être un objet personalisé
+
+    // 🔥 CORRECTION : Vérifier que $nav est un tableau avant de boucler
+    if (!$nav || !is_array($nav)) {
+        return [];
+    }
 
     $links = [];
     //tableaux d'element , ou on va boucler ou on declarer un nouveuax obj et on dis la clef href vaux l'url de l'obj link <=> pour le labell a la fin on retourn le tableaux des lien
@@ -141,11 +182,39 @@ function dw_get_navigation_links(string $location): array
         $link = new stdClass();
         $link->href = $post->url;
         $link->label = $post->title;
-
         $links[] = $link;
     }
     return $links;
 }
+
+
+function create_documents_cpt() {
+
+    register_post_type('documents',
+        array(
+            'labels' => array(
+                'name' => __('Documents'),
+                'singular_name' => __('Document')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'documents'),
+            'menu_icon' => 'dashicons-media-document',
+            'supports' => array('title', 'editor'),
+        )
+    );
+
+    // Taxonomie (catégories)
+    register_taxonomy('categorie_document', 'documents', array(
+        'label' => 'Catégories',
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'categorie-document'),
+    ));
+}
+
+add_action('init', 'create_documents_cpt');
+
+
 dw_get_navigation_links('header');
 //parametre un string et en retour (:) en string
 // function regarder si une clef est bien present dans le fichier si oui ob le fais
