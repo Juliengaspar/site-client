@@ -6,14 +6,14 @@ $enseignantLink = get_field("link__acceuil__enseignant");
 <section class="Presentation">
 
     <?php if (!empty($enseignantTitle)): ?>
-        <h2><?= $enseignantTitle ?></h2>
+        <h2 class="Presentation__title"><?= $enseignantTitle ?></h2>
     <?php endif;?>
     <?php if (!empty($enseignantDescription)): ?>
-        <div><?= $enseignantDescription ?></div>
+        <div class="Presentation__contenu"><?= $enseignantDescription ?></div>
     <?php endif;?>
-    <div>
+    <div class="Presentation__link">
         <?php if (!empty($enseignantLink)): ?>
-            <a href="<?=$enseignantLink['url']?>"><?= $enseignantLink['title'] ?></a>
+            <a href="<?=$enseignantLink['url']?>" class="btn"><?= $enseignantLink['title'] ?></a>
         <?php endif;?>
     </div>
 </section>

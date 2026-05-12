@@ -215,6 +215,19 @@ function create_documents_cpt() {
 add_action('init', 'create_documents_cpt');
 
 
+if (function_exists('acf_add_options_page')) {
+
+    acf_add_options_page(array(
+        'page_title' => 'Documents - Contenu',
+        'menu_title' => 'Documents Intro',
+        'menu_slug' => 'documents-intro',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+
+}
+
+
 dw_get_navigation_links('header');
 //parametre un string et en retour (:) en string
 // function regarder si une clef est bien present dans le fichier si oui ob le fais

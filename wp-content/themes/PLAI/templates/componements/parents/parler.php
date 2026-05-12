@@ -9,7 +9,7 @@ $descritpion = $falc ? get_field('parler__description__falc') : get_field('parle
 <?php if (!$falc): ?>
     <section>
         <?php if (!empty($title)): ?>
-            <h3>
+            <h3 class="acceuil__title">
                 <?= $title; ?>
             </h3>
         <?php endif; ?>

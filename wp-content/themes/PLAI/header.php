@@ -49,13 +49,14 @@
     <!-- MODE FALC -->
     <div class="header__accessibility">
         <?php
+        /*
         $current_path = strtok($_SERVER["REQUEST_URI"], '?');
         $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : '';
-        ?>
+       ?>
 
         <a href="<?= esc_url($current_path . ($falc ? '' : '?falc=true')); ?>">
             <?= $falc ? 'Mode classique' : 'Mode FALC'; ?>
-        </a>
+        </a> */?>
     </div>
 
     <!-- SEARCH -->

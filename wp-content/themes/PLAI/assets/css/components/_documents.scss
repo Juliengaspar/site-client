@@ -1,0 +1,29 @@
+.documents-page__intro {
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .documents-page__text {
+
+    p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}

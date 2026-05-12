@@ -2,6 +2,7 @@
 $social_media = dw_get_navigation_links('social-media');
 $footer = dw_get_navigation_links('footer');
 $utils = dw_get_navigation_links('utils');
+$logo__img = get_field('logo__footer',  'option');
 $phone_number = get_field('phone_number', 'option');
 $contact_mail = get_field('contact_mail', 'option');
 $copyrinthe = get_field('text__copyrinthe', 'option');
@@ -10,10 +11,15 @@ $copyrinthe = get_field('text__copyrinthe', 'option');
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__top">
-            <div class="footer__brand">
-                <a href="<?= home_url('/') ?>" class="footer__logo-link" title="Retour à l'accueil">
-                    <span class="footer__logo">EDUHEPL</span>
-                </a>
+            <div class="footer__img">
+                <?php
+
+                if($logo__img): ?>
+                    <img
+                            src="<?= esc_url($logo__img['url']); ?>"
+                            alt="<?= esc_attr($logo__img['alt']); ?>"
+                    >
+                <?php endif; ?>
 
                 <?php if (!empty($social_media)) : ?>
                     <ul class="footer__socials" role="list">
@@ -39,34 +45,13 @@ $copyrinthe = get_field('text__copyrinthe', 'option');
                 </ul>
             </nav>
 
-            <div class="footer__utils">
-                <h2 class="footer__title">Ressources utiles</h2>
-                <ul class="footer__list" role="list">
-                    <?php foreach ($utils as $link) : ?>
-                        <li class="footer__item">
-                            <a class="footer__link" href="<?= $link->href ?>"><?= $link->label ?></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+
         </div>
 
-        <div class="footer__bottom">
-            <ul class="footer__legal" role="list">
-                <li class="footer__legal-item">
-                    <a class="footer__legal-link" href="#">Conditions générales</a>
-                </li>
-                <li class="footer__legal-separator">–</li>
-                <li class="footer__legal-item">
-                    <a class="footer__legal-link" href="#">Confidentialité</a>
-                </li>
-            </ul>
-
-            <div class="footer__copyright">
+        <section class="footer__bottom">
+            <h3 class="footer__copyright">
                  <?= $copyrinthe?>
-            </div>
-        </div>
+            </h3>
+        </section>
     </div>
 </footer>
-</body>
-</html>

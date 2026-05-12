@@ -1,6 +1,7 @@
 @use 'general' as *;
 body {
   background-color: $background; // ⚠️ corrige ta variable (typo)
+  font-family: Arial, Times New Roman, Bitstream Charter, Times, serif;
 }
 .acceuil__title{
   display: inline-block;  // Clé : le bloc s'adapte au contenu

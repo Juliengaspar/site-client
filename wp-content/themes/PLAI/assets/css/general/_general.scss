@@ -1,5 +1,7 @@
 $background: #e6dfdb;
 $tarakota__dark: #C76A3E;
+$tarakota__extra__dark: #50250e;
+$fille-ariane: #F09E6F;
 $white: #ffffff;
 $black: #000000;
 
@@ -9,6 +11,23 @@ $bg-container: #e6b992;
 $card-bg: #eeeeee;
 $text: #111;
 $accent: #c65a2e;
+$shadow : rgba(0, 0, 0, 0.18);
+
+
+
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+$breakpoint-mobile: 48rem;    // 768px
+$breakpoint-tablet: 64rem;    // 1024px
+$breakpoint-desktop: 80rem;   // 1280px
+
+$transition-default: all 0.3s ease;
+
 
 .sro, .hidden {
   position: absolute;

@@ -7,15 +7,15 @@ $presentationImage = get_field("presentation__image");
 <section class="Presentation acceuil">
 
     <?php if (!empty($presentationTitle)): ?>
-    <h2 class="title__second__aceuil title"><?= $presentationTitle ?></h2>
+    <h2 class="title__second__aceuil "><?= $presentationTitle ?></h2>
     <?php endif;?>
     <section class="presentation__pole">
         <div>
             <?php if (!empty($presentationTitlePole)): ?>
-                <h3 class="presentation__pole__title"><?= $presentationTitlePole ?></h3>
+                <h3 class="presentation__pole__title acceuil__title"><?= $presentationTitlePole ?></h3>
             <?php endif;?>
             <?php if (!empty($presentationDescription)): ?>
-                <div><?= $presentationDescription ?></div>
+                <div class="description__Acceuil"><?= $presentationDescription ?></div>
             <?php endif;?>
         </div>
 

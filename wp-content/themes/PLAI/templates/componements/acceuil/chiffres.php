@@ -6,7 +6,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
 <section class="Chiffres" aria-labelledby="chiffres-title">
 
     <?php if (!empty($titleChiffre)): ?>
-        <h2 id="chiffres-title" class="chiffres__title"><?= $titleChiffre ?></h2>
+        <h2 id="chiffres-title" class="chiffres__title "><?= $titleChiffre ?></h2>
     <?php endif;?>
         <?php if (!empty($exemplesChiffreTableaux)): ?>
             <section class="chiffres__grid">
