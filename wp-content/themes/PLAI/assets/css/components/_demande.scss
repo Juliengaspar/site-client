@@ -1,0 +1,87 @@
+@use "../general/general" as *;
+
+.access-request__header{
+  text-align: center;
+}
+.access-request__header h2{
+ font-size: $big__semi__title;
+  display: block;
+  border: 1px solid $tarakota__dark;
+  margin: 2.5% 0;
+}
+.access-request__header p{
+ font-size: $text;
+  margin: 2.5% 0;
+}
+
+.access-request__form{
+  padding: 1.5rem;
+
+  background-color: $white;
+  border: 4px solid $tarakota__dark;
+  border-radius:1rem;
+
+  box-shadow: $shadow;
+}
+.access-request__field{
+  margin: 2.5% 0;
+}
+.access-request__field {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  color: $tarakota__dark;
+}
+.access-request__input{
+  width: 100%;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Ajoute une animation fluide */
+}
+
+.access-request__info{
+  color: $red;
+}
+.access-request__input:focus{
+  outline: none; /* Supprime le contour par défaut du navigateur */
+  border-color: $tarakota__dark; /* Change la couleur de la bordure */
+  box-shadow: 0 0 8px $shadow; /* Ajoute un effet lumineux */
+}
+.access-request__label{
+  display: block;
+  color: $black;
+  font-size: 1rem;
+}
+.access-request__info-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.access-request__button{
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+  margin: 2.5% 0;
+
+    border: none;
+    border-radius: 5rem;
+
+    background-color: $tarakota__dark;
+    color: $white;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: $transition;
+    box-shadow: $shadow;
+
+    &:hover {
+      background-color: $tarakota__dark;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px $shadow;
+    }
+}

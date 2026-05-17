@@ -14,14 +14,13 @@ $color-primary-hover: #b85f2f;
 $color-border: #dba688;
 $color-text: #1f1f1f;
 $color-white: #ffffff;
-$color-error: #d93025;
 
 $radius-small: 6px;
 $radius-medium: 12px;
 
 $shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 
-$transition: 0.3s ease;
+
 
 /* =========
    RESET
@@ -89,7 +88,7 @@ button {
 }
 
 .login-panel__alert--error {
-  color: $color-error;
+  color: $red;
 }
 
 /* =========
@@ -165,7 +164,7 @@ button {
   }
 
   &[aria-invalid='true'] {
-    border-color: $color-error;
+    border-color: $red;
   }
 }
 

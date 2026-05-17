@@ -1,6 +1,7 @@
 $background: #e6dfdb;
 $tarakota__dark: #C76A3E;
 $tarakota__extra__dark: #50250e;
+$red: #ff0000;
 $fille-ariane: #F09E6F;
 $white: #ffffff;
 $black: #000000;
@@ -17,6 +18,8 @@ $gray__extra__light:  #F9FAFB;
 $gray__middel: #888888;
 
 $big__title:5rem;
+$big__semi__title:3rem;
+$text:1rem;
 
 
 $spacing-xs: 0.5rem;
@@ -31,6 +34,7 @@ $breakpoint-tablet: 64rem;    // 1024px
 $breakpoint-desktop: 80rem;   // 1280px
 
 $transition-default: all 0.3s ease;
+$transition: 0.3s ease;
 
 
 .sro, .hidden {
