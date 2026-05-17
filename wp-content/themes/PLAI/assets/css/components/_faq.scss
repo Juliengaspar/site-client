@@ -1,93 +1,99 @@
 
 @use "../general/general" as *;
 
-
-// faq.scss
-
-.faq-section {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.faq-item {
-  border-bottom: 1px solid #e2e8f0;
-  margin-bottom: 0;
-
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-.faq-question {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 0;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: $black;
-  cursor: pointer;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: #3182ce;
+@media (min-width: 1024px) {
+  .faq__contenu__explication{
+    fill-size: 1rem;
+    margin: 2.5% 0;
   }
 
-  // Icône + : avant
-  &::after {
-    text-decoration: none;
-    content: "+";
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: $tarakota__dark;
-    background-color: $white;
-    transition: transform 0.2s ease;
+  // faq.scss
+
+  .faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
   }
 
-  // État actif (open) - avec JS uniquement
-  &.is-active::after {
-    content: "−";
-  }
-}
+  .faq-item {
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 0;
 
-.faq-reponse {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  background-color: $card-bg;
-  border-radius: 0.5rem;
-  margin-bottom: 0;
-
-  .faq-reponse-inner {
-    padding: 0 1rem;
-  }
-
-  // Si on accepte :target (sans JS)
-  &:target {
-    max-height: 500px;
-    margin-bottom: 1rem;
-
-    .faq-reponse-inner {
-      padding: 1rem;
+    &:last-child {
+      border-bottom: none;
     }
   }
-}
 
-// Version pure CSS avec :target (sans JS du tout)
-// Chaque question doit avoir un id="faq-1", etc.
-.faq-item {
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $black;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #3182ce;
+    }
+
+    // Icône + : avant
+    &::after {
+      text-decoration: none;
+      content: "+";
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: $tarakota__dark;
+      background-color: $white;
+      transition: transform 0.2s ease;
+    }
+
+    // État actif (open) - avec JS uniquement
+    &.is-active::after {
+      content: "−";
+    }
+  }
+
   .faq-reponse {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: $card-bg;
+    border-radius: 0.5rem;
+    margin-bottom: 0;
+
+    .faq-reponse-inner {
+      padding: 0 1rem;
+    }
+
+    // Si on accepte :target (sans JS)
+    &:target {
+      max-height: 500px;
+      margin-bottom: 1rem;
+
+      .faq-reponse-inner {
+        padding: 1rem;
+      }
+    }
   }
 
-  &:target .faq-reponse {
-    max-height: 500px;
+  // Version pure CSS avec :target (sans JS du tout)
+  // Chaque question doit avoir un id="faq-1", etc.
+  .faq-item {
+    .faq-reponse {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    &:target .faq-reponse {
+      max-height: 500px;
+    }
   }
 }

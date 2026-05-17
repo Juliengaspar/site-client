@@ -1,0 +1,250 @@
+@use "../general/general" as *;
+
+/* ==========================================
+   LOGIN PANEL
+   Mobile First - SCSS propre et responsive
+   ========================================== */
+
+/* =========
+   VARIABLES
+   ========= */
+$color-background: #f5eceb;
+$color-primary: #c96f3d;
+$color-primary-hover: #b85f2f;
+$color-border: #dba688;
+$color-text: #1f1f1f;
+$color-white: #ffffff;
+$color-error: #d93025;
+
+$radius-small: 6px;
+$radius-medium: 12px;
+
+$shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+
+$transition: 0.3s ease;
+
+/* =========
+   RESET
+   ========= */
+
+input,
+button {
+  font: inherit;
+}
+
+/* =========
+   SECTION
+   ========= */
+.login-panel {
+  padding: 2rem 1rem;
+  background-color: $background;
+}
+
+/* =========
+   CONTAINER
+   ========= */
+.login-panel__container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* =========
+   HEADER
+   ========= */
+.login-panel__header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.login-panel__title {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+
+  border: 1px solid $tarakota__dark;
+  border-radius: $radius-small;
+
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: $black;
+}
+
+.login-panel__intro {
+  line-height: 1.6;
+  color: $black;
+  font-size: 1rem;
+}
+
+/* =========
+   ALERT
+   ========= */
+.login-panel__alert {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+
+  border-radius: 1rem;
+  font-size: 0.95rem;
+}
+
+.login-panel__alert--error {
+  color: $color-error;
+}
+
+/* =========
+   FORM
+   ========= */
+.login-panel__form {
+  padding: 1.5rem;
+
+  background-color: $white;
+  border: 4px solid $tarakota__dark;
+  border-radius:1rem;
+
+  box-shadow: $shadow;
+}
+
+/* =========
+   FIELD
+   ========= */
+.login-panel__field {
+  margin-bottom: 1.5rem;
+}
+
+/* =========
+   LABEL
+   ========= */
+.login-panel__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.login-panel__label-text {
+  font-weight: 600;
+  color: $black;
+}
+
+/* =========
+   INFO ICON
+   ========= */
+.login-panel__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $tarakota__dark;
+}
+
+.login-panel__info-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========
+   INPUT
+   ========= */
+.login-panel__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+
+  border: 1px solid $gray__middel;
+  border-radius: 1rem;
+
+  outline: none;
+  transition: $transition;
+
+  background-color: $white;
+
+  &:focus {
+    border-color: $tarakota__dark;
+    box-shadow: 0 0 0 3px $shadow;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: $color-error;
+  }
+}
+
+/* =========
+   ACTIONS
+   ========= */
+.login-panel__actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* =========
+   BUTTON
+   ========= */
+.login-panel__button {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+
+  border: none;
+  border-radius: 5rem;
+
+  background-color: $tarakota__dark;
+  color: $white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: $transition;
+  box-shadow: $shadow;
+
+  &:hover {
+    background-color: $tarakota__dark;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px $shadow;
+  }
+}
+
+/* ==========================================
+   TABLET
+   ========================================== */
+@media screen and (min-width: 768px) {
+  .login-panel {
+    padding: 4rem 2rem;
+  }
+
+  .login-panel__container {
+    max-width: 600px;
+  }
+
+  .login-panel__title {
+    font-size: 2rem;
+  }
+
+  .login-panel__form {
+    padding: 2rem;
+  }
+
+  .login-panel__button {
+    width: auto;
+    min-width: 240px;
+  }
+}
+
+/* ==========================================
+   DESKTOP
+   ========================================== */
+@media screen and (min-width: 1024px) {
+  .login-panel__container {
+    max-width: 700px;
+  }
+
+  .login-panel__title {
+    font-size: 2.3rem;
+  }
+
+  .login-panel__intro {
+    font-size: 1.05rem;
+  }
+}

@@ -7,64 +7,53 @@ $titleMissioncollective = get_field('title__mission__collectives')
 ?>
 <main class="main">
 
-    <section class="missions">
 
-        <!-- FIL D’ARIANE -->
-        <div class="breadcrumb">
-            <a href="<?php echo home_url(); ?>">Accueil</a>
-            <span class="arrow">➤</span>
-            <span>Mission</span>
-        </div>
 
-        <h1>NOS MISSIONS PRINCIPALES</h1>
+    <?php
+    function display_missions($field_name, $section_title) {
 
-        <!-- MISSIONS INDIVIDUELLES -->
-        <div class="missions__section">
-            <h2><?= $titleMissionIndividuel ?></h2>
+        if( have_rows($field_name) ) : ?>
 
-            <?php if( have_rows('missions_individuelles') ): ?>
-                <?php while( have_rows('missions_individuelles') ): the_row(); ?>
+            <section class="missions">
+                <h2 class="missions__title">
+                    <?= esc_html($section_title); ?>
+                </h2>
 
-                    <div class="accordion-item">
-                        <div class="accordion-header">
-                            <span class="arrow">▼</span>
-                            <h3><?php the_sub_field('titre_mission'); ?></h3>
-                        </div>
+                <div class="accordion">
 
-                        <div class="accordion-content">
-                            <p><?php the_sub_field('description_mission'); ?></p>
-                        </div>
-                    </div>
+                    <?php while( have_rows($field_name) ) : the_row(); ?>
 
-                <?php endwhile; ?>
-            <?php endif; ?>
+                        <details class="accordion__item">
 
-        </div>
+                            <summary class="accordion__header">
+                                <h3 class="accordion__heading">
+                                    <?php the_sub_field('titre_mission'); ?>
+                                </h3>
 
-        <!-- MISSIONS COLLECTIVES -->
-        <div class="missions__section">
-            <h2><?= $titleMissioncollective ?></h2>
+                                <span class="accordion__icon"></span>
+                            </summary>
 
-            <?php if( have_rows('missions_collectives') ): ?>
-                <?php while( have_rows('missions_collectives') ): the_row(); ?>
+                            <div class="accordion__content">
+                                <p>
+                                    <?php the_sub_field('description_mission'); ?>
+                                </p>
+                            </div>
 
-                    <div class="accordion-item">
-                        <div class="accordion-header">
-                            <span class="arrow">▼</span>
-                            <h3><?php the_sub_field('titre_mission'); ?></h3>
-                        </div>
+                        </details>
 
-                        <div class="accordion-content">
-                            <p><?php the_sub_field('description_mission'); ?></p>
-                        </div>
-                    </div>
+                    <?php endwhile; ?>
 
-                <?php endwhile; ?>
-            <?php endif; ?>
+                </div>
+            </section>
 
-        </div>
+        <?php endif;
+    }
+    ?>
+    <?php
+    display_missions('missions_individuelles', $titleMissionIndividuel);
 
-    </section>
+    display_missions('missions_collectives', $titleMissioncollective);
+    ?>
 </main>
 
 

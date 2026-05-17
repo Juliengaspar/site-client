@@ -32,7 +32,11 @@
             <?php endif; ?>
         </a>
     </div>
-
+    <div class="header__burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- NAVIGATION -->
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>

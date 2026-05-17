@@ -25,14 +25,15 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
                                 <?= esc_html($number); ?>
                             </p>
                         <?php endif; ?>
-
                         <?php if ($image): ?>
-                            <img
-                                    class="chiffre-card__img"
-                                    src="<?= esc_url($image['url']); ?>"
-                                    alt="<?= esc_attr($image['alt'] ?: 'Illustration'); ?>"
-                                    loading="lazy"
-                            >
+                            <div class="chiffre-card__img-wrapper">
+                                <img
+                                        class="chiffre-card__img"
+                                        src="<?= esc_url($image['url']); ?>"
+                                        alt="<?= esc_attr($image['alt'] ?: 'Illustration'); ?>"
+                                        loading="lazy"
+                                >
+                            </div>
                         <?php endif; ?>
 
                         <?php if ($title): ?>

@@ -1,12 +1,15 @@
 @use "../general/general" as *;
 
-.acceuil__title{
-  fill-size: 2rem;
-  font-family: Arial, "Times New Roman", "Bitstream Charter", Times, serif;
+.presentation__pole__title{
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 
 .description__Acceuil ul{
   list-style-type: disc;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .missions-section {
@@ -157,89 +160,6 @@
 
 }
 
-//parent
-.parents {
-  padding: 4rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-
-  &__title {
-    text-align: left;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    color: $black;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  &__ecole,
-  &__accompagnement,
-  &__parler {
-    border-radius: 1.5rem;
-    padding: 2rem;
-    box-shadow: 0 10px 25px $shadow;
-    color: $white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
-    }
-  }
-
-  &__ecole__title,
-  &__accompagnement__title,
-  &__parler__title {
-    display: block;
-    color: $black;
-    border: 1px solid $tarakota__dark;
-    font-size: clamp(1.4rem, 2vw, 2rem);
-    margin-bottom: 1rem;
-    font-weight: 500;
-    line-height: 1.3;
-  }
-
-  &__ecole__explication,
-  &__accompagnement__explication,
-  &__parler____contenu {
-    background-color: $fille-ariane;
-    color: #4a4a4a;
-    font-size: 1rem;
-    line-height: 1.9;
-    font-weight: 400;
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    strong {
-      color: #b45309;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-      margin-top: 1rem;
-
-      li {
-        margin-bottom: 0.7rem;
-      }
-    }
-
-    a {
-      color: #e46f11;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #a84300;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
 
 .btn{
   padding: 1rem 2rem;
@@ -371,10 +291,10 @@
   .acceuil__title{
     display: inline-block;  // Clé : le bloc s'adapte au contenu
     width: auto;
-    background-color: $white;
     font-size: 3rem;
     font-weight: 500;
     border: 1px solid $tarakota__dark;
+    margin-bottom: 2.5%;
   }
 
   .presentation__pole {
@@ -382,7 +302,7 @@
     gap: 5rem;
 
     &__title {  // ← Seulement le nom de l'élément enfant
-      font-size: 5rem;
+      font-size: 3rem;
     }
   }
 
@@ -409,27 +329,40 @@
     }
   }
 
-  // CARD
   .chiffre-card {
     background: $card-bg;
     padding: 1.5rem;
     border-radius: 6px;
-
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     // CHIFFRE
     &__number {
       font-size: 1.8rem;
       font-weight: 700;
-      color: $accent;
+      color: $tarakota__dark;
+      margin-bottom: 1rem;
+    }
+
+    // CONTENEUR IMAGE
+    &__img-wrapper {
+      height: 4rem; // même hauteur pour toutes
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 1rem;
     }
 
     // IMAGE
     &__img {
-      width: 100px;
+      max-width: 6rem;
+      max-height: 6rem;
+      width: auto;
       height: auto;
-      margin-bottom: 1rem;
+      object-fit: contain;
     }
 
     // TITRE

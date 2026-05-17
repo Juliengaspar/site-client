@@ -12,7 +12,7 @@ $presentationImage = get_field("presentation__image");
     <section class="presentation__pole">
         <div>
             <?php if (!empty($presentationTitlePole)): ?>
-                <h3 class="presentation__pole__title acceuil__title"><?= $presentationTitlePole ?></h3>
+                <h3 class="presentation__pole__title "><?= $presentationTitlePole ?></h3>
             <?php endif;?>
             <?php if (!empty($presentationDescription)): ?>
                 <div class="description__Acceuil"><?= $presentationDescription ?></div>

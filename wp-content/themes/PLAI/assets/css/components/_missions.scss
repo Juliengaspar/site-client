@@ -1,95 +1,109 @@
 @use "../general/general" as *;
 
+
+
 @media (min-width: 1024px) {
-  .acceuil {
 
-    .missions {
-      background: $background;
-      padding: 40px;
+  .missions {
+    margin-block: 4rem;
 
-      h1 {
-        border: 2px solid #c75b2c;
-        display: inline-block;
-        padding: 5px 10px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
+    &__title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #111;
+    }
+  }
 
-      .breadcrumb {
-        background: #f08c5a;
-        display: inline-flex;
-        align-items: center;
-        padding: 10px 20px;
-        margin-bottom: 20px;
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
-        a {
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-        }
+    &__item {
+      border: 2px solid #d56f3e;
+      background: #fff;
+      overflow: hidden;
+      transition: all 0.3s ease;
 
-        .arrow {
-          margin: 0 10px;
-          color: white;
-        }
-
-        span {
-          color: white;
-          font-weight: bold;
+      &[open] {
+        .accordion__icon {
+          transform: rotate(180deg);
         }
       }
+    }
 
-      &__section {
-        margin-top: 30px;
+    &__header {
+      list-style: none;
+      cursor: pointer;
 
-        h2 {
-          margin-bottom: 15px;
-          font-weight: bold;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 1.2rem 1.5rem;
+
+      transition: background 0.3s ease;
+
+      &::-webkit-details-marker {
+        display: none;
       }
 
-      .accordion-item {
-        border: 2px solid #c75b2c;
-        margin-bottom: 10px;
+      &:hover {
+        background: rgba(213, 111, 62, 0.08);
+      }
+    }
 
-        .accordion-header {
-          display: flex;
-          align-items: center;
-          padding: 10px;
-          cursor: pointer;
-          background: #fff;
+    &__heading {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0;
+      color: #111;
+    }
 
-          .arrow {
-            margin-right: 10px;
-            color: #c75b2c;
-            transition: transform 0.3s;
-          }
+    &__icon {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
 
-          h3 {
-            margin: 0;
-            font-size: 14px;
-          }
-        }
+      transition: transform 0.3s ease;
 
-        .accordion-content {
-          display: none;
-          padding: 10px;
-          background: #fafafa;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        background: #d56f3e;
+        border-radius: 2px;
+      }
 
-          p {
-            margin: 0;
-          }
-        }
+      &::before {
+        width: 18px;
+        height: 2px;
+        top: 8px;
+        left: 0;
+      }
 
-        &.active {
-          .accordion-content {
-            display: block;
-          }
+      &::after {
+        width: 2px;
+        height: 18px;
+        top: 0;
+        left: 8px;
+        transition: opacity 0.3s ease;
+      }
+    }
 
-          .arrow {
-            transform: rotate(180deg);
-          }
-        }
+    &__item[open] &__icon::after {
+      opacity: 0;
+    }
+
+    &__content {
+      padding: 0 1.5rem 1.5rem;
+      line-height: 1.6;
+      color: #444;
+
+      p {
+        margin: 0;
       }
     }
   }
