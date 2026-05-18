@@ -10,7 +10,6 @@ $logo = get_field('logo__plai');
 $title = get_field('title__page');
 $menu_location = 'navigation__pivate'; // 👈 Nom identique à functions.php
 ?>
-
 <section class="enseignement-header acceuil" aria-labelledby="enseignement-header-title">
 <!--    --><?php //if (!empty($logo) && is_array($logo)) : ?>
 <!--        <div class="enseignement-header__logo">-->
@@ -22,30 +21,33 @@ $menu_location = 'navigation__pivate'; // 👈 Nom identique à functions.php
 <!--                 loading="lazy">-->
 <!--        </div>-->
 <!--    --><?php //endif; ?>
-    
+    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
+<nav class="enseignement-header__nav" aria-label="Navigation principale">
+    <h2 class="screen-reader-text sro">Menu de navigation</h2>
+
+    <?php
+    // Vérifier si le menu existe avant de l'afficher
+    if (has_nav_menu($menu_location)) :
+        wp_nav_menu([
+                'theme_location' => $menu_location,
+                'container'      => false,
+                'menu_class'     => 'enseignement-header__nav-list',
+                'fallback_cb'    => false,
+                'depth'          => 2
+        ]);
+    else :
+        echo '<p class="error-message">Menu non configuré. Veuillez créer un menu dans "Apparence > Menus".</p>';
+    endif;
+    ?>
+</nav>
+
+
 
     <?php if (!empty($title)) : ?>
         <h2 id="enseignement-header-title" class="enseignement-header__title">
-            <?= esc_html($title) ?>
+            <?= ($title) ?>
         </h2>
     <?php endif; ?>
 
-    <nav class="enseignement-header__nav" aria-label="Navigation principale">
-        <h2 class="screen-reader-text sro">Menu de navigation</h2>
 
-        <?php
-        // Vérifier si le menu existe avant de l'afficher
-        if (has_nav_menu($menu_location)) :
-            wp_nav_menu([
-                    'theme_location' => $menu_location,
-                    'container'      => false,
-                    'menu_class'     => 'enseignement-header__nav-list',
-                    'fallback_cb'    => false,
-                    'depth'          => 2
-            ]);
-        else :
-            echo '<p class="error-message">Menu non configuré. Veuillez créer un menu dans "Apparence > Menus".</p>';
-        endif;
-        ?>
-    </nav>
 </section>

@@ -12,9 +12,9 @@ $EnseignanLink = get_field("link__formations");
 <?php get_header()?>
 <main class="main">
     <?php include('wp-content/themes/PLAI/templates/componements/enseignement/titles.php')?>
-    <section class="acceuil">
+    <section class="enseignement">
         <?php if($Enseignanttitle): ?>
-            <h2><?= esc_html($Enseignanttitle) ?></h2>
+            <h2 class="enseignement__title"><?= esc_html($Enseignanttitle) ?></h2>
         <?php endif; ?>
 
         <?php if($EnseignantDescription): ?>
