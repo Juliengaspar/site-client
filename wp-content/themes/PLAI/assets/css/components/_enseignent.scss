@@ -16,4 +16,31 @@
         margin: 2.5% 0;
       }
     }
+  .enseignement div, .enseignement p{
+    margin: 2.5% auto;
+  }
+  .enseignement ul {
+    list-style: none;
+    list-style-type: circle;
+    margin-left: 5%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5em; // Ajustez la hauteur pour centrer avec le texte
+      width: 8px;
+      height: 8px;
+      background-image: url("../../icons/arrow.svg");
+    }
+  }
+  .redirections{
+    margin-bottom: 5%;
+
+    &__title{
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 2.5% auto;
+    }
+  }
 }

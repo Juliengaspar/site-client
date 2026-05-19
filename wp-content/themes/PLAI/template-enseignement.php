@@ -16,11 +16,12 @@ $EnseignanLink = get_field("link__formations");
         <?php if($Enseignanttitle): ?>
             <h2 class="enseignement__title"><?= esc_html($Enseignanttitle) ?></h2>
         <?php endif; ?>
+        <?php echo 'toto'?>
 
         <?php if($EnseignantDescription): ?>
             <?= wp_kses_post($EnseignantDescription) ?>
         <?php endif; ?>
-
+        <?php echo 'toto'?>
         <div>
             <?php
             if($EnseignantPossibilite) {
@@ -35,6 +36,8 @@ $EnseignanLink = get_field("link__formations");
             }
             ?>
         </div>
+    <?php include('wp-content/themes/PLAI/templates/componements/enseignement/redirections.php')?>
+<?php echo 'toto'?>
 
         <div>
             <?php
@@ -49,6 +52,7 @@ $EnseignanLink = get_field("link__formations");
         </div>
 
         <div>
+<?php echo 'toto'?>
             <?php
             // Vérifier le type du champ ACF "link__formations"
             if($EnseignanLink) {
