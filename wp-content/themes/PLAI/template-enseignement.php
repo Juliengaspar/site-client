@@ -11,6 +11,19 @@ $EnseignanLink = get_field("link__formations");
 
 <?php get_header()?>
 <main class="main">
+    <nav class="header__nav">
+        <h2 class="sro">Barre de navigation</h2>
+    <?php
+        wp_nav_menu([
+            'theme_location' => 'navigation__private',
+            'container'      => 'nav',
+            'menu_class'     => 'menu-prive',
+        ]);
+?>
+
+
+    </nav>
+
     <?php include('wp-content/themes/PLAI/templates/componements/enseignement/titles.php')?>
     <section class="enseignement">
         <?php if($Enseignanttitle): ?>

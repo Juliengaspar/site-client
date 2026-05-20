@@ -38,17 +38,7 @@
         <span></span>
     </div>
     <!-- NAVIGATION -->
-    <nav class="header__nav">
-        <h2 class="sro">Barre de navigation</h2>
 
-        <?php
-        wp_nav_menu([
-                'theme_location' => 'header',
-                'container' => false,
-                'menu_class' => 'header__nav__list',
-        ]);
-        ?>
-    </nav>
 
     <!-- MODE FALC -->
     <div class="header__accessibility">
