@@ -38,7 +38,14 @@
         <span></span>
     </div>
     <!-- NAVIGATION -->
-
+    <?php
+    wp_nav_menu([
+            'theme_location' => 'header',
+            'container' => false,
+            'menu_class' => 'ul-container',
+            'container_class' => 'div-container',
+    ]);
+    ?>
 
     <!-- MODE FALC -->
     <div class="header__accessibility">

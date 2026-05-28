@@ -22,24 +22,6 @@ $menu_location = 'navigation__pivate'; // 👈 Nom identique à functions.php
 <!--        </div>-->
 <!--    --><?php //endif; ?>
     <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
-<nav class="enseignement-header__nav" aria-label="Navigation principale">
-    <h2 class="screen-reader-text sro">Menu de navigation</h2>
-
-    <?php
-    // Vérifier si le menu existe avant de l'afficher
-    if (has_nav_menu($menu_location)) :
-        wp_nav_menu([
-                'theme_location' => $menu_location,
-                'container'      => false,
-                'menu_class'     => 'enseignement-header__nav-list',
-                'fallback_cb'    => false,
-                'depth'          => 2
-        ]);
-    else :
-        echo '<p class="error-message">Menu non configuré. Veuillez créer un menu dans "Apparence > Menus".</p>';
-    endif;
-    ?>
-</nav>
 
 
 

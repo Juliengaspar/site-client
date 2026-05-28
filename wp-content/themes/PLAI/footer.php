@@ -9,8 +9,8 @@ $copyrinthe = get_field('text__copyrinthe', 'option');
 ?>
 
 <footer class="footer">
-    <div class="footer__container">
-        <div class="footer__top">
+        <section class="footer__top">
+        <h2 class="sro">footer</h2>
             <div class="footer__img">
                 <?php
                 if($logo__img): ?>
@@ -28,7 +28,7 @@ $copyrinthe = get_field('text__copyrinthe', 'option');
                 <?php endif; ?>
             </div>
             <section class="partenaires">
-                <h2>PLAI</h2>
+                <h2 class="partenaires__title">PLAI</h2>
                         <ul class="partenaires__liste">
                 <?php
                 $galerie = get_field('galerie__partenaires', 'option');
@@ -58,12 +58,11 @@ $copyrinthe = get_field('text__copyrinthe', 'option');
             </nav>
 
 
-        </div>
+        </section>
 
         <section class="footer__bottom">
             <h3 class="footer__copyright">
                  <?= $copyrinthe?>
             </h3>
         </section>
-    </div>
 </footer>

@@ -77,10 +77,10 @@ add_action('after_setup_theme', 'plai_register_menus');
 // 🔥 DÉCLARATION DES MENUS (CORRIGÉE)
 
 // Déclaration des menus dans wordpress
-//register_nav_menu('header', 'Menu principal');
-//register_nav_menu('footer', 'Le menu de navigation de fin de page');
-//register_nav_menu('social-media', 'Le menu de navigation pour les réseaux sociaux');
-//register_nav_menu('utils', 'Le menu de navigation pour les ressources utiles');
+register_nav_menu('header', 'Menu principal');
+register_nav_menu('footer', 'Le menu de navigation de fin de page');
+register_nav_menu('social-media', 'Le menu de navigation pour les réseaux sociaux');
+register_nav_menu('utils', 'Le menu de navigation pour les ressources utiles');
 //register_nav_menu('navigation__private', 'Le menu de navigationla partie priver ');
 
 
@@ -207,6 +207,11 @@ function create_documents_cpt() {
             'rewrite' => array('slug' => 'documents'),
             'menu_icon' => 'dashicons-media-document',
             'supports' => array('title', 'editor'),
+
+            // IMPORTANT
+            'taxonomies' => array('categorie_document'),
+
+            'show_in_rest' => true,
         )
     );
 
@@ -215,6 +220,7 @@ function create_documents_cpt() {
         'label' => 'Catégories',
         'hierarchical' => true,
         'rewrite' => array('slug' => 'categorie-document'),
+        'show_in_rest' => true,
     ));
 }
 

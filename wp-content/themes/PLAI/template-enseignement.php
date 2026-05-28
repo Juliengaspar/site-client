@@ -13,12 +13,13 @@ $EnseignanLink = get_field("link__formations");
 <main class="main">
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>
+    <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
     <?php
-        wp_nav_menu([
+  /*      wp_nav_menu([
             'theme_location' => 'navigation__private',
             'container'      => 'nav',
             'menu_class'     => 'menu-prive',
-        ]);
+        ]);*/
 ?>
 
 

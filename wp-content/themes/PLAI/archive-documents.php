@@ -1,116 +1,112 @@
 <?php get_header(); ?>
-<main class="main">
-    <section class="documents">
-        <h2 class="title">Ressources</h2>
-        <section class="documents-page__intro">
 
+    <main class="main">
+        <nav class="header__nav">
+            <h2 class="sro">Barre de navigation</h2>
+            <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
             <?php
-            $intro_title = get_field('title__page__document', 'option');
-            $intro_content = get_field('document__explications', 'option');
-            $explication_content = get_field('document__text__telechargeable', 'option');
+            /*      wp_nav_menu([
+                      'theme_location' => 'navigation__private',
+                      'container'      => 'nav',
+                      'menu_class'     => 'menu-prive',
+                  ]);*/
             ?>
 
-            <?php if($intro_title): ?>
-                <h3>
-                    <?php echo esc_html($intro_title); ?>
-                </h3>
-            <?php endif; ?>
+        <section class="documents">
 
-            <?php if($intro_content): ?>
-                <div class="documents-page__text">
-                    <?= $intro_content; ?>
-                    <?= $explication_content ?>
-                </div>
+            <!-- Titre dynamique du CPT -->
+            <h2 class="documents__title title">
+                <?= post_type_archive_title('', false); ?>
+            </h2>
+
+            <section class="documents__intro">
+
+                <?php
+                $intro_title = get_field('title__page__document', 'option');
+                $intro_content = get_field('document__explications', 'option');
+                $explication_content = get_field('document__text__telechargeable', 'option');
+                ?>
+
+                <?php if ($intro_title) : ?>
+                    <h3 class="documents__intro-title sro">
+                        <?= esc_html($intro_title); ?>
+                    </h3>
+                <?php endif; ?>
+
+                <?php if ($intro_content) : ?>
+                    <div class="documents__intro__contenu">
+                        <?= wp_kses_post($intro_content); ?>
+                        <?= wp_kses_post($explication_content); ?>
+                    </div>
+                <?php endif; ?>
+
+            </section>
+
+            <?php
+            $categories = get_terms(array(
+                    'taxonomy'   => 'categorie_document',
+                    'hide_empty' => true,
+            ));
+            ?>
+
+            <?php if ($categories && !is_wp_error($categories)) : ?>
+
+                <?php foreach ($categories as $cat) : ?>
+
+                    <section class="documents__category">
+
+                        <h3 class="documents__category__title">
+                            <?= esc_html($cat->name); ?>
+                        </h3>
+
+                        <div class="documents__lists">
+
+                            <?php
+                            $args = array(
+                                    'post_type'      => 'documents',
+                                    'posts_per_page' => -1,
+
+                                    'tax_query' => array(
+                                            array(
+                                                    'taxonomy' => 'categorie_document',
+                                                    'field'    => 'term_id',
+                                                    'terms'    => $cat->term_id,
+                                            ),
+                                    ),
+                            );
+
+                            $query = new WP_Query($args);
+                            ?>
+
+                            <?php if ($query->have_posts()) : ?>
+
+                                <?php while ($query->have_posts()) : $query->the_post(); ?>
+
+                                    <?php
+                                    $file = get_field('fichier_word');
+                                    $description = get_field('description');
+                                    ?>
+
+                                    <?php if ($file) : ?>
+
+                                        <article class="documents__items">
+                                            <a href="<?= esc_url($file['url']); ?>" class="documents__download" download>
+                                                <div class="documents__item-text"> <?= wp_kses_post($description); ?> </div>
+                                            </a>
+                                        </article>
+                                    <?php endif; ?>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            <?php endif; ?>
+                        </div>
+                    </section>
+
+                <?php endforeach; ?>
+
             <?php endif; ?>
 
         </section>
 
-        <?php
-        $categories = get_terms(array(
-                'taxonomy' => 'categorie_document',
-                'hide_empty' => false,
-        ));
-
-        foreach ($categories as $cat) :
-            $descriptions = get_field('description');
-            ?>
-
-            <div class="doc-category">
-                <h2><?php echo $cat->name; ?></h2>
-                    <div>
-                        <a href="<?= get_field('fichier_word')['url'] ?>">
-                        <?= get_field('description') ?>
-                        </a>
-                    </div>
-
-                <div class="doc-list">
-
-                    <?php
-                    $args = array(
-                            'post_type' => 'documents',
-                            'tax_query' => array(
-                                    array(
-                                            'taxonomy' => 'categorie_document',
-                                            'field' => 'term_id',
-                                            'terms' => $cat->term_id,
-                                    ),
-                            ),
-                            'meta_key' => 'numero',
-                            'orderby' => 'meta_value_num',
-                            'order' => 'ASC'
-                    );
-
-                    $query = new WP_Query($args);
-
-
-while ($query->have_posts()) :
-    $query->the_post();
-
-    $file = get_field('fichier_word');
-    $numero = get_field('numero');
-?>
-
-                    <article class="doc-item">
-
-                        <div class="doc-content">
-
-
-
-                            <h3 class="doc-title">
-                                <?php the_title(); ?>
-                                <div><?= $descriptions ?></div>
-                            </h3>
-
-                        </div>
-
-                        <?php if ($file): ?>
-
-                            <a
-                                    href="<?php echo esc_url($file['url']); ?>"
-                                    class="btn-download"
-                                    download
-                            >
-                                Télécharger
-                            </a>
-
-                        <?php endif; ?>
-
-                    </article>
-
-                    <?php
-                    endwhile;
-
-                    wp_reset_postdata();
-                    ?>
-
-                </div>
-            </div>
-
-        <?php endforeach; ?>
-
-    </section>
-
-</main>
-
+    </main>
 
 <?php get_footer(); ?>

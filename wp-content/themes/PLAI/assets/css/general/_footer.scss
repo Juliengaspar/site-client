@@ -1,24 +1,11 @@
 @use "../general/general" as *;
 
-/* =========================
-   MOBILE FIRST
-========================= */
+//   MOBILE FIRST
 
 .footer {
   background-color: $tarakota__dark;
   overflow: hidden;
   position: relative;
-
-  &__container {
-    width: min(1200px, 90%);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* =========================
-     TOP
-  ========================= */
 
   &__top {
     display: grid;
@@ -27,6 +14,12 @@
     padding: 3rem 0;
     text-align: center;
     position: relative;
+    margin:0 5%;
+
+    background-image: url("../../images/Background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   /* =========================
@@ -96,12 +89,14 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-
-    h2 {
-      color: #fff;
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
+      &__title {
+        color: $white;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+        &__title:hover{
+          border-bottom: 1px solid $white;
+        }
 
     &__liste {
       display: flex;
@@ -114,7 +109,7 @@
     }
 
     li {
-      background: #fff;
+      background: $white;
       padding: 0.5rem;
       border-radius: 0.3rem;
     }
@@ -139,9 +134,10 @@
   }
 
   &__title {
-    color: #fff;
+    color: $white;
     font-size: 1.8rem;
     font-weight: 600;
+
   }
 
   &__list {
@@ -163,19 +159,15 @@
     position: relative;
     transition: opacity 0.3s ease;
 
-    &:hover::after,
-    &:focus::after {
-      width: 100%;
-    }
+
 
     &:hover {
       opacity: 0.8;
+      border-bottom: 1px solid $white;
     }
   }
 
-  /* =========================
-     BOTTOM
-  ========================= */
+  /*  BOTTOM */
 
   &__bottom {
     background: $black;
@@ -242,8 +234,11 @@
     .partenaires {
       grid-row: 2;
 
-      h2 {
-        font-size: clamp(2rem, 3vw, 3rem);
+      &__title {
+        font-size: 2rem;
+        &__title:hover{
+            border-bottom: 1px solid $white;
+        }
       }
 
       &__img {
@@ -258,7 +253,11 @@
 
     &__title {
       font-size: 2rem;
+      &:hover{
+        border-bottom: 1px solid $white;
+      }
     }
+
 
     &__social-link {
       width: 55px;
