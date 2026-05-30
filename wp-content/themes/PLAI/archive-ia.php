@@ -11,6 +11,7 @@
                       'menu_class'     => 'menu-prive',
                   ]);*/
             ?>
+        </nav>
         <section class="content__ressources">
 <!--            <h2 class="acceuil__title">--><?php //the_field('title__page', 'option'); ?><!--</h2>-->
 <!---->

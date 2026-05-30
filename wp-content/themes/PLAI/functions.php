@@ -163,6 +163,62 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'   => false
     ]);
 }
+// CPT FORMATIONS
+function create_cpt_formations() {
+
+    register_post_type('formations',
+        array(
+            'labels' => array(
+                'name' => 'Formations',
+                'singular_name' => 'Formation',
+                'add_new_item' => 'Ajouter une formation',
+            ),
+
+            'public' => true,
+
+            'has_archive' => true,
+
+            'menu_icon' => 'dashicons-welcome-learn-more',
+
+            'supports' => array(
+                'title',
+                'editor',
+                'thumbnail',
+                'excerpt',
+            ),
+        )
+    );
+}
+
+add_action('init', 'create_cpt_formations');
+
+
+
+// TAXONOMIE FORMATIONS
+function create_taxonomie_type_formation() {
+
+    register_taxonomy(
+        'type_formation',
+        'formations',
+
+        array(
+            'labels' => array(
+                'name' => 'Types de formations',
+                'singular_name' => 'Type de formation',
+            ),
+
+            'public' => true,
+
+            'hierarchical' => true,
+
+            'rewrite' => array(
+                'slug' => 'type-formation'
+            ),
+        )
+    );
+}
+
+add_action('init', 'create_taxonomie_type_formation');
 
 function dw_get_navigation_links(string $location): array
 {

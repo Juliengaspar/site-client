@@ -2,6 +2,12 @@
 
 <?php get_header(); ?>
 <main class="main">
+    <nav class="header__nav">
+        <h2 class="sro">Barre de navigation</h2>
+        <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
+        <?php
+        ?>
+    </nav>
     <section class="content__ressources">
         <h2 class="acceuil__title"><?php the_field('title__page', 'option'); ?></h2>
 

@@ -4,13 +4,7 @@
         <nav class="header__nav">
             <h2 class="sro">Barre de navigation</h2>
             <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
-            <?php
-            /*      wp_nav_menu([
-                      'theme_location' => 'navigation__private',
-                      'container'      => 'nav',
-                      'menu_class'     => 'menu-prive',
-                  ]);*/
-            ?>
+        </nav>
 
         <section class="documents">
 
@@ -28,7 +22,7 @@
                 ?>
 
                 <?php if ($intro_title) : ?>
-                    <h3 class="documents__intro-title sro">
+                    <h3 class="documents__intro__title ">
                         <?= esc_html($intro_title); ?>
                     </h3>
                 <?php endif; ?>
@@ -59,7 +53,7 @@
                             <?= esc_html($cat->name); ?>
                         </h3>
 
-                        <div class="documents__lists">
+                        <div class="documents__category__listes">
 
                             <?php
                             $args = array(
@@ -89,9 +83,9 @@
 
                                     <?php if ($file) : ?>
 
-                                        <article class="documents__items">
-                                            <a href="<?= esc_url($file['url']); ?>" class="documents__download" download>
-                                                <div class="documents__item-text"> <?= wp_kses_post($description); ?> </div>
+                                        <article class="documents__category__contenu">
+                                            <a href="<?= $file['url'] ?>" class="documents__download documents__category__link" title="<?= $file['title']; ?>" download>
+                                                <div class="documents__category__link"> <?= wp_kses_post($description); ?> </div>
                                             </a>
                                         </article>
                                     <?php endif; ?>

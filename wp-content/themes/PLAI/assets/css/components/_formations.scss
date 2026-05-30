@@ -1,0 +1,183 @@
+@use "../general/general" as *;
+
+  /* ==========================================
+     FORMATIONS
+  ========================================== */
+
+.formations {
+  padding: 2rem 1rem;
+  background-color: #f5eded;
+  min-height: 100vh;
+
+  /* CONTAINER */
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* TITRE */
+  &__title {
+    width: fit-content;
+
+    margin-bottom: 2rem;
+    padding: 0.8rem 1.5rem;
+
+    border: 1px solid #d9a38f;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  /* GRID */
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* MESSAGE VIDE */
+  &__empty {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.formation-card {
+  overflow: hidden;
+
+  background-color: #d9d9d9;
+  border-radius: 0.5rem;
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  /* IMAGE CONTAINER */
+  &__image {
+    width: 100%;
+    aspect-ratio: 16/9;
+
+    overflow: hidden;
+  }
+
+  /* IMAGE */
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+  /* CONTENU */
+  &__content {
+    padding: 1.5rem;
+  }
+
+  /* TITRE */
+  &__title {
+    margin-bottom: 1rem;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  /* DESCRIPTION */
+  &__description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+}
+
+
+/* ==========================================
+   TABLETTE
+========================================== */
+
+@media screen and (min-width: 768px) {
+
+  .formations {
+
+    padding: 4rem 2rem;
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  .formation-card {
+
+    &__title {
+      font-size: 1.7rem;
+    }
+
+    &__description {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media screen and (min-width: 1024px) {
+
+  .formations {
+
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .formation-card {
+
+    &__content {
+      padding: 2rem;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__description {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+
+/* ==========================================
+   SCREEN READER ONLY
+========================================== */
+
+.sro {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+  border: 0;
+}

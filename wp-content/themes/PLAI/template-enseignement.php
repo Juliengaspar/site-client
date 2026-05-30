@@ -15,11 +15,6 @@ $EnseignanLink = get_field("link__formations");
         <h2 class="sro">Barre de navigation</h2>
     <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
     <?php
-  /*      wp_nav_menu([
-            'theme_location' => 'navigation__private',
-            'container'      => 'nav',
-            'menu_class'     => 'menu-prive',
-        ]);*/
 ?>
 
 
@@ -30,12 +25,9 @@ $EnseignanLink = get_field("link__formations");
         <?php if($Enseignanttitle): ?>
             <h2 class="enseignement__title"><?= esc_html($Enseignanttitle) ?></h2>
         <?php endif; ?>
-        <?php echo 'toto'?>
-
         <?php if($EnseignantDescription): ?>
             <?= wp_kses_post($EnseignantDescription) ?>
         <?php endif; ?>
-        <?php echo 'toto'?>
         <div>
             <?php
             if($EnseignantPossibilite) {
@@ -51,7 +43,6 @@ $EnseignanLink = get_field("link__formations");
             ?>
         </div>
     <?php include('wp-content/themes/PLAI/templates/componements/enseignement/redirections.php')?>
-<?php echo 'toto'?>
 
         <div>
             <?php
@@ -66,16 +57,13 @@ $EnseignanLink = get_field("link__formations");
         </div>
 
         <div>
-<?php echo 'toto'?>
             <?php
             // Vérifier le type du champ ACF "link__formations"
             if($EnseignanLink) {
                 // Si c'est un champ de type "lien" ACF
                 if(is_array($EnseignanLink) && isset($EnseignanLink['url'])) {
                     ?>
-                    <a href="<?= esc_url($EnseignanLink['url']) ?>">
-                        <?= esc_html($EnseignanLink['title']) ?>
-                    </a>
+                    <a href="<?= esc_url($EnseignanLink['url']) ?>" aria-readonly="<?= $EnseignanLink['title'] ?>" class="btn"><?= $EnseignanLink['title'] ?></a>
                     <?php
                 }
                 // Si c'est un champ texte classique

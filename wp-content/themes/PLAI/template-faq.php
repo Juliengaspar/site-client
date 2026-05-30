@@ -11,6 +11,7 @@
                   'menu_class'     => 'menu-prive',
               ]);*/
         ?>
+    </nav>
     <?php
     $faqContenu = get_field('explication__page');
     ?>

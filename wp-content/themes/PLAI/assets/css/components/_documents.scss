@@ -1,1 +1,56 @@
 @use "../general/general" as *;
+
+.title{
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  border: 1px solid $tarakota__dark;
+  font-size: 3rem;
+  padding: 1rem;
+}
+.documents__intro{
+  margin: 5% 0;
+  &__title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid $tarakota__dark;
+    font-size: 3rem;
+    margin-bottom: 2.5%;
+  }
+  &__contenu{
+    text-align: center;
+    margin-bottom: 2.5%;
+  }
+}
+.documents__category{
+  margin: 5% auto;
+  &__title{
+    font-size: 2rem;
+    margin-bottom: 2.5%;
+  }
+  &__listes{
+    border: 1px solid $tarakota__dark;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  &__liste{
+  }
+  &__link{
+    margin-left: 5%;
+    color: $black;
+    text-decoration: none;
+    &:hover{
+      border-bottom: 1px solid $black;
+    }
+
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+
+}

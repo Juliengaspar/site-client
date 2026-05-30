@@ -1,16 +1,9 @@
 <?php /* Template Name: Homepage */?>
 <?php get_header(); ?>
 <main class="main">
-    <nav class="header__nav">
+    <nav class="">
         <h2 class="sro">Barre de navigation</h2>
-        <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
-        <?php
-        /*      wp_nav_menu([
-                  'theme_location' => 'navigation__private',
-                  'container'      => 'nav',
-                  'menu_class'     => 'menu-prive',
-              ]);*/
-        ?>
+
     <?php get_template_part('templates/components/header--logo/img'); ?>
 
     <?php include('wp-content/themes/PLAI/templates/componements/acceuil/first.php')?>
