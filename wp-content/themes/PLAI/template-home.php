@@ -1,11 +1,7 @@
 <?php /* Template Name: Homepage */?>
 <?php get_header(); ?>
 <main class="main">
-    <nav class="">
-        <h2 class="sro">Barre de navigation</h2>
-
     <?php get_template_part('templates/components/header--logo/img'); ?>
-
     <?php include('wp-content/themes/PLAI/templates/componements/acceuil/first.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/second.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/chiffres.php')?>

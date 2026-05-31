@@ -3,13 +3,13 @@ $titleChiffre = get_field("title__chiffre");
 $exemplesChiffreTableaux = get_field("exemples__chiffres");
 
 ?>
-<section class="Chiffres" aria-labelledby="chiffres-title">
+<section class="Chiffres" aria-labelledby="chiffres-title"  itemscope itemtype="https://schema.org/ItemList">
 
     <?php if (!empty($titleChiffre)): ?>
-        <h2 id="chiffres-title" class="chiffres__title "><?= $titleChiffre ?></h2>
+        <h2 id="chiffres-title" class="chiffres__title" itemprop="name"><?= $titleChiffre ?></h2>
     <?php endif;?>
         <?php if (!empty($exemplesChiffreTableaux)): ?>
-            <section class="chiffres__grid">
+            <section class="chiffres__grid"  itemprop="itemListElement">
                 <?php foreach ($exemplesChiffreTableaux as $item):
 
                     $number = $item['exemple__chiffrer'];
@@ -21,7 +21,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
                     <article class="chiffre-card">
 
                         <?php if ($number): ?>
-                            <p class="chiffre-card__number">
+                            <p class="chiffre-card__number" itemprop="name">
                                 <?= esc_html($number); ?>
                             </p>
                         <?php endif; ?>
@@ -32,18 +32,19 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
                                         src="<?= esc_url($image['url']); ?>"
                                         alt="<?= esc_attr($image['alt'] ?: 'Illustration'); ?>"
                                         loading="lazy"
+                                        itemprop="image"
                                 >
                             </div>
                         <?php endif; ?>
 
                         <?php if ($title): ?>
-                            <h3 class="chiffre-card__title">
+                            <h3 class="chiffre-card__title"  itemprop="name">
                                 <?= esc_html($title); ?>
                             </h3>
                         <?php endif; ?>
 
                         <?php if ($desc): ?>
-                            <div class="chiffre-card__desc">
+                            <div class="chiffre-card__desc" itemprop="description">
                                 <?= $desc; ?>
                             </div>
                         <?php endif; ?>
