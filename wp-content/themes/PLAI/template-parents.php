@@ -43,10 +43,10 @@ add_filter('body_class', function($classes) {
             class="falc__icon"
     >
 </a>
-    <h2 class="parents__title"  itemprop="headline"><?= get_field('title__page', $page_id); ?></h2>
+    <h2 class="parents__title "  itemprop="headline"><?= get_field('title__page', $page_id); ?></h2>
     <section class="parents__ecole"    itemscope itemtype="https://schema.org/Article">
 <!--        <h3 class="parents__ecole__title">--><?php //= $accesibilteTitle ?><!--</h3>-->
-        <h3 class="parents__title" itemprop="headline"><?= $accesibilteTitle ?></h3>
+        <h3 class="parents__title subtitle" itemprop="headline"><?= $accesibilteTitle ?></h3>
 
         <div class="parents__ecole__explication" itemprop="articleBody">
 <!--            --><?php //= get_field('accesibilte__description', $page_id); ?>
@@ -56,7 +56,7 @@ add_filter('body_class', function($classes) {
 
     <section class="parents__accompagnement" itemscope itemtype="https://schema.org/Article">
 <!--        <h3 class="parents__accompagnement__title">--><?php //= get_field('accompagne__title', $page_id); ?><!--</h3>-->
-        <h3 class="parents__accompagnement__title"  itemprop="headline"><?=$accompagneTitle ?></h3>
+        <h3 class="parents__accompagnement__title subtitle"  itemprop="headline"><?=$accompagneTitle ?></h3>
 
         <div class="parents__accompagnement__explication" itemprop="articleBody">
 <!--            --><?php //= get_field('accompagne__description', $page_id); ?>
@@ -66,7 +66,7 @@ add_filter('body_class', function($classes) {
 
     <section class="parents__parler"  itemscope itemtype="https://schema.org/Article">
 <!--        <h3 class="parents__parler__title">--><?php //= get_field('parler__title', $page_id); ?><!--</h3>-->
-        <h3 class="parents__parler__title" itemprop="headline"><?= $parlerTitle?></h3>
+        <h3 class="parents__parler__title subtitle" itemprop="headline"><?= $parlerTitle?></h3>
 
         <div class="parents__parler__contenu" itemprop="articleBody">
 <!--            --><?php //= get_field('parler__description', $page_id); ?><!-- -->

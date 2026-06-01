@@ -10,7 +10,9 @@ $logoPLaiAcceuil = get_field('logo__plai');
 
 ?>
 <main class="main">
-    <?php get_template_part('templates/components/header--logo/img'); ?>
+
+    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
+
 
     <h2 id="title" class="missions-section__title title" itemprop="name">
         <?= get_field("title__page") ; ?>

@@ -6,7 +6,7 @@
     <?php if (have_rows('missions')) : ?>
 
 
-        <section class="missions-section" aria-labelledby="missions-title" itemscope itemtype="https://schema.org/ItemList">
+        <section class="missions-section " aria-labelledby="missions-title" itemscope itemtype="https://schema.org/ItemList">
 
             <div class="missions-section__container">
 

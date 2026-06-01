@@ -4,16 +4,19 @@ $enseignantDescription = get_field("description__acceuil__enseignant");
 $enseignantLink = get_field("link__acceuil__enseignant");
 ?>
 <section class="Presentation">
-
-    <?php if (!empty($enseignantTitle)): ?>
-        <h2 class="Presentation__title"><?= $enseignantTitle ?></h2>
-    <?php endif;?>
-    <?php if (!empty($enseignantDescription)): ?>
-        <div class="Presentation__contenu"><?= $enseignantDescription ?></div>
-    <?php endif;?>
-    <div class="Presentation__link">
-        <?php if (!empty($enseignantLink)): ?>
-            <a href="<?=$enseignantLink['url']?>" class="btn"><?= $enseignantLink['title'] ?></a>
+        <h2><?= $enseignantTitle ?></h2>
+    <section class="Presentation__contenu">
+        <?php if (!empty($enseignantTitle)): ?>
+            <h3 class="Presentation__title">Ressources </h3>
         <?php endif;?>
-    </div>
+        <?php if (!empty($enseignantDescription)): ?>
+            <div class="Presentation__text"><?= $enseignantDescription ?></div>
+        <?php endif;?>
+        <div class="Presentation__link">
+            <?php if (!empty($enseignantLink)): ?>
+                <a href="<?=$enseignantLink['url']?>" class="btn"><?= $enseignantLink['title'] ?></a>
+            <?php endif;?>
+        </div>
+
+    </section>
 </section>

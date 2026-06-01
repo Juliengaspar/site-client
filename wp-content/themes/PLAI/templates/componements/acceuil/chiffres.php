@@ -38,7 +38,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
                         <?php endif; ?>
 
                         <?php if ($title): ?>
-                            <h3 class="chiffre-card__title"  itemprop="name">
+                            <h3 class="chiffre-card__title subtitle"  itemprop="name">
                                 <?= esc_html($title); ?>
                             </h3>
                         <?php endif; ?>
