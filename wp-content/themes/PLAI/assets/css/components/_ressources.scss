@@ -45,22 +45,29 @@ $transition: all 0.3s ease;
     color: $color-text;
     line-height: 1.6;
   }
+  &__explication{
+    margin: 2.5% auto;
+    width: 100%;
+  }
+  &__title{
+    font-size: 3rem;
+    text-align: center;
+    border: 1px solid $tarakota__dark;
+    padding: 1rem;
+    width: 100%;
+    display: block;
+  }
+  &__text{
+         margin: 5% auto;
+  }
+  &__text p{
+         margin: 2.5% auto;
+  }
 }
 
 .page-ressources {
   padding: 1rem;
 
-  .sro {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
 }
 
 .container {
