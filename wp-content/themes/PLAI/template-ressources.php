@@ -11,12 +11,16 @@
             ?>
         </nav>
         <section class="content__ressources">
-            <h2 class="acceuil__title"><?php the_field('title__page', 'option'); ?></h2>
+            <h2 class="acceuil__title"><?= get_the_title() ?></h2>
 
             <section class="content__ressources__explication">
-                <h3 class="content__ressources__title"><?php the_field('title__contenu', 'option'); ?></h3>
-                <div class="content__ressources__text"><?php the_field('description__contenu', 'option'); ?></div>
-            </section>
+                <h3 class="content__ressources__title">
+                    <?php the_field('title__contenu' , 'option'); ?>
+                </h3>
+
+                <div class="content__ressources__text">
+                    <?php the_field('description__contenu' , 'option'); ?>
+                </div>            </section>
         </section>
 
         <section class="page-ressources">
@@ -50,7 +54,7 @@
                         ?>
 
                         <section class="categorie">
-                            <h2><?= $term->name ?></h2>
+                            <h2 class="categorie__title"><?= $term->name ?></h2>
 
                             <div class="grid-ressources">
 

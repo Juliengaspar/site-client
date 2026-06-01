@@ -1,6 +1,8 @@
 <?php /* Template Name: faq */?>
 <?php get_header()?>
 <main class="main">
+    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
+
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>
         <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>

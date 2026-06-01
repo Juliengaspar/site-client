@@ -58,10 +58,10 @@ $transition: all 0.3s ease;
     display: block;
   }
   &__text{
-         margin: 5% auto;
+         margin: 2.5% auto;
   }
   &__text p{
-         margin: 1.5% auto;
+         margin: 1% auto;
   }
 }
 
@@ -71,7 +71,6 @@ $transition: all 0.3s ease;
 }
 
 .container {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
 
@@ -95,14 +94,15 @@ $transition: all 0.3s ease;
 .categorie {
   margin-bottom: 3rem;
 
-  h2 {
+  &__title {
     font-size: 3rem;
     background-color: $bg-container;
     color: $white;
-    margin: .5rem auto;
+    margin: 1.5rem auto;
     display: block;
     width: 100%;
     text-align: center;
+    padding: 1rem;
   }
 }
 
@@ -171,7 +171,7 @@ $transition: all 0.3s ease;
   }
 
   .categorie h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .card-ressource {
@@ -216,7 +216,6 @@ $transition: all 0.3s ease;
 // Grand écran (1440px et plus - optionnel)
 @media (min-width: 1440px) {
   .container {
-    max-width: 1400px;
   }
 
   .grid-ressources {

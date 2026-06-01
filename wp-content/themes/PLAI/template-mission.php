@@ -31,7 +31,7 @@ $logoPLaiAcceuil = get_field('logo__plai');
                 </h2>
 
                 <div class="accordion">
-                    <div>
+                    <div class="accordion__explication">
                         <?= $section_description ?>
                     </div>
                     <?php while( have_rows($field_name) ) : the_row(); ?>

@@ -1,7 +1,14 @@
 <?php
-$logoPLaiAcceuil = get_field('logo__plai');
+$logoPLaiAcceuil = get_field('logo__plai', 'option');
 
-?>
-<div class="acceuil__images">
-<img src="<?= $logoPLaiAcceuil['url']?>" alt="<?= $logoPLaiAcceuil['alt']?>" loading="eager" class="acceuil__img img">
-</div>
+if ($logoPLaiAcceuil) :
+    ?>
+    <div class="acceuil__images">
+        <img
+                src="<?= esc_url($logoPLaiAcceuil['url']); ?>"
+                alt="<?= esc_attr($logoPLaiAcceuil['alt']); ?>"
+                loading="eager"
+                class="acceuil__img img"
+        >
+    </div>
+<?php endif; ?>
