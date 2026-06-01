@@ -41,3 +41,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const button = document.getElementById('toggle-falc');
+
+    if(button){
+
+        const savedPosition = sessionStorage.getItem('scrollPosition');
+
+        if(savedPosition){
+            window.scrollTo(0, parseInt(savedPosition));
+            sessionStorage.removeItem('scrollPosition');
+        }
+
+        button.addEventListener('click', () => {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        });
+
+    }
+
+});

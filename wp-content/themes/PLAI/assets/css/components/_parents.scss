@@ -14,6 +14,23 @@
   }
 }
 
+.falc {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+
+  background-color: $tarakota__dark;
+  color: $white;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-left: auto;
+  text-decoration: none;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
 //parent
 .parents {
   padding: 4rem 1.5rem;
@@ -59,7 +76,7 @@
 
   &__ecole__explication,
   &__accompagnement__explication,
-  &__parler____contenu {
+  &__parler__contenu {
     background-color: $fille-ariane;
     color: #4a4a4a;
     font-size: 1rem;
