@@ -35,7 +35,7 @@ add_filter('body_class', function($classes) {
 
 <section class="parents" itemscope itemtype="https://schema.org/WebPage">
 <a href="/<?= $falc ? '' : '?falc=true'; ?>" title="falc" class="falc">
-    <?= $falc ? 'Classique' : 'Mode falc'; ?>
+    <?= $falc ? 'Classique' : 'falc'; ?>
     <img
             src="<?= get_template_directory_uri(); ?>/assets/icons/FALC-V1.svg"
             alt=""

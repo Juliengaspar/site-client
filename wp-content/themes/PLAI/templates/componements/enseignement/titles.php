@@ -21,7 +21,6 @@ $menu_location = 'navigation__pivate'; // 👈 Nom identique à functions.php
 <!--                 loading="lazy">-->
 <!--        </div>-->
 <!--    --><?php //endif; ?>
-    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
 
 

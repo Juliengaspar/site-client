@@ -1,0 +1,38 @@
+@use "../general/general" as *;
+
+// Styles principaux
+.content__ia {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+
+  &__title{
+    font-size: 3rem;
+    border: 1px solid $tarakota__dark;
+    padding: 1rem;
+    width: auto;
+    display: inline-block;
+  }
+
+
+  > section > div {
+    line-height: 1;
+  }
+  &__explication{
+    margin: 2% auto;
+    width: 100%;
+  }
+  &__subtile{
+    font-size: 2rem;
+    text-align: center;
+    border: 1px solid $tarakota__dark;
+    padding: 1rem;
+    width: 100%;
+    display: block;
+  }
+  &__text{
+    margin: 5% auto;
+  }
+  &__text p{
+    margin: 1.5% auto;
+  }
+}

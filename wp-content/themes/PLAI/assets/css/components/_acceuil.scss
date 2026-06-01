@@ -5,11 +5,13 @@
   font-weight: 700;
   margin-bottom: 2rem;
 }
-
+.description__Acceuil p{
+  margin-bottom: 2%;
+}
 .description__Acceuil ul{
   list-style-type: disc;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 2%;
 
 }
 
@@ -88,6 +90,7 @@
 
   &__inner {
     width: 100%;
+    margin-top: 5%;
     max-width: 380px;
     min-height: 380px;
 

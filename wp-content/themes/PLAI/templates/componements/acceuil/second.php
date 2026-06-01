@@ -15,7 +15,7 @@ $presentationImage = get_field("presentation__image");
                 <h3 class="presentation__pole__title "><?= $presentationTitlePole ?></h3>
             <?php endif;?>
             <?php if (!empty($presentationDescription)): ?>
-                <div class="description__Acceuil" itemprop="description">><?= $presentationDescription ?></div>
+                <div class="description__Acceuil" itemprop="description"><?= $presentationDescription ?></div>
             <?php endif;?>
         </div>
 

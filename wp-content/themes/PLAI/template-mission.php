@@ -2,10 +2,17 @@
 <?php get_header(); ?>
 <?php
 $titleMissionIndividuel = get_field('title__mission__individuelles');
-$titleMissioncollective = get_field('title__mission__collectives')
+$titleMissioncollective = get_field('title__mission__collectives');
+$logoPLaiAcceuil = get_field('logo__plai');
+
 
 ?>
 <main class="main">
+    <?php get_template_part('templates/components/header--logo/img'); ?>
+
+    <h2 id="title" class="missions-section__title" itemprop="name">
+        <?= get_field("title__page") ; ?>
+    </h2>
 
 
 

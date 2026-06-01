@@ -163,6 +163,16 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'   => false
     ]);
 }
+//resources text
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page([
+        'page_title' => 'Options ia',
+        'menu_title' => 'ia Intro',
+        'menu_slug'  => 'ia-intro',
+        'capability' => 'edit_posts',
+        'redirect'   => false
+    ]);
+}
 // CPT FORMATIONS
 function create_cpt_formations() {
 

@@ -12,13 +12,13 @@
                   ]);*/
             ?>
         </nav>
-        <section class="content__ressources">
-<!--            <h2 class="acceuil__title">--><?php //the_field('title__page', 'option'); ?><!--</h2>-->
-<!---->
-<!--            <section>-->
-<!--                <h3>--><?php //the_field('title__contenu', 'option'); ?><!--</h3>-->
-<!--                <div>--><?php //the_field('description__contenu', 'option'); ?><!--</div>-->
-<!--            </section>-->
+        <section class="content__ia">
+            <h2 class="content__ia__title"> <?php the_field('title__page', 'option'); ?></h2>
+            <section class="content__ia__explication">
+                <h3 class="content__ia__subtile"> <?php the_field('title__contenu', 'option'); ?></h3>
+                <div class="content__ia__text"><?php the_field('description__contenu', 'option'); ?></div>
+            </section>
+
         </section>
 
         <section class="page-ressources">

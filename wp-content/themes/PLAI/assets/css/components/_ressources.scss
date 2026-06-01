@@ -23,7 +23,7 @@ $transition: all 0.3s ease;
 
 // Styles principaux
 .content__ressources {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0 1rem;
 
   .acceuil__title {
@@ -43,7 +43,7 @@ $transition: all 0.3s ease;
 
   > section > div {
     color: $color-text;
-    line-height: 1.6;
+    line-height: 1;
   }
   &__explication{
     margin: 2.5% auto;
@@ -61,7 +61,7 @@ $transition: all 0.3s ease;
          margin: 5% auto;
   }
   &__text p{
-         margin: 2.5% auto;
+         margin: 1.5% auto;
   }
 }
 
