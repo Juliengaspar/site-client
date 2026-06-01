@@ -1,4 +1,18 @@
 @use "../general/general" as *;
+//falc
+.mode-classique {
+  background: #ffffff;
+  color: #222;
+
+  h1, h2, h3 {
+    color: #1a1a1a;
+  }
+
+  section {
+    background: #f8f8f8;
+    padding: 20px;
+  }
+}
 
 //parent
 .parents {
