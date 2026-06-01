@@ -3,6 +3,8 @@
 <?php
 $titleMissionIndividuel = get_field('title__mission__individuelles');
 $titleMissioncollective = get_field('title__mission__collectives');
+$descriptionMissionindividuelles =get_field("description__mission__individuelles");
+$descriptionMissionCollectives =get_field("description__mission__collectives");
 $logoPLaiAcceuil = get_field('logo__plai');
 
 
@@ -10,14 +12,14 @@ $logoPLaiAcceuil = get_field('logo__plai');
 <main class="main">
     <?php get_template_part('templates/components/header--logo/img'); ?>
 
-    <h2 id="title" class="missions-section__title" itemprop="name">
+    <h2 id="title" class="missions-section__title title" itemprop="name">
         <?= get_field("title__page") ; ?>
     </h2>
 
 
 
     <?php
-    function display_missions($field_name, $section_title) {
+    function display_missions($field_name, $section_title, $section_description) {
 
         if( have_rows($field_name) ) : ?>
 
@@ -27,7 +29,9 @@ $logoPLaiAcceuil = get_field('logo__plai');
                 </h2>
 
                 <div class="accordion">
-
+                    <div>
+                        <?= $section_description ?>
+                    </div>
                     <?php while( have_rows($field_name) ) : the_row(); ?>
 
                         <details class="accordion__item">
@@ -57,9 +61,9 @@ $logoPLaiAcceuil = get_field('logo__plai');
     }
     ?>
     <?php
-    display_missions('missions_individuelles', $titleMissionIndividuel);
+    display_missions('missions_individuelles', $titleMissionIndividuel, $descriptionMissionindividuelles);
 
-    display_missions('missions_collectives', $titleMissioncollective);
+    display_missions('missions_collectives', $titleMissioncollective, $descriptionMissionCollectives);
     ?>
 </main>
 

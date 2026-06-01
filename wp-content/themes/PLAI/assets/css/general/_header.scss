@@ -139,6 +139,11 @@
     }
   }
 }
+.title{
+  font-size: 5rem;
+  width: 100%;
+  padding: 1rem;
+}
 
 /*   TABLET
 ========================= */
@@ -227,11 +232,8 @@
   }
 
   /* TITRES */
-  .acceuil__title,
-  .title__second__aceuil {
-    font-size: 3rem;
-    width: 90%;
-    padding: 1rem;
+  .acceuil__title{
+
   }
 }
 
@@ -242,7 +244,6 @@ body {
 .acceuil__title{
   display: inline-block;  // Clé : le bloc s'adapte au contenu
   width: auto;
-  background-color: $white;
   font-size: 2.625rem;
   font-weight: 500;
   border: 1px solid $tarakota__dark;
@@ -252,7 +253,6 @@ body {
   width: 100%;
    text-align: center;
    margin: 5% auto;
-  background-color: $white;
   font-size: 2.625rem;
   font-weight: 500;
   border: 1px solid $tarakota__dark;
