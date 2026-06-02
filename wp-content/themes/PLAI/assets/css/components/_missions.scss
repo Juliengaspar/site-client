@@ -115,4 +115,23 @@
       }
     }
   }
+  .falc {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    text-transform: uppercase;
+
+    background-color: $tarakota__dark;
+    color: $white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-left: auto;
+    text-decoration: none;
+    order: 1;
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
