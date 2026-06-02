@@ -21,7 +21,7 @@ $presentationImage = get_field("presentation__image");
 
         <?php if (!empty($presentationImage)): ?>
             <div>
-                <img src="<?= $presentationImage['url'] ?>" alt="<?= $presentationImage['alt'] ?>" width="<?= $presentationImage['width'] ?>" height="<?= $presentationImage['height'] ?>" itemprop="image">
+                <img src="<?= $presentationImage['url'] ?>" alt="<?= $presentationImage['alt'] ?>" width="<?= $presentationImage['width'] ?>" height="<?= $presentationImage['height'] ?>" itemprop="image" >
             </div>
         <?php endif;?>
     </section>

@@ -34,6 +34,7 @@ add_filter('body_class', function($classes) {
 
 
 <section class="parents" itemscope itemtype="https://schema.org/WebPage">
+    <div class="parents__contenu">
 <a href="/<?= $falc ? '' : '?falc=true'; ?>" title="falc" class="falc">
     <?= $falc ? 'Classique' : 'falc'; ?>
     <img
@@ -44,6 +45,7 @@ add_filter('body_class', function($classes) {
     >
 </a>
     <h2 class="parents__title "  itemprop="headline"><?= get_field('title__page', $page_id); ?></h2>
+    </div>
     <section class="parents__ecole"    itemscope itemtype="https://schema.org/Article">
 <!--        <h3 class="parents__ecole__title">--><?php //= $accesibilteTitle ?><!--</h3>-->
         <h3 class="parents__title subtitle" itemprop="headline"><?= $accesibilteTitle ?></h3>

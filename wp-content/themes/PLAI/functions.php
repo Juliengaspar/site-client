@@ -330,14 +330,14 @@ function dw_asset(string $file): string {
 //creation de nos premiers post type https://learn.wordpress.org/lesson/custom-post-types/
 //https://developer.wordpress.org/resource/dashicons/#editor-underline
 
-// Ajouts d'une page d'option (exemple de la documentation)
-acf_add_options_page(array(
-    'page_title'    => 'Theme General Settings',
-    'menu_title'    => 'Theme Settings',
-    'menu_slug'     => 'theme-general-settings',
-    'capability'    => 'edit_posts',
-    'redirect'      => false
-));
+//// Ajouts d'une page d'option (exemple de la documentation)
+//acf_add_options_page(array(
+//    'page_title'    => 'Theme General Settings',
+//    'menu_title'    => 'Theme Settings',
+//    'menu_slug'     => 'theme-general-settings',
+//    'capability'    => 'edit_posts',
+//    'redirect'      => false
+//));
 
 //fonction pour les chaine de traduction perssonalisées
 

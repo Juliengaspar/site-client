@@ -191,15 +191,25 @@
     transform: translateY(-4px);
   }
 }
-.Presentation{
 
-  &__contenu{
-    display: block;
-    border-radius: 1.5rem;
-    padding: 2rem;
-    transition: transform .3s ease,box-shadow .3s ease,-webkit-transform .3s ease,-webkit-box-shadow .3s ease;
-    box-shadow: 0 10px 25px #0000002e;
+
+.Presentation{
+  &__title{
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 800;
+    color: $black;
+    margin-bottom: 1rem;
+    line-height: 1.2;
   }
+}
+.contenu{
+  display: block;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: transform .3s ease,box-shadow .3s ease,-webkit-transform .3s ease,-webkit-box-shadow .3s ease;
+  box-shadow: 0 10px 25px #0000002e;
+
 
   &__title{
     text-align: center;
