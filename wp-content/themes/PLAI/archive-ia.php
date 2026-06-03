@@ -15,12 +15,12 @@
             ?>
         </nav>
         <section class="content__ia">
-            <h2 class="content__ia__title"> <?php the_field('title__page', 'option'); ?></h2>
+            <h2 class="content__ia__title"><?php the_field('ia_title_page', 'option'); ?></h2>
             <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
             <section class="content__ia__explication">
-                <h3 class="content__ia__subtile"> <?php the_field('title__contenu', 'option'); ?></h3>
-                <div class="content__ia__text"><?php the_field('description__contenu', 'option'); ?></div>
+                <h3 class="content__ia__subtile"> <?php the_field('ia_title_contenu', 'option'); ?></h3>
+                <div class="content__ia__text"><?php the_field('ia_description_contenu', 'option'); ?></div>
             </section>
 
         </section>
@@ -32,10 +32,10 @@
                 <?php
                 // Récupérer TOUTES les catégories de type_ia
                 $terms = get_terms(array(
-                    'taxonomy' => 'type_ia',
-                    'hide_empty' => true,
-                    'orderby' => 'name',
-                    'order' => 'ASC'
+                        'taxonomy' => 'type_ia',
+                        'hide_empty' => true,
+                        'orderby' => 'name',
+                        'order' => 'ASC'
                 ));
 
                 if ($terms && !is_wp_error($terms)) :
@@ -47,17 +47,17 @@
                             <div class="grid-ressources">
                                 <?php
                                 $args = array(
-                                    'post_type' => 'ia',
-                                    'posts_per_page' => -1,
-                                    'tax_query' => array(
-                                        array(
-                                            'taxonomy' => 'type_ia',
-                                            'field' => 'slug',
-                                            'terms' => $term->slug,
+                                        'post_type' => 'ia',
+                                        'posts_per_page' => -1,
+                                        'tax_query' => array(
+                                                array(
+                                                        'taxonomy' => 'type_ia',
+                                                        'field' => 'slug',
+                                                        'terms' => $term->slug,
+                                                ),
                                         ),
-                                    ),
-                                    'orderby' => 'title',
-                                    'order' => 'ASC'
+                                        'orderby' => 'title',
+                                        'order' => 'ASC'
                                 );
 
                                 $query = new WP_Query($args);

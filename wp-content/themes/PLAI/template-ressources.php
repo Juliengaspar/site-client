@@ -17,12 +17,13 @@
 
             <section class="content__ressources__explication">
                 <h3 class="content__ressources__title">
-                    <?php the_field('title__contenu' , 'option'); ?>
+                    <?php the_field('ressources_title_contenu' , 'option'); ?>
                 </h3>
 
                 <div class="content__ressources__text">
-                    <?php the_field('description__contenu' , 'option'); ?>
-                </div>            </section>
+                    <?php the_field('ressources_description_contenu' , 'option'); ?>
+                </div>
+            </section>
         </section>
 
         <section class="page-ressources">
