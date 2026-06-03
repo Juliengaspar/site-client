@@ -12,6 +12,7 @@
                 <h2 class="formations__title">
                      Formations
                 </h2>
+            <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
                 <section class="formations__grid">
                     <h3 class="sro">Liste de formations</h3>

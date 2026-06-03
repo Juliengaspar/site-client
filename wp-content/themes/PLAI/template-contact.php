@@ -13,6 +13,8 @@
     ?>
     <section>
         <h2><?= $titleContact?></h2>
+        <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+
         <div>
             <?=$textContact ?>
         </div>

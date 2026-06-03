@@ -3,7 +3,9 @@
 <main class="main">
     <?php get_template_part('templates/components/header--logo/img'); ?>
     <?php include('wp-content/themes/PLAI/templates/componements/acceuil/first.php')?>
-<?php include('wp-content/themes/PLAI/templates/componements/acceuil/second.php')?>
+    <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+
+    <?php include('wp-content/themes/PLAI/templates/componements/acceuil/second.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/chiffres.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/mission.php')?>
 <?php include('wp-content/themes/PLAI/template-parents.php')?>

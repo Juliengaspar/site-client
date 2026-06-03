@@ -19,6 +19,8 @@
     ?>
     <section class="faq__contenu">
         <h2 class="faq__contenu__title acceuil__title"><?= get_the_title()?></h2>
+        <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+
         <div class="faq__contenu__explication">
             <?= $faqContenu?>
         </div>

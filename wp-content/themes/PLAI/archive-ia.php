@@ -16,6 +16,8 @@
         </nav>
         <section class="content__ia">
             <h2 class="content__ia__title"> <?php the_field('title__page', 'option'); ?></h2>
+            <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+
             <section class="content__ia__explication">
                 <h3 class="content__ia__subtile"> <?php the_field('title__contenu', 'option'); ?></h3>
                 <div class="content__ia__text"><?php the_field('description__contenu', 'option'); ?></div>

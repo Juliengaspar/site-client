@@ -15,6 +15,7 @@
                 <?= post_type_archive_title('', false); ?>
             </h2>
 
+            <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
             <section class="documents__intro">
 
                 <?php

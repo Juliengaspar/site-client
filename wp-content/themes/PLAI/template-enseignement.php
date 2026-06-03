@@ -28,6 +28,8 @@ $EnseignanLink = get_field("link__formations");
         <?php if($Enseignanttitle): ?>
             <h2 class="enseignement__title"><?= esc_html($Enseignanttitle) ?></h2>
         <?php endif; ?>
+        <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+
         <?php if($EnseignantDescription): ?>
             <?= wp_kses_post($EnseignantDescription) ?>
         <?php endif; ?>

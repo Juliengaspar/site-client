@@ -7,6 +7,8 @@ get_header(); ?>
 <main class="main">
 
 <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php');
+include('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php') ;
+
     include get_template_directory() . '/templates/componements/connexion/textLogin.php';
 ?>
 <?php \wtl\Helpers::render_partial('login-form.php'); ?>

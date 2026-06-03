@@ -12,6 +12,8 @@
         </nav>
         <section class="content__ressources">
             <h2 class="acceuil__title"><?= get_the_title() ?></h2>
+            <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+
 
             <section class="content__ressources__explication">
                 <h3 class="content__ressources__title">
