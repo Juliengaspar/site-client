@@ -11,7 +11,7 @@
         <section class="documents">
 
             <!-- Titre dynamique du CPT -->
-            <h2 class="documents__title title">
+            <h2 class="documents__title">
                 <?= post_type_archive_title('', false); ?>
             </h2>
 

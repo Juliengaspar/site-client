@@ -42,7 +42,7 @@
                     foreach ($terms as $term) : ?>
 
                         <section class="categorie">
-                            <h2><?= esc_html($term->name); ?></h2>
+                            <h2 class="categorie__title"><?= esc_html($term->name); ?></h2>
 
                             <div class="grid-ressources">
                                 <?php

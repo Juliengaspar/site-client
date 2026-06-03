@@ -65,7 +65,7 @@
 
                         <?php wp_reset_postdata(); ?>
                     <?php else : ?>
-                        <p>Aucune formation disponible.&nbsp;</p>
+                        <p>Aucune formation disponible actuellement.&nbsp;</p>
                     <?php endif; ?>
                 </section>
         </section>

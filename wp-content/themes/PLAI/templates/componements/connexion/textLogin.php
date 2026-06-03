@@ -5,10 +5,10 @@ $reddirectionConnextion = get_field('contenu__explication');
 ?>
 
 <section class="form__container">
-    <h2><?= $titleConnextion ?></h2>
+    <h2 class="form__container__title"><?= $titleConnextion ?></h2>
 
-    <section>
-        <h3 class="form__title">
+    <section class="form__container__form">
+        <h3 class="form__container__form__title">
             <?= $explicationConnextion ?>
         </h3>
 

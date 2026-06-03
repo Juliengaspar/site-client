@@ -36,3 +36,16 @@
     margin: 1.5% auto;
   }
 }
+.categorie{
+
+  &__title {
+    font-size: 3rem;
+    background-color: $bg-container;
+    color: $white;
+    margin: 1.5rem auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}

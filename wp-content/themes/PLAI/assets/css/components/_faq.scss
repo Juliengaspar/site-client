@@ -2,6 +2,18 @@
 @use "../general/general" as *;
 
 @media (min-width: 1024px) {
+  .faq__contenu{
+    &__title{
+      font-size: 3rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      border: 2px solid $tarakota__dark;
+      display: inline-block;
+      padding: .8rem 1.5rem;
+      font-weight: 600;
+    }
+  }
+
   .faq__contenu__explication{
     fill-size: 1rem;
     margin: 2.5% 0;

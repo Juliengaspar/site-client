@@ -27,12 +27,13 @@ $transition: all 0.3s ease;
   padding: 0 1rem;
 
   .acceuil__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
     border: 2px solid $color-primary;
     display: inline-block;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    margin-bottom: 1.25rem;
-    font-size: 1.5rem;
+    padding: .8rem 1.5rem;
+    font-weight: 600;
   }
 
   h3 {

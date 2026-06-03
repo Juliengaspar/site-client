@@ -1,13 +1,16 @@
 @use "../general/general" as *;
-
-.title{
-  display: inline-block;
-  width: auto;
-  text-align: center;
-  border: 1px solid $tarakota__dark;
-  font-size: 3rem;
-  padding: 1rem;
+.documents{
+  &__title{
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border: 2px solid $tarakota__dark;
+    display: inline-block;
+    padding: .8rem 1.5rem;
+    font-weight: 600;
+  }
 }
+
 .documents__intro{
   margin: 5% 0;
   &__title{

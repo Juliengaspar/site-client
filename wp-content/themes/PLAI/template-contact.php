@@ -11,11 +11,11 @@
     $titleContact = get_field("title__contact");
     $textContact = get_field("explications__contenu");
     ?>
-    <section>
-        <h2><?= $titleContact?></h2>
+    <section class="contact">
+        <h2 class="contact__title"><?= $titleContact?></h2>
         <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
-        <div>
+        <div class="contact__explication">
             <?=$textContact ?>
         </div>
     </section>

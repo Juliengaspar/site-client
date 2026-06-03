@@ -10,10 +10,10 @@ $page_id = get_the_ID();
 
 // Champs simples (version normale ou FALC)
 $title_page = $falc ? get_field('title__page__falc', $page_id) : get_field('title__page__falc', $page_id);
-$titleMissionIndividuel = $falc ? get_field('title_mission_individuelles__falc', $page_id) : get_field('title_mission_individuelles', $page_id);
-$titleMissioncollective = $falc ? get_field('title_mission_collectives__falc', $page_id) : get_field('title_mission_collectives', $page_id);
+$titleMissionIndividuel = $falc ? get_field('title__mission_individuelles__falc', $page_id) : get_field('title__mission_individuelles', $page_id);
+$titleMissioncollective = $falc ? get_field('title__mission_collectives__falc', $page_id) : get_field('title__mission_collectives', $page_id);
 $descriptionMissionindividuelles = $falc ? get_field('description__mission__individuelles__falc', $page_id) : get_field('description__mission__individuelles', $page_id);
-$descriptionMissionCollectives = $falc ? get_field('description_mission_collectives__falc', $page_id) : get_field('description_mission_collectives', $page_id);
+$descriptionMissionCollectives = $falc ? get_field('description__mission__collectives__falc', $page_id) : get_field('description__mission__collectives', $page_id);
 $logoPLaiAcceuil = get_field('logo_plai', $page_id);
 
 // Nom des répéteurs selon le mode
@@ -29,6 +29,10 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
         <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <!-- Lien FALC / Classique (comme dans Parents) -->
+        <div class="title_contenu">
+        <h2 id="title" class="missions-section__title title" itemprop="name">
+            <?= $title_page ?>
+        </h2>
         <a href="<?= $falc ? '?' : '?falc=true'; ?>" title="Version FALC" class="falc">
             <?= $falc ? 'Classique' : 'FALC'; ?>
             <img src="<?= get_template_directory_uri(); ?>/assets/icons/FALC-V1.svg"
@@ -36,10 +40,7 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
                  aria-hidden="true"
                  class="falc__icon">
         </a>
-
-        <h2 id="title" class="missions-section__title title" itemprop="name">
-            <?= $title_page ?>
-        </h2>
+        </div>
         <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
         <?php
