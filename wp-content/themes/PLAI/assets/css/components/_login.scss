@@ -44,6 +44,11 @@ $shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
     padding: 1rem;
     width: 100%;
   }
+  &__form__contenu{
+    text-align: center;
+    margin: 5% auto;
+
+  }
   &__form p{
    margin: .5% auto;
   }
@@ -231,6 +236,46 @@ button {
     box-shadow: 0 0 0 4px $shadow;
   }
 }
+.redirection__demande__link {
+  display: grid;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: $tarakota__dark;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $tarakota__extra__dark;
+      transform: translateY(-2px);
+    }
+
+    &:focus {
+      outline: 2px solid $tarakota__dark;
+      outline-offset: 3px;
+    }
+  }
+}
+.redirection__demande__link p{
+  text-align: center;
+  font-size: 1rem;
+  margin: 1.5% auto;
+  padding: 1rem;
+}
+
+
 
 /* ==========================================
    TABLET

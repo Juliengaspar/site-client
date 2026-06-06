@@ -12,7 +12,7 @@ $reddirectionConnextion = get_field('contenu__explication');
             <?= $explicationConnextion ?>
         </h3>
 
-        <div>
+        <div class="form__container__form__contenu">
             <?= $reddirectionConnextion ?>
         </div>
     </section>
