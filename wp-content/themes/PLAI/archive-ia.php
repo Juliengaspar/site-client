@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <main class="main">
+    <main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
         <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <nav class="header__nav">
@@ -28,7 +28,7 @@
         <section class="page-ressources">
             <h2 class="sro">Outils/IA</h2> <!-- Modifié selon votre image -->
 
-            <section class="container">
+            <section class="container" itemscope itemtype="https://schema.org/ItemList">
                 <?php
                 // Récupérer TOUTES les catégories de type_ia
                 $terms = get_terms(array(
@@ -41,10 +41,10 @@
                 if ($terms && !is_wp_error($terms)) :
                     foreach ($terms as $term) : ?>
 
-                        <section class="categorie">
-                            <h2 class="categorie__title"><?= esc_html($term->name); ?></h2>
+                        <section class="categorie" itemscope itemtype="https://schema.org/CategoryCode">
+                            <h2 class="categorie__title" itemprop="name"><?= esc_html($term->name); ?></h2>
 
-                            <div class="grid-ressources">
+                            <div class="grid-ressources" itemprop="description">
                                 <?php
                                 $args = array(
                                         'post_type' => 'ia',
@@ -79,15 +79,20 @@
                                         $image = get_field('images__ia');
                                         ?>
 
-                                        <a href="<?= esc_url($url); ?>" target="_blank" class="card-ressource">
+                                        <a href="<?= esc_url($url); ?>" target="_blank" class="card-ressource" itemprop="identifier">
                                             <?php if ($image && isset($image['url'])) : ?>
-                                                <img src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt'] ?? ''); ?>">
+                                                <img src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt'] ?? ''); ?>" itemprop="image"
+                                                     srcset="
+                                                        <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-small')); ?> 400w,
+                                                        <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-medium')); ?> 800w,
+                                                        <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-large')); ?> 1200w
+                                                         " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >>
                                             <?php endif; ?>
 
-                                            <h3><?php the_title(); ?></h3>
+                                            <h3 itemprop="image"><?php the_title(); ?></h3>
 
                                             <?php if ($description) : ?>
-                                                <p><?= $description; ?></p>
+                                                <p itemprop="description"><?= $description; ?></p>
                                             <?php endif; ?>
                                         </a>
 

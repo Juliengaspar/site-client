@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <main class="main">
+    <main class="main" role="main" itemscope itemtype="https://schema.org/DigitalDocument">
         <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <nav class="header__nav">
@@ -11,7 +11,7 @@
         <section class="documents">
 
             <!-- Titre dynamique du CPT -->
-            <h2 class="documents__title">
+            <h2 class="documents__title" itemprop="headline">
                 <?= post_type_archive_title('', false); ?>
             </h2>
 
@@ -25,13 +25,13 @@
                 ?>
 
                 <?php if ($intro_title) : ?>
-                    <h3 class="documents__intro__title ">
+                    <h3 class="documents__intro__title" itemprop="alternativeHeadline">
                         <?= esc_html($intro_title); ?>
                     </h3>
                 <?php endif; ?>
 
                 <?php if ($intro_content) : ?>
-                    <div class="documents__intro__contenu">
+                    <div class="documents__intro__contenu" itemprop="description">
                         <?= wp_kses_post($intro_content); ?>
                         <?= wp_kses_post($explication_content); ?>
                     </div>
@@ -50,13 +50,13 @@
 
                 <?php foreach ($categories as $cat) : ?>
 
-                    <section class="documents__category">
+                    <section class="documents__category" itemscope itemtype="https://schema.org/CategoryCode">
 
-                        <h3 class="documents__category__title">
+                        <h3 class="documents__category__title" itemprop="name">
                             <?= esc_html($cat->name); ?>
                         </h3>
 
-                        <div class="documents__category__listes">
+                        <div class="documents__category__listes" itemprop="description">
 
                             <?php
                             $args = array(
@@ -87,7 +87,7 @@
                                     <?php if ($file) : ?>
 
                                         <article class="documents__category__contenu">
-                                            <a href="<?= $file['url'] ?>" class="documents__download documents__category__link" title="<?= $file['title']; ?>" download>
+                                            <a href="<?= $file['url'] ?>" class="documents__download documents__category__link" title="<?= $file['title']; ?>" itemprop="identifier" download>
                                                 <div class="documents__category__link"> <?= wp_kses_post($description); ?> </div>
                                             </a>
                                         </article>

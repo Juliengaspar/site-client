@@ -9,13 +9,13 @@
             ?>
         </nav>
 
-        <section class="formations__hero">
-                <h2 class="formations__title">
+        <section class="formations__hero" itemscope itemtype="https://schema.org/ItemList">>
+                <h2 class="formations__title" itemprop="headline">
                      Formations
                 </h2>
             <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
-                <section class="formations__grid">
+                <section class="formations__grid" aria-label="Liste des formations">
                     <h3 class="sro">Liste de formations</h3>
 
                     <?php
@@ -37,11 +37,16 @@
 
                             ?>
 
-                            <article class="formation-card">
+                            <article class="formation-card"    itemscope itemtype="https://schema.org/Course" itemprop="itemListElement">
                                     <figure class="formation-card__image">
 
                                         <?php if ($imgFormations) : ?>
-                                            <img src="<?= $imgFormations['url']; ?>" alt="<?= $imgFormations['alt']; ?>" title="<?= $imgFormations['title']; ?>" class="formation-card__img">
+                                            <img src="<?= $imgFormations['url']; ?>" alt="<?= $imgFormations['alt']; ?>" title="<?= $imgFormations['title']; ?>" class="formation-card__img" itemprop="image"
+                                                 srcset="
+                                                     <?= esc_url(wp_get_attachment_image_url($imgFormations['ID'], 'square-small')); ?> 400w,
+                                                     <?= esc_url(wp_get_attachment_image_url($imgFormations['ID'], 'square-medium')); ?> 800w,
+                                                     <?= esc_url(wp_get_attachment_image_url($imgFormations['ID'], 'square-large')); ?> 1200w
+                                                     " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >
                                         <?php endif; ?>
 
                                     </figure>
@@ -54,7 +59,7 @@
 
                                         <?php if ($descriptionFormations) : ?>
 
-                                            <p class="formation-card__subtitle">
+                                            <p class="formation-card__subtitle" itemprop="description">
                                                 <?= $descriptionFormations ?>
                                             </p>
 

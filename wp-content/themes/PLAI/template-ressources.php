@@ -1,7 +1,7 @@
 <?php /* Template Name: Ressources */ ?>
 
 <?php get_header(); ?>
-    <main class="main">
+    <main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
         <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <nav class="header__nav">
@@ -29,7 +29,7 @@
         <section class="page-ressources">
             <h2 class="sro">Ressources</h2>
 
-            <section class="container">
+            <section class="container"  itemscope itemtype="https://schema.org/ItemList">
 
                 <?php
                 // Récupérer les valeurs
@@ -38,11 +38,11 @@
 
                 // Afficher seulement si des valeurs existent
                 if( $titre_page ) : ?>
-                    <h3 class="container__title"><?php echo esc_html($titre_page); ?></h3>
+                    <h3 class="container__title" itemprop="name"><?php echo esc_html($titre_page); ?></h3>
                 <?php endif; ?>
 
                 <?php if( $description_page ) : ?>
-                    <p class="description"><?php echo esc_html($description_page); ?></p>
+                    <p class="description" itemprop="description"><?php echo esc_html($description_page); ?></p>
                 <?php endif; ?>
 
                 <?php
@@ -56,10 +56,10 @@
                     foreach ($terms as $term) :
                         ?>
 
-                        <section class="categorie">
-                            <h2 class="categorie__title"><?= $term->name ?></h2>
+                        <section class="categorie"  itemscope itemtype="https://schema.org/CategoryCode">
+                            <h2 class="categorie__title" itemprop="name"><?= $term->name ?></h2>
 
-                            <div class="grid-ressources">
+                            <div class="grid-ressources" itemprop="description">
 
                                 <?php
                                 // Récupérer les ressources de cette catégorie
@@ -106,15 +106,20 @@
                                         }
                                         ?>
 
-                                        <a href="<?=$url; ?>" target="_blank" class="card-ressource" >
+                                        <a href="<?=$url; ?>" target="_blank" class="card-ressource" itemprop="identifier">
 
                                             <?php if ($image && isset($image['url'])) : ?>
-                                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>">
+                                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" itemprop="image"
+                                                     srcset="
+                                                        <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-small')); ?> 400w,
+                                                        <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-medium')); ?> 800w,
+                                                        <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-large')); ?> 1200w
+                                                         " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >
                                             <?php endif; ?>
 
-                                            <h3><?= the_title(); ?></h3>
+                                            <h3 itemprop="image"><?= the_title(); ?></h3>
                                             <?php if ($description) : ?>
-                                                <p><?=$description ?></p>
+                                                <p itemprop="description"><?=$description ?></p>
                                             <?php endif; ?>
 
                                         </a>

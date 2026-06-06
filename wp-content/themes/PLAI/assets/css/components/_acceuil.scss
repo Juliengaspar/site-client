@@ -172,7 +172,7 @@
   background-color: $tarakota__dark;
   color: #fff;
 
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
 
@@ -184,6 +184,8 @@
           box-shadow 0.3s ease;
 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow-wrap: break-word;
+  word-break: break-word;
 
   &:hover,
   &:focus-visible {

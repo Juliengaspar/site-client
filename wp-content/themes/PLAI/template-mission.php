@@ -24,14 +24,14 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
 
 ?>
 
-    <main class="main">
+    <main class="main" itemscope itemtype="https://schema.org/WebPage">
 
         <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <!-- Lien FALC / Classique (comme dans Parents) -->
         <div class="title_contenu">
-        <h2 id="title" class="missions-section__title title" itemprop="name">
-            <?= $title_page ?>
+        <h2 id="title" class="missions-section__title title" itemprop="name"   aria-label="Changer de version (FALC ou classique)">
+            <?= esc_html($title_page); ?>
         </h2>
         <a href="<?= $falc ? '?' : '?falc=true'; ?>" title="Version FALC" class="falc">
             <?= $falc ? 'Classique' : 'FALC'; ?>
@@ -47,24 +47,27 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
         // Fonction pour afficher les missions (utilise le nom du répéteur passé en paramètre)
         function display_missions($repeater_name, $section_title, $section_description) {
             if( have_rows($repeater_name) ) : ?>
-                <section class="missions">
+                <section class="missions" itemscope itemtype="https://schema.org/ItemList">
                     <h2 class="missions__title">
                         <?= esc_html($section_title); ?>
                     </h2>
 
-                    <div class="accordion">
-                        <div class="accordion__explication">
-                            <?= $section_description ?>
+                    <div class="accordion" role="list">
+                        <?php if ($section_description) : ?>
+                        <div class="accordion__explication"
+                             itemprop="description">
+                            <?= wp_kses_post($section_description); ?>
                         </div>
+                        <?php endif; ?>
                         <?php while( have_rows($repeater_name) ) : the_row(); ?>
-                            <details class="accordion__item">
-                                <summary class="accordion__header">
-                                    <h3 class="accordion__heading">
+                            <details class="accordion__item" itemscope itemtype="https://schema.org/ListItem">
+                                <summary class="accordion__header"  role="button" aria-expanded="false">
+                                    <h3 class="accordion__heading" itemprop="name">
                                         <?php the_sub_field('titre_mission'); ?>
                                     </h3>
-                                    <span class="accordion__icon"></span>
+                                    <span class="accordion__icon" aria-hidden="true"></span>
                                 </summary>
-                                <div class="accordion__content">
+                                <div class="accordion__content" itemprop="description">
                                     <p>
                                         <?php the_sub_field('description_mission'); ?>
                                     </p>

@@ -1,6 +1,6 @@
 <?php /* Template Name: faq */?>
 <?php get_header()?>
-<main class="main">
+<main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
     <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
     <nav class="header__nav">
@@ -18,7 +18,7 @@
     $faqContenu = get_field('explication__page');
     ?>
     <section class="faq__contenu">
-        <h2 class="faq__contenu__title acceuil__title"><?= get_the_title()?></h2>
+        <h2 class="faq__contenu__title acceuil__title" itemprop="name"  aria-label="titre de la page faq"><?= get_the_title()?></h2>
         <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
         <div class="faq__contenu__explication">
@@ -29,7 +29,7 @@
 
     <?php if( have_rows('faq_items') ) : ?>
 
-        <div class="accordion">
+        <div class="accordion" itemscope itemtype="https://schema.org/ItemList">
 
             <?php while( have_rows('faq_items') ) : the_row();
 
@@ -42,15 +42,15 @@
 
                     <summary class="accordion__header">
 
-                        <h3 class="accordion__heading">
+                        <h3 class="accordion__heading"  itemprop="name">
                             <?= esc_html($question); ?>
                         </h3>
 
-                        <span class="accordion__icon"></span>
+                        <span class="accordion__icon"  aria-hidden="true"></span>
 
                     </summary>
 
-                    <div class="accordion__content">
+                    <div class="accordion__content"  itemprop="description">
                         <?= wp_kses_post($reponse); ?>
                     </div>
 
