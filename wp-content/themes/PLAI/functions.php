@@ -384,7 +384,19 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'    => false
     ]);
 }
+//script js
+function my_theme_scripts() {
 
+    wp_enqueue_script(
+        'menu-private',
+        get_template_directory_uri() . '/assets/js/menu-private.js',
+        [],
+        '1.0',
+        true
+    );
+
+}
+add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
 
 add_image_size('sqaure-small', 400, 400, true );//nom /size/recadrage;

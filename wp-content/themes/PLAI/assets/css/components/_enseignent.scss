@@ -1,4 +1,107 @@
 @use "../general/general" as *;
+
+.enseignement-header__title {
+  display: inline-block;
+  width: auto;
+  text-align: center;
+
+  font-size: 1.75rem;
+  font-weight: 700;
+
+  border: 2px solid #c75b2c;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.enseignement {
+
+  &__title {
+    display: block;
+    width: 100%;
+
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    border: 2px solid #c75b2c;
+    padding: .75rem;
+    margin: 2rem 0;
+  }
+
+  p,
+  div {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+
+    li {
+      margin-bottom: .75rem;
+      line-height: 1.8;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    display: inline-block;
+    padding: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.redirections {
+  margin-bottom: 3rem;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ==========================
+   TABLETTE
+   min-width: 768px
+========================== */
+
+@media (min-width: 768px) {
+
+  .enseignement-header__title {
+    font-size: 2.25rem;
+    padding: 1.25rem;
+  }
+
+  .enseignement {
+
+    &__title {
+      font-size: 1.8rem;
+      padding: 1rem;
+    }
+
+    p,
+    div,
+    li {
+      font-size: 1.05rem;
+    }
+  }
+
+  .redirections {
+
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+
+
 @media (min-width: 1024px) {
   .enseignement-header__title{
     display: inline-block;

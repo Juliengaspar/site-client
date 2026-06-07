@@ -1,81 +1,150 @@
 @use 'general' as *;
-
-/* =========================================
-   MOBILE FIRST
-   MENU PRIVATE
-========================================= */
-
-/* Navigation principale */
-
 .header__nav {
-
-  width: auto;
-  background-color: $black;
-  border-bottom: 3px solid $tarakota__dark;
-  margin: 5% auto;
+/*
+TODO
+ */
 }
 
-/* Menu */
+/* ========================================
+   BURGER MENU
+======================================== */
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  margin: 1rem;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  gap: 6px;
+
+  z-index: 1001;
+}
+
+.burger-menu span {
+  display: block;
+
+  width: 32px;
+  height: 3px;
+
+  background-color: $white;
+
+
+  transition: all 0.3s ease;
+}
+
+/* Animation burger -> croix */
+
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ========================================
+   MENU MOBILE
+======================================== */
+
 .menu-private {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
   display: flex;
   flex-direction: column;
 
-  gap: 0.8rem;
+  background-color: $black;
 
   list-style: none;
 
-  margin: 0;
-  padding: 1rem;
+  padding: 0;
+
+  overflow: hidden;
+
+  max-height: 0;
+
+  transition: max-height 0.4s ease;
 }
 
-/* Élément du menu */
+/* Menu ouvert */
+
+.menu-private.active {
+  max-height: 600px;
+}
+
+/* Liens */
+
 .menu-private li {
   width: 100%;
 }
 
-/* Liens */
 .menu-private li a {
-  text-transform: uppercase;
   display: block;
 
-  padding: 0.9rem 1rem;
+  padding: 1rem;
 
+  text-align: center;
+  text-transform: uppercase;
   text-decoration: none;
-
 
   color: $white;
 
-  border-radius: 10px;
-
-  font-size: 1rem;
   font-weight: 600;
-
-  text-align: center;
 
   transition: 0.3s ease;
 }
 
-/* Hover */
 .menu-private li a:hover {
   background-color: $tarakota__dark;
   color: $black;
 }
 
-
-/* =========================================
+/* ========================================
    TABLETTE
-========================================= */
+======================================== */
 
 @media screen and (min-width: 768px) {
 
+  .burger-menu {
+    display: none;
+  }
+
   .menu-private {
+    position: static;
+
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
-    flex-wrap: wrap;
+    max-height: none;
+
+    width: 100%;
+
+    padding: 1rem;
 
     gap: 1rem;
+
+    overflow: visible;
   }
 
   .menu-private li {
@@ -84,31 +153,197 @@
 
   .menu-private li a {
     padding: 0.8rem 1.2rem;
+    border-radius: 10px;
   }
-
 }
 
-/* =========================================
-   ORDINATEUR
-========================================= */
+/* ========================================
+   DESKTOP
+======================================== */
 
 @media screen and (min-width: 1024px) {
 
-  .header__nav {
-    padding: 0 2rem;
+  .menu-private {
+    justify-content: center;
+    gap: 1.5rem;
+    padding-right: 2rem;
   }
+
+  .menu-private li a {
+    font-size: 1.05rem;
+  }
+}
+.header__nav {
+
+}
+
+/* ========================================
+   BURGER MENU
+======================================== */
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  margin: 1rem;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  gap: 6px;
+
+  z-index: 1001;
+}
+
+.burger-menu span {
+  display: block;
+
+  width: 32px;
+  height: 3px;
+
+  background-color: $white;
+
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+/* Animation burger -> croix */
+
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ========================================
+   MENU MOBILE
+======================================== */
+
+.menu-private {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: $black;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  max-height: 0;
+
+  transition: max-height 0.4s ease;
+}
+
+/* Menu ouvert */
+
+.menu-private.active {
+  max-height: 600px;
+}
+
+/* Liens */
+
+.menu-private li {
+  width: 100%;
+}
+
+.menu-private li a {
+  display: block;
+
+  padding: 1rem;
+
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: $white;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.menu-private li a:hover {
+  background-color: $tarakota__dark;
+  color: $black;
+}
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media screen and (min-width: 768px) {
+
+  .burger-menu {
+    display: none;
+  }
+
+  .menu-private {
+    position: static;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    max-height: none;
+
+    width: 100%;
+
+    padding: 1rem;
+
+    gap: 1rem;
+
+    overflow: visible;
+  }
+
+  .menu-private li {
+    width: auto;
+  }
+
+  .menu-private li a {
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+  }
+}
+
+/* ========================================
+   DESKTOP
+======================================== */
+
+@media screen and (min-width: 1024px) {
 
   .menu-private {
     justify-content: flex-end;
     gap: 1.5rem;
+    padding-right: 2rem;
   }
 
-  .menu-prive li a {
+  .menu-private li a {
     font-size: 1.05rem;
-
-    padding: 0.9rem 1.4rem;
-
-    border-radius: 12px;
   }
-
 }

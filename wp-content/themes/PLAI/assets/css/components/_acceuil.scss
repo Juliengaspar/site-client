@@ -1,5 +1,6 @@
 @use "../general/general" as *;
 
+
 .presentation__pole__title,
 .chiffres__title,
 .missions-section__title,
@@ -9,6 +10,18 @@
   font-weight: 700;
   margin-bottom: 2rem;
 }
+
+.presentation__pole{
+  &__conteneur{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__img{
+    max-width: 100%;
+    height: auto;
+  }
+}
 .description__Acceuil p{
   margin-bottom: 2%;
 }
@@ -17,6 +30,41 @@
   margin-left: 5%;
   margin-top: 2%;
 
+}
+
+
+.Chiffres{
+  &__grid{
+    padding: 1rem;
+    background-color: $fille-ariane;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  margin: 5% auto;
+  padding: 1rem;
+  text-align: center;
+  .chiffre-card{
+    padding: 1rem;
+    margin: 5% 0;
+  background-color: $gray__extra__light;
+    &__number{
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $tarakota__dark;
+      margin-bottom: 1rem;
+    }
+    &__img{
+      width: 50%;
+      height: auto;
+    }
+    &__desc{
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+  }
 }
 
 .missions-section {
@@ -41,8 +89,10 @@
   }
 
   &__grid {
+
     padding: 1rem;
     background-color: $fille-ariane;
+    border-radius: 1rem;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -230,22 +280,15 @@
     font-size: 1rem;
     line-height: 1.9;
     font-weight: 400;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
     padding: 2rem;
+
   }
-
-
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-
-@media screen and (max-width: 991px) {
-
-
-}
-
 @media screen and (max-width: 767px) {
 
   .missions-section {
@@ -281,36 +324,6 @@
   }
 }
 
-@media screen and (max-width: 480px) {
-
-  .mission-card {
-
-    &__inner {
-      max-width: 280px;
-      min-height: 280px;
-
-      padding: 1.5rem;
-    }
-
-    &__icon-wrapper {
-      width: 90px;
-      height: 90px;
-    }
-
-    &__icon {
-      width: 55px;
-      height: 55px;
-    }
-
-    &__title {
-      font-size: 1.1rem;
-    }
-
-    &__description {
-      font-size: 0.95rem;
-    }
-  }
-}
 
 @media (min-width: 1024px) {
 
@@ -371,10 +384,7 @@
 
     // CHIFFRE
     &__number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: $tarakota__dark;
-      margin-bottom: 1rem;
+
     }
 
     // CONTENEUR IMAGE
@@ -404,8 +414,7 @@
 
     // TEXTE
     &__desc {
-      font-size: 0.85rem;
-      color: #444;
+
     }
   }
   //mission

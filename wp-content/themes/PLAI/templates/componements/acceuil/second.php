@@ -20,8 +20,8 @@ $presentationImage = get_field("presentation__image");
         </div>
 
         <?php if (!empty($presentationImage)): ?>
-            <div>
-                <img src="<?= $presentationImage['url'] ?>" alt="<?= $presentationImage['alt'] ?>" width="<?= $presentationImage['width'] ?>" height="<?= $presentationImage['height'] ?>" itemprop="image"
+            <div class="presentation__pole__conteneur">
+                <img src="<?= $presentationImage['url'] ?>" alt="<?= $presentationImage['alt'] ?>" width="<?= $presentationImage['width'] ?>" height="<?= $presentationImage['height'] ?>" itemprop="image" class="presentation__pole__img"
                 >
             </div>
         <?php endif;?>

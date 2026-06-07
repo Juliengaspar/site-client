@@ -1,4 +1,7 @@
+
 console.log("test");
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const accordions = document.querySelectorAll('.accordion');
@@ -61,3 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+
+
+export const settings = {
+    accodrionsElement :".accordion",
+}

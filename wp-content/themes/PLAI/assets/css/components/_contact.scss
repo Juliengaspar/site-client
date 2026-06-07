@@ -5,9 +5,10 @@
   &__title{
     font-size: 3rem;
     text-transform: uppercase;
-    margin-bottom: 2rem;
-    border: 2px solid $tarakota__dark;
     display: inline-block;
+    width: auto;
+    margin: 2% 0;
+    border: 2px solid $tarakota__dark;
     padding: .8rem 1.5rem;
     font-weight: 600;
   }

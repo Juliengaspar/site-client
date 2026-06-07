@@ -19,9 +19,9 @@
 
   /* TITRE */
   &__title {
-    width: fit-content;
-
-    margin-bottom: 2rem;
+    display: inline-block;
+    width: auto;
+    margin: 2rem 0;
     padding: 0.8rem 1.5rem;
 
     border: 1px solid #d9a38f;
