@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const burger = document.getElementById("burger");
