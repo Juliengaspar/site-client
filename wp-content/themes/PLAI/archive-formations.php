@@ -9,7 +9,7 @@
             ?>
         </nav>
 
-        <section class="formations__hero" itemscope itemtype="https://schema.org/ItemList">>
+        <section class="formations__hero" itemscope itemtype="https://schema.org/ItemList">
                 <h2 class="formations__title" itemprop="headline">
                      Formations
                 </h2>

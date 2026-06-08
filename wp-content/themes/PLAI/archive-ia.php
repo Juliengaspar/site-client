@@ -86,7 +86,7 @@
                                                         <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-small')); ?> 400w,
                                                         <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-medium')); ?> 800w,
                                                         <?= esc_url(wp_get_attachment_image_url($image['ID'], 'square-large')); ?> 1200w
-                                                         " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >>
+                                                         " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >
                                             <?php endif; ?>
 
                                             <h3 itemprop="image"><?php the_title(); ?></h3>
