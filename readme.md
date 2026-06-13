@@ -1,4 +1,3 @@
-#PLAI
 # 🏫 PLAI - Pôle Liégeois d'Accompagnement vers une École Inclusive
 
 [![Statut du projet](https://img.shields.io/badge/statut-en%20cours-yellow)](https://github.com/Juliengaspar/site-portfolio)
