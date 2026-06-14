@@ -6,7 +6,6 @@ $EnseignantPossibilite = get_field("possibilite");
 $EnseignantExemple = get_field("Exemples__cas");
 $EnseignanLast = get_field("text__last");
 $EnseignanLink = get_field("link__formations");
-
 ?>
 
 <?php get_header()?>
@@ -68,7 +67,7 @@ $EnseignanLink = get_field("link__formations");
                 // Si c'est un champ de type "lien" ACF
                 if(is_array($EnseignanLink) && isset($EnseignanLink['url'])) {
                     ?>
-                    <a href="<?= esc_url($EnseignanLink['url']) ?>" aria-readonly="<?= $EnseignanLink['title'] ?>" class="btn"><?= $EnseignanLink['title'] ?></a>
+                    <a href="<?= esc_url($EnseignanLink['url']) ?>" aria-readonly="<?= $EnseignanLink['title'] ?>" class="btn"><?= esc_attr($EnseignanLink['title']); ?></a>
                     <?php
                 }
                 // Si c'est un champ texte classique

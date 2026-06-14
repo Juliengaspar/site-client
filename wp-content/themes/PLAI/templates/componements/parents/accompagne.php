@@ -10,12 +10,12 @@ $descritpion = $falc ? get_field('accompagne__description__falc') : get_field('a
     <section>
         <?php if (!empty($title)): ?>
             <h3 class="acceuil__title">
-                <?= $title; ?>
+                <?=esc_html($title); ?>
             </h3>
         <?php endif; ?>
         <div>
             <?php if (!empty($descritpion)): ?>
-                <?= $descritpion?>
+                <?= $descritpion; ?>
             <?php endif; ?>
         </div>
     </section>

@@ -87,7 +87,7 @@
                                     <?php if ($file) : ?>
 
                                         <article class="documents__category__contenu">
-                                            <a href="<?= $file['url'] ?>" class="documents__download documents__category__link" title="<?= $file['title']; ?>" itemprop="identifier" download>
+                                            <a href="<?= esc_url($file['url']) ?>" class="documents__download documents__category__link" title="<?= esc_attr($file['title']); ?>" itemprop="identifier" download>
                                                 <div class="documents__category__link"> <?= wp_kses_post($description); ?> </div>
                                             </a>
                                         </article>

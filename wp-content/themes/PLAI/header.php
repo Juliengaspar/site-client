@@ -47,19 +47,6 @@
     ]);
     ?>
 
-    <!-- MODE FALC -->
-    <div class="header__accessibility">
-        <?php
-        /*
-        $current_path = strtok($_SERVER["REQUEST_URI"], '?');
-        $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : '';
-       ?>
-
-        <a href="<?= esc_url($current_path . ($falc ? '' : '?falc=true')); ?>">
-            <?= $falc ? 'Mode classique' : 'Mode FALC'; ?>
-        </a> */?>
-    </div>
-
     <!-- SEARCH -->
     <div class="header__search">
         <?php get_search_form(); ?>
@@ -67,10 +54,3 @@
 
 </header>
 
-<?php //if(!is_front_page()): ?>
-<!--    <nav class="breadcrumb">-->
-<!--        <a href="--><?php //= home_url(); ?><!--">Accueil</a>-->
-<!--        <span>&rsaquo;</span>-->
-<!--        <span>--><?php //the_title(); ?><!--</span>-->
-<!--    </nav>-->
-<?php //endif; ?>

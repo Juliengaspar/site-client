@@ -41,7 +41,7 @@
                                     <figure class="formation-card__image">
 
                                         <?php if ($imgFormations) : ?>
-                                            <img src="<?= $imgFormations['url']; ?>" alt="<?= $imgFormations['alt']; ?>" title="<?= $imgFormations['title']; ?>" class="formation-card__img" itemprop="image"
+                                            <img src="<?= esc_url($imgFormations['url']); ?>" alt="<?= esc_attr($imgFormations['alt']); ?>" title="<?= $imgFormations['title']; ?>" class="formation-card__img" itemprop="image"
                                                  srcset="
                                                      <?= esc_url(wp_get_attachment_image_url($imgFormations['ID'], 'square-small')); ?> 400w,
                                                      <?= esc_url(wp_get_attachment_image_url($imgFormations['ID'], 'square-medium')); ?> 800w,
@@ -54,13 +54,13 @@
                                     <section class="formation-card__content">
 
                                         <h3 class="formation-card__title">
-                                                <?= $titleFormations ?>
+                                                <?= esc_html($titleFormations) ?>
                                         </h3>
 
                                         <?php if ($descriptionFormations) : ?>
 
                                             <p class="formation-card__subtitle" itemprop="description">
-                                                <?= $descriptionFormations ?>
+                                                <?= esc_html($descriptionFormations) ?>
                                             </p>
 
                                         <?php endif; ?>

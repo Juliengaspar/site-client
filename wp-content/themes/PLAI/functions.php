@@ -64,7 +64,6 @@ function plai_register_menus() {
 
         'header'               => 'Menu principal',
         'footer'               => 'Menu footer',
-        'social-media'         => 'Réseaux sociaux',
         'utils'                => 'Liens utiles',
         'navigation__private'  => 'Menu navigation privée',
 
@@ -79,7 +78,6 @@ add_action('after_setup_theme', 'plai_register_menus');
 // Déclaration des menus dans wordpress
 register_nav_menu('header', 'Menu principal');
 register_nav_menu('footer', 'Le menu de navigation de fin de page');
-register_nav_menu('social-media', 'Le menu de navigation pour les réseaux sociaux');
 register_nav_menu('utils', 'Le menu de navigation pour les ressources utiles');
 //register_nav_menu('navigation__private', 'Le menu de navigationla partie priver ');
 

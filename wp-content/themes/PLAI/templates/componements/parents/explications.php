@@ -10,34 +10,26 @@ $descritpion = $falc ? get_field('accesibilte__description__falc') : get_field('
     <section class="explications">
         <?php if (!empty($title)): ?>
         <h3 class="acceuil__title">
-             <?= $title; ?>
+             <?= esc_html($title); ?>
         </h3>
             <?php endif; ?>
         <div>
             <?php if (!empty($descritpion)): ?>
-            <?= $descritpion?>
+            <?= esc_html($descritpion); ?>
             <?php endif; ?>
-
-        <!--<div>
-            <img>
-        </div>-->
         </div>
 </section>
 <?php else: ?>
     <section>
         <?php if (!empty($title)): ?>
             <h3>
-                <?= $title; ?>
+                <?= esc_html($title); ?>
             </h3>
         <?php endif; ?>
         <div>
             <?php if (!empty($descritpion)): ?>
-                <?= $descritpion?>
+                <?= esc_html($descritpion) ?>
             <?php endif; ?>
-
-            <!--<div>
-                <img>
-            </div>-->
         </div>
     </section>
 <?php endif; ?>
