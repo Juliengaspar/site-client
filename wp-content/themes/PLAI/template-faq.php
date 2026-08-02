@@ -5,7 +5,8 @@
 
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>
-        <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
+<!--        --><?php //include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
+       <?php get_template_part('templates/componements/navigations/navigation__private');  ?>
     </nav>
     <?php
     $faqContenu = get_field('explication__page');
@@ -15,7 +16,7 @@
         <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
         <div class="faq__contenu__explication">
-            <?= $faqContenu?>
+            <?= wp_kses_post($faqContenu)?>
         </div>
     </section>
 <section class="faq">

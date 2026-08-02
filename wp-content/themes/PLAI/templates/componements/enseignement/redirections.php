@@ -1,13 +1,20 @@
+<?php
+/**
+* redirections.php
+* Affiche les cartes de redirection (répéteur ACF)
+* Structure : section > grille > cartes
+*/
+?>
 <?php if( have_rows('liste__redirection') ) : ?>
     <?php while( have_rows('liste__redirection') ) : the_row();
         $titeRedirection = get_sub_field('title__redirection');
         $explicationRedirection = get_sub_field('explication__redirection');
         $linkRedirection = get_sub_field('link__redirection');
         ?>
-        <section class="redirections">
+        <section class="redirections" aria-labelledby="redirections-title">
 
             <?php if($titeRedirection): ?>
-                <h3 class="redirections__title"><?= esc_html($titeRedirection); ?></h3>
+                <h3 id="redirections-title" class="redirections__title"><?= esc_html($titeRedirection); ?></h3>
             <?php endif; ?>
 
             <div>

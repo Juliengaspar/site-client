@@ -21,7 +21,23 @@
           transform 0.3s ease;
 
   animation: headerAppear 0.6s ease;
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+  }
 }
+
 
 /* Animation légère */
 @keyframes headerAppear {
@@ -120,25 +136,7 @@
   box-sizing: border-box;
 }
 
-.header {
 
-  /* Bouton burger */
-  &__burger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
-
-    span {
-      width: 25px;
-      height: 3px;
-      background-color: #000;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-  }
-}
 .title{
   font-size: 5rem;
   width: 100%;
@@ -229,23 +227,13 @@
     }
   }
 
-  /* TITRES */
-  .acceuil__title{
-
-  }
 }
 
 body {
   background-color: $background; // ⚠️ corrige ta variable (typo)
   font-family: Arial, Times New Roman, Bitstream Charter, Times, serif;
 }
-.acceuil__title{
-  display: inline-block;  // Clé : le bloc s'adapte au contenu
-  width: auto;
-  font-size: 2.625rem;
-  font-weight: 500;
-  border: 1px solid $tarakota__dark;
-}
+
  .title__second__aceuil{
   display: inline-block;  // Clé : le bloc s'adapte au contenu
   width: 100%;

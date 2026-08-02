@@ -4,6 +4,31 @@
     <?php get_template_part('templates/components/header--logo/img'); ?>
     <?php include('wp-content/themes/PLAI/templates/componements/acceuil/first.php')?>
     <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+    <div class="parents__contenu">
+        <?php
+
+        add_filter('body_class', function($classes) {
+            if (isset($_GET['falc']) && $_GET['falc'] === 'true') {
+                $classes[] = 'mode-falc';
+            } else {
+                $classes[] = 'mode-classique';
+            }
+            return $classes;
+        });
+
+        ?>
+        <?php $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : ''; ?>
+
+        <a href="/<?= $falc ? '' : '?falc=true'; ?>" title="falc" class="falc">
+            <?= $falc ? 'Classique' : 'falc'; ?>
+            <img
+                    src="<?= get_template_directory_uri(); ?>/assets/icons/FALC-V1.svg"
+                    alt=""
+                    aria-hidden="true"
+                    class="falc__icon"
+            >
+        </a>
+    </div>
 
     <?php include('wp-content/themes/PLAI/templates/componements/acceuil/second.php')?>
 <?php include('wp-content/themes/PLAI/templates/componements/acceuil/chiffres.php')?>

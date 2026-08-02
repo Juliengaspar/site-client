@@ -12,7 +12,7 @@ $linkFilleArriane = get_field('file__arriane__link');
                     <?= esc_url(wp_get_attachment_image_url($logoPLaiAcceuil['ID'], 'square-large')); ?> 1200w
                      " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >
     </div>
-    <h3 class="acceuil__title title" itemprop="name"><?= $titleAcceuil ?></h3>
+    <h2 class="acceuil__title" itemprop="name"><?= $titleAcceuil ?></h2>
 
 
 </section>

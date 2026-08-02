@@ -1,9 +1,18 @@
 <?php /* Template Name: Ressources */ ?>
 
+<?php
+// Récupérer toutes les catégories (taxonomies) du CPT ressource
+$terms = get_terms([
+        'taxonomy' => 'type_ressource',
+        'hide_empty' => true,
+        'orderby' => 'name',
+        'order' => 'ASC',
+]);
+?>
 <?php get_header(); ?>
     <main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
-        <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
-
+<!--        --><?php //include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
+            <?php get_template_directory('PLAI/templates/componements/header--logo/img.php') ?>
         <nav class="header__nav">
             <h2 class="sro">Barre de navigation</h2>
             <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
@@ -27,14 +36,22 @@
         </section>
 
         <section class="page-ressources">
+            <section class="ressources-filters">
+                <ul class="filters-list">
+                    <li><button class="filter-btn active" data-filter="all">Toutes</button></li>
+                    <?php foreach ($terms as $term) : ?>
+                        <li><button class="filter-btn" data-filter="<?= esc_attr($term->slug); ?>"><?= esc_html($term->name); ?></button></li>
+                    <?php endforeach; ?>
+                </ul>
+            </section>
             <h2 class="sro">Ressources</h2>
 
             <section class="container"  itemscope itemtype="https://schema.org/ItemList">
 
                 <?php
                 // Récupérer les valeurs
-                $titre_page = get_field('titre_page', );
-                $description_page = get_field('description_page');
+                $titre_page = get_field('titre_page', get_the_ID());
+                $description_page = get_field('description_page', get_the_ID());
 
                 // Afficher seulement si des valeurs existent
                 if( $titre_page ) : ?>
@@ -46,17 +63,13 @@
                 <?php endif; ?>
 
                 <?php
-                // Récupérer toutes les catégories (taxonomies) du CPT ressource
-                $terms = get_terms(array(
-                        'taxonomy' => 'type_ressource',
-                        'hide_empty' => true,
-                ));
+
 
                 if ($terms && !is_wp_error($terms)) :
                     foreach ($terms as $term) :
                         ?>
 
-                        <section class="categorie"  itemscope itemtype="https://schema.org/CategoryCode">
+                        <section class="categorie"   itemscope itemtype="https://schema.org/CategoryCode">
                             <h2 class="categorie__title" itemprop="name"><?= $term->name ?></h2>
 
                             <div class="grid-ressources" itemprop="description">
@@ -117,7 +130,7 @@
                                                          " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw,   400px" >
                                             <?php endif; ?>
 
-                                            <h3 itemprop="image"><?= the_title(); ?></h3>
+                                            <h3 itemprop="name"><?= the_title(); ?></h3>
                                             <?php if ($description) : ?>
                                                 <p itemprop="description"><?=$description ?></p>
                                             <?php endif; ?>

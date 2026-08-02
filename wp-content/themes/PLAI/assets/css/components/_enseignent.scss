@@ -57,7 +57,10 @@
 }
 
 .redirections {
-  margin-bottom: 3rem;
+  border: 1px solid $tarakota__dark;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
 
   &__title {
     font-size: 1.5rem;

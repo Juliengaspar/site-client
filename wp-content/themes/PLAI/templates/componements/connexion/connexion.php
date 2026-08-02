@@ -3,7 +3,9 @@ $titleConnextion = get_field('title__page');
 $explicationConnextion = get_field('description__page');
 $reddirectionConnextion = get_field('inscription__link');
 
+
 ?>
+
 
 <section class="form__container">
     <h2 class="form__title"><?= $titleConnextion ?></h2>

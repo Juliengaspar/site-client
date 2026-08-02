@@ -1,0 +1,123 @@
+@use "../general/general" as *;
+
+///mobile
+.falc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem; // 14px
+  letter-spacing: 0.5px;
+
+  // Couleurs (assure un excellent contraste)
+  background-color: $tarakota__dark; // ex: #1a2b3c
+  color: #ffffff !important; // contraste parfait avec un fond sombre
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+
+  // Transition pour l'effet de survol
+  transition: all 0.25s ease-in-out;
+
+  // Positionnement
+  align-self: flex-end;
+  flex-shrink: 0; // empêche le rétrécissement
+
+  // ===== ICÔNE =====
+  &__icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); // rend l'icône blanche
+    transition: transform 0.3s ease;
+  }
+
+  // ===== SURVOL / FOCUS =====
+  &:hover,
+  &:focus-visible {
+    background-color: $tarakota__extra__dark; // ex: #0d1b2a
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    .falc__icon {
+      transform: rotate(-8deg) scale(1.05);
+    }
+  }
+
+  // ===== ÉTAT ACTIF (quand on clique) =====
+  &:active {
+    transform: scale(0.97);
+  }
+
+  // ===== MODE CLASSIQUE (version non-FALC) =====
+  &.mode-classique & {
+    // On peut légèrement atténuer le bouton en mode classique
+    background-color:$tarakota__dark;
+  }
+}
+
+//tablette
+@media (min-width: 768px) {
+  .falc {
+    font-size: 1rem; // 16px
+    padding: 0.75rem 1.5rem;
+    gap: 0.75rem;
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+//Desktop
+@media (min-width: 1024px) {
+  .falc {
+    font-size: 1.125rem; // 18px
+    padding: 0.9rem 2rem;
+    border-radius: 3rem;
+    gap: 1rem;
+
+    &__icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// ============================================
+// VARIANTES DE POSITIONNEMENT
+// ============================================
+
+// Si le bouton est dans un conteneur flex comme .parents__contenu
+.parents__contenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  // Le titre prend tout l'espace disponible
+  .title {
+    flex: 1 1 auto;
+  }
+
+  // Le bouton reste à droite
+  .falc {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
+

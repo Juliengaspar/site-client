@@ -91,6 +91,10 @@
     &::-webkit-details-marker {
       display: none;
     }
+
+  }
+  &__header:hover{
+    background-color: lightgray;
   }
 
   &__heading {

@@ -9,7 +9,7 @@ $EnseignanLink = get_field("link__formations");
 ?>
 
 <?php get_header()?>
-<main class="main">
+<main class="main enseignant-page">
 
     <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
@@ -30,19 +30,16 @@ $EnseignanLink = get_field("link__formations");
         <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
         <?php if($EnseignantDescription): ?>
-            <?= wp_kses_post($EnseignantDescription) ?>
+            <div class="enseignant-page__description">
+                <?= wp_kses_post($EnseignantDescription); ?>
+            </div>
         <?php endif; ?>
         <div>
             <?php
             if($EnseignantPossibilite) {
                 // Si c'est un champ WYSIWYG ou texte
-                if(is_string($EnseignantPossibilite)) {
-                    echo wp_kses_post($EnseignantPossibilite);
-                }
-                // Si c'est un champ répéteur ou autre type
-                else if(is_array($EnseignantPossibilite)) {
-                    echo '<pre>' . print_r($EnseignantPossibilite, true) . '</pre>';
-                }
+            echo wp_kses_post($EnseignantPossibilite);
+
             }
             ?>
         </div>
@@ -51,11 +48,7 @@ $EnseignanLink = get_field("link__formations");
         <div>
             <?php
             if($EnseignantExemple) {
-                if(is_string($EnseignantExemple)) {
-                    echo wp_kses_post($EnseignantExemple);
-                } else if(is_array($EnseignantExemple)) {
-                    echo '<pre>' . print_r($EnseignantExemple, true) . '</pre>';
-                }
+              echo wp_kses_post($EnseignantExemple);
             }
             ?>
         </div>
@@ -67,7 +60,7 @@ $EnseignanLink = get_field("link__formations");
                 // Si c'est un champ de type "lien" ACF
                 if(is_array($EnseignanLink) && isset($EnseignanLink['url'])) {
                     ?>
-                    <a href="<?= esc_url($EnseignanLink['url']) ?>" aria-readonly="<?= $EnseignanLink['title'] ?>" class="btn"><?= esc_attr($EnseignanLink['title']); ?></a>
+                    <a href="<?= esc_url($EnseignanLink['url']) ?>" title="<?= esc_attr($EnseignanLink['title']) ?>" class="btn"><?= esc_html($EnseignanLink['title']); ?></a>
                     <?php
                 }
                 // Si c'est un champ texte classique

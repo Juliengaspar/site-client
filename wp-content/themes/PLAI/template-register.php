@@ -12,8 +12,14 @@ include('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane
     include get_template_directory() . '/templates/componements/connexion/textDemande.php';
 ?>
 <?php \wtl\Helpers::render_partial('request-form.php'); ?>
+<?php
+    // On s'assure que $state existe (même si pas de soumission)
+    $state = $state ?? ['success' => false];
 
-   <?php  include get_template_directory() . '/templates/componements/connexion/redirection.php';?>
-</main>
+    // On n'affiche la redirection QUE si la demande a réussi
+    if (!empty($state['success'])) {
+    include get_template_directory() . '/templates/componements/connexion/redirection.php';
+    }
+    ?></main>
 
 <?php get_footer(); ?>

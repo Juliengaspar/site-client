@@ -26,6 +26,7 @@
                         $mission_title_item = get_sub_field('titre_mission');
                         $mission_description = get_sub_field('description_mission');
                         $mission_icon = get_sub_field('icone_mission');
+                        $description = get_sub_field('description');
 
                         ?>
 
@@ -54,9 +55,10 @@
                                 <?php endif; ?>
 
                                 <?php if ($mission_description) : ?>
-                                    <p class="mission-card__description" itemprop="descrption">
-                                        <?=$mission_description; ?>
-                                    </p>
+                                    <div class="mission-card__description" itemprop="description">
+                                        <?= $mission_description; ?>
+                                        <?= $description; ?>
+                                    </div>
                                 <?php endif; ?>
 
                             </div>

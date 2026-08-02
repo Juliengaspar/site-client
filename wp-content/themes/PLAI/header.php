@@ -9,9 +9,11 @@
     <meta name="author" content="Julien Gaspar">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= get_the_title()?></title>
+    <title><?=  wp_get_document_title(); ?></title>
+<!--    <link rel="stylesheet" type="text/css" href="--><?php //=dw_asset('css')?><!--">-->
     <link rel="stylesheet" type="text/css" href="<?=dw_asset('css')?>">
     <script src="<?= dw_asset('js')?>" defer ></script>
+    <?php wp_head(); ?>
 
 </head>
 
@@ -24,32 +26,55 @@
     <div class="header__logo">
         <?php $logo = get_field('header_logo', 'option'); ?>
 
-        <a href="<?= home_url(); ?>" class="header__logo__links">
-            <?php if($logo): ?>
-                <img src="<?= esc_url($logo['url']); ?>" alt="<?= esc_attr($logo['alt']); ?>" class="header__logo__img">
-            <?php else: ?>
-                <span>PLAI</span>
+        <a href="<?= esc_url(home_url()); ?>" class="header__logo__links" aria-label="Accueil">
+            <?php if ($logo && isset($logo['url'])) : ?>
+                <img
+                        src="<?= esc_url($logo['url']); ?>"
+                        alt="<?= esc_attr($logo['alt'] ?? 'PLAI'); ?>"
+                        class="header__logo__img"
+                        loading="eager"
+                        width="<?= esc_attr($logo['width'] ?? ''); ?>"
+                        height="<?= esc_attr($logo['height'] ?? ''); ?>"
+                >
+            <?php else : ?>
+                <span class="header__logo__text">PLAI</span>
             <?php endif; ?>
         </a>
     </div>
-    <div class="header__burger" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <!-- ===== BURGER MENU ===== -->
+    <button class="header__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="header__burger__line"></span>
+        <span class="header__burger__line"></span>
+        <span class="header__burger__line"></span>
+    </button>
     <!-- NAVIGATION -->
-    <?php
-    wp_nav_menu([
-            'theme_location' => 'header',
-            'container' => false,
-            'menu_class' => 'ul-container',
-            'container_class' => 'div-container',
-    ]);
-    ?>
+    <nav class="nav" aria-label="Navigation principale">
+        <?php
+        wp_nav_menu([
+                'theme_location' => 'header',
+                'container'      => false,
+                'menu_class'     => 'ul-container',
+                'container_class' => 'div-container',
+
+        ]);
+        ?>
+    </nav>
 
     <!-- SEARCH -->
     <div class="header__search">
         <?php get_search_form(); ?>
+    </div>
+
+    <!-- ===== TOGGLE FALC ===== -->
+    <div class="header__accessibility">
+        <?php
+        $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : '';
+        $falc_url = $falc ? '?' : '?falc=true';
+        $falc_label = $falc ? 'Classique' : 'FALC';
+        ?>
+        <a href="<?= esc_url($falc_url); ?>" class="header__falc" aria-label="Version FALC">
+            <?= esc_html($falc_label); ?>
+        </a>
     </div>
 
 </header>

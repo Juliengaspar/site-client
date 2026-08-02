@@ -23,3 +23,6 @@ if (is_post_type_archive('formations') || is_singular('formations')) {
         <span class="breadcrumb__page"><?= esc_html($title); ?></span>
     </nav>
 <?php endif; ?>
+
+
+

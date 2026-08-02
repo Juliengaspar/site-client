@@ -9,7 +9,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
         <h2 id="chiffres-title" class="chiffres__title" itemprop="name"><?= $titleChiffre ?></h2>
     <?php endif;?>
         <?php if (!empty($exemplesChiffreTableaux)): ?>
-            <section class="chiffres__grid"  itemprop="itemListElement">
+            <ul class="chiffres__grid"  itemprop="itemListElement">
                 <?php foreach ($exemplesChiffreTableaux as $item):
 
                     $number = $item['exemple__chiffrer'];
@@ -18,7 +18,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
                     $desc = $item['description__exemple__chiffre'];
                     ?>
 
-                    <article class="chiffre-card">
+                    <li class="chiffre-card">
 
                         <?php if ($number): ?>
                             <p class="chiffre-card__number" itemprop="name">
@@ -49,9 +49,9 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
                             </div>
                         <?php endif; ?>
 
-                    </article>
+                    </li>
 
                 <?php endforeach; ?>
-            </section>
+            </ul>
         <?php endif; ?>
 </section>

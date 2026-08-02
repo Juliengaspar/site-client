@@ -1,6 +1,12 @@
+<?php
+/**
+ * Template Name: Documents
+ * Affiche la bibliothèque de documents téléchargeables
+ */
+?>
 <?php get_header(); ?>
 
-    <main class="main" role="main" itemscope itemtype="https://schema.org/DigitalDocument">
+    <main class="main documents-page" role="main" itemscope itemtype="https://schema.org/DigitalDocument">
         <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <nav class="header__nav">
@@ -12,7 +18,7 @@
 
             <!-- Titre dynamique du CPT -->
             <h2 class="documents__title" itemprop="headline">
-                <?= post_type_archive_title('', false); ?>
+                <?= esc_html(post_type_archive_title('', false) ?: 'Bibliothèque de documents'); ?>
             </h2>
 
             <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
@@ -30,7 +36,7 @@
                     </h3>
                 <?php endif; ?>
 
-                <?php if ($intro_content) : ?>
+                <?php if ($intro_content || $explication_content) : ?>
                     <div class="documents__intro__contenu" itemprop="description">
                         <?= wp_kses_post($intro_content); ?>
                         <?= wp_kses_post($explication_content); ?>
@@ -40,10 +46,12 @@
             </section>
 
             <?php
-            $categories = get_terms(array(
+            $categories = get_terms([
                     'taxonomy'   => 'categorie_document',
                     'hide_empty' => true,
-            ));
+                    'orderby'    => 'name',
+                    'order'      => 'ASC',
+            ]);
             ?>
 
             <?php if ($categories && !is_wp_error($categories)) : ?>
@@ -84,12 +92,15 @@
                                     $description = get_field('description');
                                     ?>
 
-                                    <?php if ($file) : ?>
-
+                                    <?php if ($file && isset($file['url'])) : ?>
                                         <article class="documents__category__contenu">
-                                            <a href="<?= esc_url($file['url']) ?>" class="documents__download documents__category__link" title="<?= esc_attr($file['title']); ?>" itemprop="identifier" download>
-                                                <div class="documents__category__link"> <?= wp_kses_post($description); ?> </div>
+                                            <a href="<?= esc_url($file['url']); ?>"
+                                               class="documents__link"
+                                               title="<?= esc_attr($file['title'] ?? get_the_title()); ?>"
+                                               itemprop="identifier"
+                                               aria-label="Télécharger <?= esc_attr(get_the_title()); ?>">                                                <div class="documents__category__link"> <?= wp_kses_post($description); ?> </div>
                                             </a>
+                                            <span class="documents__link__icon" aria-hidden="true">📄</span>
                                         </article>
                                     <?php endif; ?>
                                 <?php endwhile; ?>

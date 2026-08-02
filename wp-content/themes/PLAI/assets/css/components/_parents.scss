@@ -24,12 +24,11 @@
   gap: 2rem;
 
   &__contenu {
-    display: flex;
-    flex-direction: column;
+
     gap: 1.5rem;
   }
 
-  .falc {
+ /* .falc {
     display: inline-flex;
     align-items: center;
     gap: .5rem;
@@ -46,6 +45,9 @@
       height: 24px;
     }
   }
+  .falc:hover {
+    background-color: $tarakota__extra__dark;
+  }*/
 
   &__title {
     font-size: 2rem;
@@ -79,7 +81,7 @@
   &__accompagnement__explication,
   &__parler__contenu {
     background-color: $fille-ariane;
-    color: #4a4a4a;
+    color: $white;
     border-radius: 1rem;
     padding: 1.5rem;
     font-size: 1rem;
@@ -110,10 +112,6 @@
   }
 }
 
-/* ==========================
-   TABLETTE
-   min-width: 768px
-========================== */
 
 @media (min-width: 768px) {
   .parents {

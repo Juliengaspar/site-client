@@ -19,7 +19,7 @@ $accompagneTitle = $falc ? get_field('accompagne__title__falc' , $page_id) : get
 $accompagneText = $falc ? get_field('accompagne__description__falc' , $page_id) : get_field('accompagne__description' , $page_id);
 $parlerTitle = $falc ? get_field('parler__title__falc' , $page_id) : get_field('parler__title' , $page_id);
 $parlerText = $falc ? get_field('parler__description__falc' , $page_id) : get_field('parler__description' , $page_id);
-
+/*
 add_filter('body_class', function($classes) {
     if (isset($_GET['falc']) && $_GET['falc'] === 'true') {
         $classes[] = 'mode-falc';
@@ -29,21 +29,22 @@ add_filter('body_class', function($classes) {
     return $classes;
 });
 
+
 ?>
-<?php $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : ''; ?>
+<?php $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : ''; */?>
 
 
 <section class="parents" itemscope itemtype="https://schema.org/WebPage">
     <div class="parents__contenu">
-<a href="/<?= $falc ? '' : '?falc=true'; ?>" title="falc" class="falc">
-    <?= $falc ? 'Classique' : 'falc'; ?>
-    <img
-            src="<?= get_template_directory_uri(); ?>/assets/icons/FALC-V1.svg"
-            alt=""
-            aria-hidden="true"
-            class="falc__icon"
-    >
-</a>
+<!--<a href="/--><?php //= $falc ? '' : '?falc=true'; ?><!--" title="falc" class="falc">-->
+<!--    --><?php //= $falc ? 'Classique' : 'falc'; ?>
+<!--    <img-->
+<!--            src="--><?php //= get_template_directory_uri(); ?><!--/assets/icons/FALC-V1.svg"-->
+<!--            alt=""-->
+<!--            aria-hidden="true"-->
+<!--            class="falc__icon"-->
+<!--    >-->
+<!--</a>-->
     <h2 class="parents__title "  itemprop="headline"><?= get_field('title__page', $page_id); ?></h2>
     </div>
     <section class="parents__ecole"    itemscope itemtype="https://schema.org/Article">

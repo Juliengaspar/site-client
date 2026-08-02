@@ -1,54 +1,191 @@
 @use 'general' as *;
+
 // =====================================
-// FIL D'ARIANE
+// FIL D'ARIANE - Version Premium
 // =====================================
 
 .breadcrumb {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.5rem;
 
   width: fit-content;
-
+  max-width: 100%;
   margin: 1.5rem auto;
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 1.5rem;
 
-  background: $tarakota__dark;
-  border: 1px solid $fille-ariane;
-  border-radius: 999px;
+  background: $bg-section;
+  border-radius: 50px;
 
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
 
-  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
 
+  // Effet au survol du breadcrumb entier
+  &:hover {
+    background: rgba($tarakota__dark, 0.12);
+    border-color: rgba($tarakota__dark, 0.25);
+    box-shadow: 0 2px 12px rgba($tarakota__dark, 0.08);
+  }
+
+  // ===== LIENS =====
   &__link {
-    color: $white;
+    position: relative;
+    color: $tarakota__dark;
     text-decoration: none;
-    transition: all 0.3s ease;
+    padding: 0.2rem 0;
+    transition: color 0.25s ease;
 
-    &:hover,
-    &:focus {
-      font-size: 1rem;
-      color: $white;
-      text-decoration: underline;
+    // Soulignement animé
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $fille-ariane;
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:hover {
+      color: $tarakota__extra__dark;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $fille-ariane;
+      outline-offset: 3px;
+      border-radius: 4px;
     }
   }
 
+  // ===== SÉPARATEUR =====
   &__separator {
-    color: #f5a623;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $fille-ariane;
     font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0 0.1rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    // Animation du séparateur au survol du breadcrumb
+    .breadcrumb:hover & {
+      opacity: 1;
+    }
   }
 
+  // ===== PAGE ACTUELLE =====
   &__page {
     text-transform: uppercase;
     color: $fille-ariane;
     font-weight: 700;
-
-    max-width: 180px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.5rem;
+    background: rgba($fille-ariane, 0.1);
+    border-radius: 4px;
+    max-width: 200px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    transition: all 0.25s ease;
+
+    // Au survol du breadcrumb, la page active s'illumine
+    .breadcrumb:hover & {
+      background: rgba($fille-ariane, 0.18);
+      transform: scale(1.02);
+    }
+  }
+}
+
+// =====================================
+// VARIANTE : Version "surlignée" (alternative)
+// =====================================
+.breadcrumb--highlight {
+  background: $tarakota__dark;
+  border-color: $fille-ariane;
+
+
+  .breadcrumb__link {
+    color: $white;
+
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .breadcrumb__separator {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .breadcrumb__page {
+    color: $white;
+    background: rgba($fille-ariane, 0.25);
+  }
+
+  &:hover {
+    background: $tarakota__extra__dark;
+  }
+}
+
+.breadcrumb--minimal {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0;
+
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .breadcrumb__link {
+    color: $white;
+
+
+  }
+
+  .breadcrumb__page {
+    background: transparent;
+    color: $tarakota__extra__dark;
+
+    .breadcrumb:hover & {
+      background: transparent;
+      transform: none;
+    }
+  }
+}
+
+// =====================================
+// RESPONSIVE
+// =====================================
+@media (max-width: 480px) {
+  .breadcrumb {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+    gap: 0.3rem;
+    border-radius: 30px;
+
+    &__link {
+      font-size: 0.75rem;
+    }
+
+    &__page {
+      font-size: 0.7rem;
+      max-width: 120px;
+    }
+
+    &__separator {
+      font-size: 0.7rem;
+    }
   }
 }
