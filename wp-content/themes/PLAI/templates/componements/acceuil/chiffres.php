@@ -6,7 +6,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
 <section class="Chiffres" aria-labelledby="chiffres-title"  itemscope itemtype="https://schema.org/ItemList">
 
     <?php if (!empty($titleChiffre)): ?>
-        <h2 id="chiffres-title" class="chiffres__title" itemprop="name"><?= $titleChiffre ?></h2>
+        <h2 id="chiffres-title" class="chiffres__title" itemprop="name"><?= esc_html($titleChiffre) ?></h2>
     <?php endif;?>
         <?php if (!empty($exemplesChiffreTableaux)): ?>
             <ul class="chiffres__grid"  itemprop="itemListElement">
@@ -45,7 +45,7 @@ $exemplesChiffreTableaux = get_field("exemples__chiffres");
 
                         <?php if ($desc): ?>
                             <div class="chiffre-card__desc" itemprop="description">
-                                <?= $desc; ?>
+                                <?= wp_kses_post($desc); ?>
                             </div>
                         <?php endif; ?>
 

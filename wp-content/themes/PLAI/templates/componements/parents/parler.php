@@ -10,12 +10,12 @@ $descritpion = $falc ? get_field('parler__description__falc') : get_field('parle
     <section>
         <?php if (!empty($title)): ?>
             <h3 class="acceuil__title">
-                <?= $title; ?>
+                <?= esc_html($title); ?>
             </h3>
         <?php endif; ?>
         <div>
             <?php if (!empty($descritpion)): ?>
-                <?= $descritpion?>
+                <?= wp_kses_post($descritpion)?>
             <?php endif; ?>
         </div>
     </section>
@@ -23,12 +23,12 @@ $descritpion = $falc ? get_field('parler__description__falc') : get_field('parle
     <section>
         <?php if (!empty($title)): ?>
             <h3>
-                <?= $title; ?>
+                <?= esc_html($title); ?>
             </h3>
         <?php endif; ?>
         <div>
             <?php if (!empty($descritpion)): ?>
-                <?= $descritpion?>
+                <?= wp_kses_post($descritpion)?>
             <?php endif; ?>
         </div>
     </section>

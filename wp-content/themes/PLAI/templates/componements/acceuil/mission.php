@@ -13,7 +13,7 @@
                 <?php if ($mission_title) : ?>
                     <section class="missions-section__header">
                         <h3 id="missions-title" class="missions-section__title" itemprop="name">
-                            <?=$mission_title ; ?>
+                            <?=esc_html($mission_title) ; ?>
                         </h3>
                     </section>
                 <?php endif; ?>
@@ -36,7 +36,7 @@
 
                                 <?php if ($mission_title_item) : ?>
                                     <h3 class="mission-card__title" itemprop="name">
-                                        <?php echo esc_html($mission_title_item); ?>
+                                        <?= esc_html($mission_title_item); ?>
                                     </h3>
                                 <?php endif; ?>
 
@@ -56,8 +56,8 @@
 
                                 <?php if ($mission_description) : ?>
                                     <div class="mission-card__description" itemprop="description">
-                                        <?= $mission_description; ?>
-                                        <?= $description; ?>
+                                        <?= wp_kses_post($mission_description); ?>
+                                        <?= wp_kses_post($description); ?>
                                     </div>
                                 <?php endif; ?>
 
@@ -68,7 +68,7 @@
                     <?php endwhile; ?>
                     <section class="missions-section__cta">
                         <h2 class="sro">mission redirection</h2>
-                        <a href="<?=$mission_button['url']; ?>" class="missions-section__button" itemprop="url"><?=$mission_button['title']; ?></a>
+                        <a href="<?=esc_url($mission_button['url']); ?>" class="missions-section__button" itemprop="url"><?=$mission_button['title']; ?></a>
                     </section>
                 </div>
 

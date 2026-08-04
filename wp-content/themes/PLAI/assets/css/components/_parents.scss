@@ -1,14 +1,11 @@
 @use "../general/general" as *;
-//falc
+
+// ==============================================
+// MODE CLASSIQUE (défaut)
+// ==============================================
 .mode-classique {
-  background: #fff;
   color: #222;
 
-  h1,
-  h2,
-  h3 {
-    color: #1a1a1a;
-  }
 
   section {
     background: #f8f8f8;
@@ -16,7 +13,32 @@
   }
 }
 
-// Parents
+// ==============================================
+// MODE FALC (adaptation accessibilité)
+// ==============================================
+.mode-falc {
+  font-size: 1.2rem;
+  line-height: 1.6;
+
+  .parents {
+    &__ecole,
+    &__accompagnement,
+    &__parler {
+      padding: 2.5rem;
+    }
+
+    &__ecole__explication,
+    &__accompagnement__explication,
+    &__parler__contenu {
+      font-size: 1.15rem;
+      padding: 2rem;
+    }
+  }
+}
+
+// ==============================================
+// SECTION PARENTS
+// ==============================================
 .parents {
   padding: 2rem 1rem;
   display: flex;
@@ -24,30 +46,8 @@
   gap: 2rem;
 
   &__contenu {
-
     gap: 1.5rem;
   }
-
- /* .falc {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    text-transform: uppercase;
-    background-color: $tarakota__dark;
-    color: $white;
-    padding: .75rem 1rem;
-    border-radius: 1rem;
-    text-decoration: none;
-    align-self: flex-end;
-
-    &__icon {
-      width: 24px;
-      height: 24px;
-    }
-  }
-  .falc:hover {
-    background-color: $tarakota__extra__dark;
-  }*/
 
   &__title {
     font-size: 2rem;
@@ -56,15 +56,17 @@
     color: $black;
   }
 
+  // Blocs principaux
   &__ecole,
   &__accompagnement,
   &__parler {
     border-radius: 1.5rem;
     padding: 1.5rem;
     box-shadow: 0 10px 25px $shadow;
-    color: $white;
+    // Pas de couleur ici → hérite du texte noir par défaut
   }
 
+  // Titres des blocs
   &__ecole__title,
   &__accompagnement__title,
   &__parler__title {
@@ -77,11 +79,12 @@
     margin-bottom: 1rem;
   }
 
+  // Contenu texte des blocs
   &__ecole__explication,
   &__accompagnement__explication,
   &__parler__contenu {
     background-color: $fille-ariane;
-    color: $white;
+    color: $black; // ← CORRECTION : texte sombre sur fond clair
     border-radius: 1rem;
     padding: 1.5rem;
     font-size: 1rem;
@@ -112,7 +115,9 @@
   }
 }
 
-
+// ==============================================
+// RESPONSIVE TABLETTE (≥768px)
+// ==============================================
 @media (min-width: 768px) {
   .parents {
     padding: 3rem 2rem;
@@ -142,11 +147,9 @@
   }
 }
 
-/* ==========================
-   DESKTOP
-   min-width: 1024px
-========================== */
-
+// ==============================================
+// RESPONSIVE DESKTOP (≥1024px)
+// ==============================================
 @media (min-width: 1024px) {
   .parents {
     padding: 4rem 0;

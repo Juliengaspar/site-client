@@ -30,20 +30,30 @@
   margin-top: 2%;
 
 }
-
+.subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $tarakota__dark;
+  margin-bottom: 1rem;
+}
 
 .Chiffres{
-  &__grid{
-    padding: 1rem;
-    background-color: $fille-ariane;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  margin: 5% auto;
+  margin: 3rem auto;
   padding: 1rem;
   text-align: center;
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  &__grid{
+    padding: 2rem;
+    background: $fille-ariane;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
   .chiffre-card{
     padding: 1rem;
     margin: 5% 0;
@@ -94,7 +104,7 @@
     border-radius: 1rem;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 4rem;
   }
 
@@ -287,18 +297,20 @@
 /* =========================
    RESPONSIVE
 ========================= */
-@media screen and (max-width: 767px) {
-
+@media screen and (min-width: 767px) {
+  .chiffres__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .missions-section {
     padding: 4rem 1.25rem;
 
     &__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       justify-items: center;
     }
 
     &__header {
-      text-align: center;
+      text-align: left;
     }
 
     &__cta {
@@ -324,6 +336,9 @@
 
 
 @media (min-width: 1024px) {
+  .chiffres__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   .acceuil__images{
     margin: 5% auto;
@@ -372,18 +387,20 @@
   }
 
   .chiffre-card {
-    background: $card-bg;
+    background: $bg-container;
     padding: 1.5rem;
     border-radius: 6px;
     text-align: center;
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
     // CHIFFRE
     &__number {
-
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $tarakota__dark;
+      margin-bottom: 1rem;
     }
 
     // CONTENEUR IMAGE
@@ -399,22 +416,20 @@
     &__img {
       max-width: 6rem;
       max-height: 6rem;
-      width: 100%;
-      height: auto;
       object-fit: contain;
     }
 
     // TITRE
     &__title {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-
     }
 
     // TEXTE
     &__desc {
-
+      font-size: 0.9rem;
+      color: #444;
     }
   }
   //mission

@@ -400,3 +400,19 @@ add_action('wp_enqueue_scripts', 'my_theme_scripts');
 add_image_size('sqaure-small', 400, 400, true );//nom /size/recadrage;
 add_image_size('sqaure-medium', 800, 800, true );//nom /size/recadrage;
 add_image_size('sqaure-large', 1200, 1200, true );//nom /size/recadrage;
+
+
+
+
+/**
+ * Ajoute une classe CSS au body en fonction du paramètre FALC.
+ */
+add_filter('body_class', function($classes) {
+    // On vérifie si le paramètre 'falc' est présent et vaut 'true'
+    if (isset($_GET['falc']) && $_GET['falc'] === 'true') {
+        $classes[] = 'mode-falc';
+    } else {
+        $classes[] = 'mode-classique';
+    }
+    return $classes;
+});
