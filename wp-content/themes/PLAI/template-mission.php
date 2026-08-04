@@ -26,22 +26,16 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
 
     <main class="main" itemscope itemtype="https://schema.org/WebPage">
 
-        <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
+        <?php include get_template_directory() . '/templates/componements/header--logo/img.php'; ?>
 
         <!-- Lien FALC / Classique (comme dans Parents) -->
         <div class="title_contenu">
         <h2 id="title" class="missions-section__title title" itemprop="name"   aria-label="Changer de version (FALC ou classique)">
             <?= esc_html($title_page); ?>
         </h2>
-       <a href="<?= $falc ? '?' : '?falc=true'; ?>" title="Version FALC" class="falc">
-           <?= $falc ? 'Classique' : 'FALC'; ?>
-           <img src="<?= get_template_directory_uri(); ?>/assets/icons/FALC-V1.svg"
-               alt=""
-                aria-hidden="true"
-                class="falc__icon">
-       </a>
+
         </div>
-        <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+        <?php include get_template_directory() . '/templates/componements/fileArriane/file__arriane.php'; ?>
 
         <?php
         // Fonction pour afficher les missions (utilise le nom du répéteur passé en paramètre)
