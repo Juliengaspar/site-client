@@ -60,10 +60,10 @@
         ?>
     </nav>
 
-    <!-- SEARCH -->
-    <div class="header__search">
-        <?php get_search_form(); ?>
-    </div>
+<!--    SEARCH -->
+<!--    <div class="header__search">-->
+<!--        --><?php //get_search_form(); ?>
+<!--    </div>-->
 
     <!-- ===== TOGGLE FALC ===== -->
     <div class="header__accessibility">

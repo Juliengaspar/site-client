@@ -39,15 +39,15 @@ $copyrinthe = get_field('text__copyrinthe', 'option');
                      >
                 <?php endif; ?>
 
-                <?php if (!empty($social_media)) : ?>
-                    <ul class="footer__socials" role="list">
-                        <?php foreach ($social_media as $link) : ?>
-                            <li class="footer__social-item">
-                                <a class="footer__social-link" href="<?= $link->href ?>" title="<?= $link->label ?>"><?= $link->label ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
+<!--                --><?php //if (!empty($social_media)) : ?>
+<!--                    <ul class="footer__socials" role="list">-->
+<!--                        --><?php //foreach ($social_media as $link) : ?>
+<!--                            <li class="footer__social-item">-->
+<!--                                <a class="footer__social-link" href="--><?php //= $link->href ?><!--" title="--><?php //= $link->label ?><!--">--><?php //= $link->label ?><!--</a>-->
+<!--                            </li>-->
+<!--                        --><?php //endforeach; ?>
+<!--                    </ul>-->
+<!--                --><?php //endif; ?>
             </div>
             <nav class="footer__nav" aria-labelledby="footer-nav-title">
                 <h2 class="footer__title" id="footer-nav-title">Navigation</h2>

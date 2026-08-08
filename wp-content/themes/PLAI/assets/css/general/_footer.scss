@@ -3,7 +3,7 @@
 //   MOBILE FIRST
 
 .footer {
-  background-color: $tarakota__dark;
+  background-color: grey;
   overflow: hidden;
   position: relative;
 
@@ -91,7 +91,6 @@
         font-weight: 600;
       }
         &__title:hover{
-          border-bottom: 1px solid $white;
         }
 
     &__liste {
@@ -221,13 +220,12 @@
   @media (min-width: 1024px) {
     &__top {
       grid-template-columns: repeat(3, 1fr);
-
       gap: 2rem;
       padding: 4rem 0;
     }
 
     &__img {
-      grid-row: 2;
+      grid-row:1;
       grid-column: 2;
       img {
         width: 180px;
@@ -252,7 +250,7 @@
     }
 
     &__nav {
-      grid-row: 2;
+      grid-row: 1;
       grid-column: 3;
     }
 

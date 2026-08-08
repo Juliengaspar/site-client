@@ -66,11 +66,11 @@
                         </article>
 
                     <?php endwhile; ?>
+                </div>
                     <section class="missions-section__cta">
                         <h2 class="sro">mission redirection</h2>
                         <a href="<?=esc_url($mission_button['url']); ?>" class="missions-section__button" itemprop="url"><?=$mission_button['title']; ?></a>
                     </section>
-                </div>
 
 
                 <?php endif; ?>
