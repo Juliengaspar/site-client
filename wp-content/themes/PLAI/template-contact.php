@@ -1,7 +1,6 @@
 <?php /* Template Name: Contact */ ?>
 <?php get_header(); ?>
 <main class="main">
-    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php');?>
 
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>

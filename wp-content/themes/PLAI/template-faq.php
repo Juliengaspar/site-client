@@ -1,19 +1,17 @@
 <?php /* Template Name: faq */?>
 <?php get_header()?>
 <main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
-    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
-
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>
-<!--        --><?php //include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
        <?php get_template_part('templates/componements/navigations/navigation__private');  ?>
     </nav>
     <?php
     $faqContenu = get_field('explication__page');
     ?>
     <section class="faq__contenu">
-        <h2 class="faq__contenu__title acceuil__title" itemprop="name"  aria-label="titre de la page faq"><?= get_the_title()?></h2>
+        <h2 class="sro" itemprop="name"  aria-label="titre de la page faq"><?= get_the_title()?></h2>
         <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
+        <h3 class="faq__contenu__title acceuil__title" itemprop="name"  aria-label="titre de la page faq"><?= get_the_title()?></h3>
 
         <div class="faq__contenu__explication">
             <?= wp_kses_post($faqContenu)?>

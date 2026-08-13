@@ -7,12 +7,12 @@ $presentationImage = get_field("presentation__image");
 <section class="Presentation acceuil" itemscope itemtype="https://schema.org/Organization">
 
     <?php if (!empty($presentationTitle)): ?>
-    <h3 class="title__second__aceuil " itemprop="name"><?= esc_html($presentationTitle) ?></h3>
+    <h2 class="title__second__aceuil " itemprop="name"><?= wp_kses_post($presentationTitle) ?></h2>
     <?php endif;?>
     <section class="presentation__pole">
         <div>
             <?php if (!empty($presentationTitlePole)): ?>
-                <h3 class="presentation__pole__title subtitle"><?= esc_html($presentationTitlePole) ?></h3>
+                <h3 class="presentation__pole__title subtitle"><?= wp_kses_post($presentationTitlePole) ?></h3>
             <?php endif;?>
             <?php if (!empty($presentationDescription)): ?>
                 <div class="description__Acceuil" itemprop="description"><?= wp_kses_post($presentationDescription) ?></div>

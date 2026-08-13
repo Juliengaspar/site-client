@@ -4,14 +4,16 @@
 @media (min-width: 1024px) {
   .faq__contenu{
     &__title{
-      font-size: 3rem;
-      text-transform: uppercase;
       display: inline-block;
-      width: auto;
-      margin: 2% 0;
-      border: 2px solid $tarakota__dark;
-      padding: .8rem 1.5rem;
-      font-weight: 600;
+      width: 100%;
+      text-align: center;
+
+      font-size: 1.75rem;
+      font-weight: 700;
+
+      border: 2px solid #c75b2c;
+      padding: 1rem;
+      margin: 2rem 0;
     }
   }
 

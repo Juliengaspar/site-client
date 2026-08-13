@@ -11,8 +11,7 @@ $terms = get_terms([
 ?>
 <?php get_header(); ?>
     <main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
-<!--        --><?php //include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
-            <?php get_template_directory('PLAI/templates/componements/header--logo/img.php') ?>
+
         <nav class="header__nav">
             <h2 class="sro">Barre de navigation</h2>
             <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
@@ -20,7 +19,7 @@ $terms = get_terms([
             ?>
         </nav>
         <section class="content__ressources">
-            <h2 class="acceuil__title"><?= get_the_title() ?></h2>
+            <h2 class="sro"><?= get_the_title() ?></h2>
             <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
 
@@ -36,14 +35,6 @@ $terms = get_terms([
         </section>
 
         <section class="page-ressources">
-            <section class="ressources-filters">
-                <ul class="filters-list">
-                    <li><button class="filter-btn active" data-filter="all">Toutes</button></li>
-                    <?php foreach ($terms as $term) : ?>
-                        <li><button class="filter-btn" data-filter="<?= esc_attr($term->slug); ?>"><?= esc_html($term->name); ?></button></li>
-                    <?php endforeach; ?>
-                </ul>
-            </section>
             <h2 class="sro">Ressources</h2>
 
             <section class="container"  itemscope itemtype="https://schema.org/ItemList">

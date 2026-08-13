@@ -5,7 +5,7 @@ $reddirectionConnextion = get_field('contenu__explication');
 ?>
 
 <section class="form__container">
-    <h2 class="form__container__title"><?= $titleConnextion ?></h2>
+    <h2 class="sro"><?= $titleConnextion ?></h2>
 
     <section class="form__container__form">
         <h3 class="form__container__form__title">

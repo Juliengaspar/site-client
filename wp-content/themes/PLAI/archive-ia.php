@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
     <main class="main" role="main" itemscope itemtype="https://schema.org/WebPage">
-        <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <nav class="header__nav">
             <h2 class="sro">Barre de navigation</h2>
@@ -15,7 +14,7 @@
             ?>
         </nav>
         <section class="content__ia">
-            <h2 class="content__ia__title"><?php the_field('ia_title_page', 'option'); ?></h2>
+            <h2 class="sro"><?php echo  get_the_title()?></h2>
             <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
 
             <section class="content__ia__explication">

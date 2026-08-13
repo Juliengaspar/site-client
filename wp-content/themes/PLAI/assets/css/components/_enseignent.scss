@@ -17,15 +17,14 @@
 
   &__title {
     display: block;
-    width: 100%;
-
+    color: $black;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-
-    border: 2px solid #c75b2c;
-    padding: .75rem;
-    margin: 2rem 0;
+    border: 1px solid $tarakota__dark;
+    font-size: 1.25rem;
+    margin: 2.5rem auto;
+    width: 100%;
+    font-weight: 700;
+    padding: 1rem 0;
   }
 
   p,
@@ -55,7 +54,9 @@
     }
   }
 }
-
+.enseignant-page__able p:first-of-type{
+  font-size: 1.5rem;
+}
 .redirections {
   border: 1px solid $tarakota__dark;
   border-radius: 1rem;
@@ -84,8 +85,7 @@
   .enseignement {
 
     &__title {
-      font-size: 1.8rem;
-      padding: 1rem;
+
     }
 
     p,
@@ -98,7 +98,6 @@
   .redirections {
 
     &__title {
-      font-size: 1.8rem;
     }
   }
 }
@@ -114,12 +113,7 @@
   }
     .enseignement{
       &__title{
-        width: 100%;
-        text-align: center;
-        font-size: 2rem;
-        border: 2px solid #c75b2c;
-        display: block;
-        margin: 2.5% 0;
+
       }
     }
   .enseignement div, .enseignement p{

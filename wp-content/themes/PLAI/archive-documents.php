@@ -7,7 +7,6 @@
 <?php get_header(); ?>
 
     <main class="main documents-page" role="main" itemscope itemtype="https://schema.org/DigitalDocument">
-        <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
 
         <nav class="header__nav">
             <h2 class="sro">Barre de navigation</h2>
@@ -17,8 +16,8 @@
         <section class="documents">
 
             <!-- Titre dynamique du CPT -->
-            <h2 class="documents__title" itemprop="headline">
-                <?= esc_html(post_type_archive_title('', false) ?: 'Bibliothèque de documents'); ?>
+            <h2 class="sro" itemprop="headline">
+                <?= get_the_title() ?>
             </h2>
 
             <?php include ('wp-content/themes/PLAI/templates/componements/fileArriane/file__arriane.php')?>
@@ -28,6 +27,7 @@
                 $intro_title = get_field('title__page__document', 'option');
                 $intro_content = get_field('document__explications', 'option');
                 $explication_content = get_field('document__text__telechargeable', 'option');
+
                 ?>
 
                 <?php if ($intro_title) : ?>
@@ -100,7 +100,7 @@
                                                itemprop="identifier"
                                                aria-label="Télécharger <?= esc_attr(get_the_title()); ?>">                                                <div class="documents__category__link"> <?= wp_kses_post($description); ?> </div>
                                             </a>
-                                            <span class="documents__link__icon" aria-hidden="true">📄</span>
+<!--                                            <span class="documents__link__icon" aria-hidden="true">📄</span>-->
                                         </article>
                                     <?php endif; ?>
                                 <?php endwhile; ?>
@@ -114,6 +114,15 @@
             <?php endif; ?>
 
         </section>
+<!--        <section>-->
+<!--            --><?php
+//            $redirection = get_field('redirection', 'option');
+//            var_dump($redirection);
+//            ?>
+<!--            --><?php //if ($redirection) : ?>
+<!--            <h2><a href="--><?php //= $redirection["url"] ?><!--" title="--><?php //= $redirection["title"] ?><!--">--><?php //= $redirection["title"] ?><!--</a></h2>-->
+<!--            --><?php //endif; ?>
+<!--        </section>-->
 
     </main>
 

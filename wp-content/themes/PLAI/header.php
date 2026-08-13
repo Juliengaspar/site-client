@@ -59,18 +59,11 @@
         ]);
         ?>
     </nav>
-
-<!--    SEARCH -->
-<!--    <div class="header__search">-->
-<!--        --><?php //get_search_form(); ?>
-<!--    </div>-->
-
-    <!-- ===== TOGGLE FALC ===== -->
     <div class="header__accessibility">
         <?php
         $falc = isset($_GET['falc']) ? sanitize_text_field($_GET['falc']) : '';
         $falc_url = $falc ? '?' : '?falc=true';
-        $falc_label = $falc ? 'Classique' : 'FALC';
+        $falc_label = $falc ? 'Classique' : 'Vue simplifiée (FALC)';
         ?>
         <a href="<?= esc_url($falc_url); ?>" class="header__falc" aria-label="Version FALC">
             <?= esc_html($falc_label); ?>

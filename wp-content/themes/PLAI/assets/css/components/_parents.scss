@@ -1,39 +1,6 @@
 @use "../general/general" as *;
 
-// ==============================================
-// MODE CLASSIQUE (défaut)
-// ==============================================
-.mode-classique {
-  color: #222;
 
-
-  section {
-    padding: 1.25rem;
-  }
-}
-
-// ==============================================
-// MODE FALC (adaptation accessibilité)
-// ==============================================
-.mode-falc {
-  font-size: 1.2rem;
-  line-height: 1.6;
-
-  .parents {
-    &__ecole,
-    &__accompagnement,
-    &__parler {
-      padding: 2.5rem;
-    }
-
-    &__ecole__explication,
-    &__accompagnement__explication,
-    &__parler__contenu {
-      font-size: 1.15rem;
-      padding: 2rem;
-    }
-  }
-}
 
 // ==============================================
 // SECTION PARENTS
@@ -54,6 +21,9 @@
     line-height: 1.2;
     color: $black;
   }
+  &__ecole{
+    margin-bottom: -2.5%;
+  }
 
   // Blocs principaux
   &__ecole,
@@ -61,7 +31,7 @@
   &__parler {
     border-radius: 1.5rem;
     padding: 1.5rem;
-    box-shadow: 0 10px 25px $shadow;
+   // box-shadow: 0 10px 25px $shadow;
     // Pas de couleur ici → hérite du texte noir par défaut
   }
 
@@ -69,10 +39,8 @@
   &__ecole__title,
   &__accompagnement__title,
   &__parler__title {
-    text-align: center;
+    text-align: left;
     color: $black;
-    border: 1px solid $tarakota__dark;
-    padding: .75rem;
     font-size: 1.4rem;
     font-weight: 500;
     margin-bottom: 1rem;
@@ -82,12 +50,9 @@
   &__ecole__explication,
   &__accompagnement__explication,
   &__parler__contenu {
-    background-color: $fille-ariane;
     color: $black; // ← CORRECTION : texte sombre sur fond clair
     border-radius: 1rem;
-    padding: 1.5rem;
     font-size: 1rem;
-    line-height: 1.8;
 
     p {
       margin-bottom: 1rem;
@@ -112,6 +77,9 @@
       }
     }
   }
+  &__ecole__explication strong{
+    font-weight: 800;
+  }
 }
 
 // ==============================================
@@ -128,7 +96,6 @@
     &__ecole,
     &__accompagnement,
     &__parler {
-      padding: 2rem;
     }
 
     &__ecole__title,
@@ -140,7 +107,6 @@
     &__ecole__explication,
     &__accompagnement__explication,
     &__parler__contenu {
-      padding: 2rem;
       font-size: 1.05rem;
     }
   }
@@ -151,7 +117,7 @@
 // ==============================================
 @media (min-width: 1024px) {
   .parents {
-    padding: 4rem 0;
+    padding: 3rem 0;
 
     &__title {
       font-size: 3rem;
@@ -159,12 +125,6 @@
 
     &__contenu {
       gap: 2rem;
-    }
-
-    &__ecole,
-    &__accompagnement,
-    &__parler {
-      padding: 3rem;
     }
 
     &__ecole__title,
@@ -176,9 +136,69 @@
     &__ecole__explication,
     &__accompagnement__explication,
     &__parler__contenu {
-      padding: 3rem;
-      max-width: 1200px;
       margin: 0 auto;
+    }
+    &__cadre{
+      box-shadow: 0 10px 25px $shadow;
+    }
+  }
+  .cartes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin: 2.5% auto;
+  }
+  .cartes h3{
+    font-size: 2rem;
+    font-weight: 500;
+    grid-row: 1;
+    grid-column: 1/5;
+    margin-bottom: 0;
+
+  }
+
+  .carte {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    grid-row: 2;
+
+    &__title{
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 2.5%;
+      text-align: center;
+      color: $tarakota__dark;
+    }
+      &__text{
+      text-align: center;
+
+      }
+    &__image {
+      width:50%;
+      margin: 5% auto;
+
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+    .carte > h4{
+
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    p {
+      margin: 0;
     }
   }
 }

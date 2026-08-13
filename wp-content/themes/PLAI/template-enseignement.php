@@ -11,15 +11,9 @@ $EnseignanLink = get_field("link__formations");
 <?php get_header()?>
 <main class="main enseignant-page">
 
-    <?php include ('wp-content/themes/PLAI/templates/componements/header--logo/img.php'); ?>
-
-
     <nav class="header__nav">
         <h2 class="sro">Barre de navigation</h2>
         <?php include('wp-content/themes/PLAI/templates/componements/navigations/navigation__private.php')?>
-        <?php
-        ?>
-
 
     </nav>
     <?php include('wp-content/themes/PLAI/templates/componements/enseignement/titles.php')?>
@@ -34,14 +28,13 @@ $EnseignanLink = get_field("link__formations");
                 <?= wp_kses_post($EnseignantDescription); ?>
             </div>
         <?php endif; ?>
-        <div>
-            <?php
-            if($EnseignantPossibilite) {
-                // Si c'est un champ WYSIWYG ou texte
-            echo wp_kses_post($EnseignantPossibilite);
+        <div class="enseignant-page__able" >
+        <?php if($EnseignantPossibilite): ?>
+            <?= wp_kses_post($EnseignantPossibilite); ?>
 
-            }
-            ?>
+        <?php endif; ?>
+
+
         </div>
     <?php include('wp-content/themes/PLAI/templates/componements/enseignement/redirections.php')?>
 

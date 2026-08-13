@@ -26,11 +26,10 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
 
     <main class="main" itemscope itemtype="https://schema.org/WebPage">
 
-        <?php include get_template_directory() . '/templates/componements/header--logo/img.php'; ?>
 
         <!-- Lien FALC / Classique (comme dans Parents) -->
         <div class="title_contenu">
-        <h2 id="title" class="missions-section__title title" itemprop="name"   aria-label="Changer de version (FALC ou classique)">
+        <h2 id="title" class="missions__title title" itemprop="name"   aria-label="Changer de version (FALC ou classique)">
             <?= esc_html($title_page); ?>
         </h2>
 
@@ -42,7 +41,7 @@ $repeater_collectives = $falc ? 'missions_collectives__falc' : 'missions_collect
         function display_missions($repeater_name, $section_title, $section_description) {
             if( have_rows($repeater_name) ) : ?>
                 <section class="missions" itemscope itemtype="https://schema.org/ItemList">
-                    <h2 class="missions__title">
+                    <h2 class="missions__subtile">
                         <?= esc_html($section_title); ?>
                     </h2>
 

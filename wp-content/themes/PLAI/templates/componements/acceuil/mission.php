@@ -12,9 +12,9 @@
 
                 <?php if ($mission_title) : ?>
                     <section class="missions-section__header">
-                        <h3 id="missions-title" class="missions-section__title" itemprop="name">
+                        <h2 id="missions-title" class="missions-section__title" itemprop="name">
                             <?=esc_html($mission_title) ; ?>
-                        </h3>
+                        </h2>
                     </section>
                 <?php endif; ?>
 
