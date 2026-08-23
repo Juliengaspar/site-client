@@ -7,7 +7,7 @@
   &__title{
     font-size: 3rem;
     border: 1px solid $tarakota__dark;
-    padding: 1rem;
+    padding: 3rem;
     display: inline-block;
     width: auto;
     margin: 2% 0;
@@ -26,17 +26,21 @@
     color: $black;
     text-align: center;
     border: 1px solid $tarakota__dark;
-    font-size: 1.25rem;
+    font-size: 2rem;
     margin: 2.5rem auto;
     width: 100%;
     font-weight: 700;
     padding: 1rem 0;
   }
   &__text{
+    font-size: 1.25rem;
     margin: 5% auto;
   }
   &__text p{
     margin: 1.5% auto;
+  }
+  &__text span{
+    color: $tarakota__dark;
   }
 }
 .categorie{

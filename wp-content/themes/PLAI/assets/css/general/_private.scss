@@ -1,0 +1,347 @@
+@use 'general' as *;
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.private__nav {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background-color: $black;
+
+  padding: 0.75rem 1rem;
+
+  z-index: 1000;
+}
+
+
+/* ========================================
+   BURGER
+======================================== */
+
+.burger-menu {
+  display: flex;
+
+  width: 3rem;
+  height: 3rem;
+
+  padding: 0;
+  margin: 0;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.35rem;
+
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+
+  z-index: 1001;
+
+  &__line {
+    display: block;
+
+    width: 1.75rem;
+    height: 0.15rem;
+
+    background-color: $white;
+    border-radius: 999px;
+
+    transition:
+            transform 0.25s ease,
+            opacity 0.25s ease;
+  }
+
+  /* Burger → croix */
+
+  &.active {
+
+    .burger-menu__line:nth-child(1) {
+      transform: translateY(0.5rem) rotate(45deg);
+    }
+
+    .burger-menu__line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger-menu__line:nth-child(3) {
+      transform: translateY(-0.5rem) rotate(-45deg);
+    }
+  }
+
+  &:focus-visible {
+    outline: 0.15rem solid $fille-ariane;
+    outline-offset: 0.2rem;
+  }
+}
+
+
+/* ========================================
+   MENU
+======================================== */
+
+.menu-private {
+
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  padding: 0.75rem 1rem;
+
+  list-style: none;
+
+  background-color: $black;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transform: translateY(-0.5rem);
+
+  transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          visibility 0.25s ease;
+
+  /* Menu ouvert */
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* --------------------------------
+     ITEM
+  -------------------------------- */
+
+  li {
+    width: 100%;
+  }
+
+
+  /* --------------------------------
+     LIEN
+  -------------------------------- */
+
+  a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 3rem;
+
+    padding: 0.75rem 1rem;
+
+    color: $white;
+
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    border-radius: 0.5rem;
+
+    transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &:focus-visible {
+      outline: 0.15rem solid $fille-ariane;
+      outline-offset: 0.1rem;
+    }
+  }
+
+
+  /* --------------------------------
+     PAGE ACTIVE
+  -------------------------------- */
+
+  li.current-menu-item > a,
+  li.current_page_item > a,
+  a[aria-current="page"] {
+
+    color: $fille-ariane;
+
+    background-color: rgba($fille-ariane, 0.12);
+
+    font-weight: 600;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      left: 0.35rem;
+      top: 50%;
+
+      width: 0.2rem;
+      height: 1.4rem;
+
+      background-color: $fille-ariane;
+
+      border-radius: 999px;
+
+      transform: translateY(-50%);
+    }
+  }
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media screen and (min-width: 768px) {
+
+  .private__nav {
+    padding: 0.75rem 2rem;
+  }
+
+
+  .burger-menu {
+    display: none;
+  }
+
+
+  .menu-private {
+
+    position: static;
+
+    flex-direction: row;
+    align-items: center;
+
+    width: auto;
+
+    padding: 0;
+
+    gap: 0.35rem;
+
+    visibility: visible;
+    opacity: 1;
+
+    transform: none;
+
+    background-color: transparent;
+
+
+    li {
+      width: auto;
+    }
+
+
+    a {
+      min-height: 2.75rem;
+
+      padding: 0.65rem 0.9rem;
+
+      font-size: 0.95rem;
+
+      border-radius: 0.4rem;
+    }
+
+
+    /* Active tablette */
+
+    li.current-menu-item > a,
+    li.current_page_item > a,
+    a[aria-current="page"] {
+
+      background-color: transparent;
+
+      &::before {
+        left: 50%;
+        bottom: 0.1rem;
+        top: auto;
+
+        width: 1.5rem;
+        height: 0.15rem;
+
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+
+/* ========================================
+   DESKTOP
+======================================== */
+
+@media screen and (min-width: 1024px) {
+
+  .private__nav {
+    padding: 1rem 3rem;
+    width: 100%;
+  }
+
+
+  .menu-private {
+
+    gap: 0.75rem;
+    margin: 1% auto;
+
+
+    a {
+
+      min-height: 3rem;
+
+      padding: 0.75rem 1rem;
+
+      font-size: 1rem;
+
+      border-radius: 0.4rem;
+
+
+      &:hover {
+        color: $fille-ariane;
+
+        background-color: rgba(255, 255, 255, 0.06);
+      }
+    }
+
+
+    /* Active desktop */
+
+    li.current-menu-item > a,
+    li.current_page_item > a,
+    a[aria-current="page"] {
+
+      color: $fille-ariane;
+
+      background-color: rgba($fille-ariane, 0.08);
+
+      &::before {
+
+        left: 50%;
+        bottom: 0.15rem;
+        top: auto;
+
+        width: 2rem;
+        height: 0.15rem;
+
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

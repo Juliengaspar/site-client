@@ -41,12 +41,12 @@
             <?php endif; ?>
         </a>
     </div>
-    <!-- ===== BURGER MENU ===== -->
-    <button class="header__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span class="header__burger__line"></span>
-        <span class="header__burger__line"></span>
-        <span class="header__burger__line"></span>
-    </button>
+<!--     ===== BURGER MENU ===== -->
+<!--    <button class="header__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">-->
+<!--        <span class="header__burger__line"></span>-->
+<!--        <span class="header__burger__line"></span>-->
+<!--        <span class="header__burger__line"></span>-->
+<!--    </button>-->
     <!-- NAVIGATION -->
     <nav class="nav" aria-label="Navigation principale">
         <?php

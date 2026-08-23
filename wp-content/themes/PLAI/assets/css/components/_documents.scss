@@ -6,7 +6,7 @@
     color: $black;
     text-align: center;
     border: 1px solid $tarakota__dark;
-    font-size: 1.25rem;
+    font-size: 3rem;
     margin: 2.5rem auto;
     width: 100%;
     font-weight: 700;
@@ -21,7 +21,7 @@
     width: 100%;
     text-align: center;
 
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 700;
 
     border: 2px solid #c75b2c;
@@ -29,15 +29,26 @@
     margin: 2rem 0;
   }
   &__contenu{
+    font-size: 1.25rem;
     margin-bottom: 2.5%;
   }  &__contenu p:first-of-type{
     margin-bottom: 2%;
   }
-  &__contenu li{
-    list-style: disc;
+  &__contenu li {
+    list-style: none;
     margin-bottom: 1%;
     margin-left: 5%;
+
   }
+    &__contenu li::before {
+      content: "★"; /* Remplacez par le symbole ou l'emoji de votre choix */
+      color: $tarakota__dark; /* Change la couleur de la puce */
+      font-weight: bold;
+      display: inline-block;
+      width: 1.2em; /* Gère l'espace après la puce */
+      margin-left: -1.2em;
+    }
+
   &__contenu strong{
     font-weight: 700;
   }
@@ -66,6 +77,7 @@
 
   }
   &__link p{
+    font-size: 1.25rem;
     display: inline-block;
     width: auto;
   }

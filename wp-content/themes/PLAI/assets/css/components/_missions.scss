@@ -67,17 +67,19 @@
   &__explication {
     width: 100%;
     padding: 1rem;
-    font-size: 1.25rem;
+    font-size: 2rem;
     text-align: center;
     border: 1px solid $tarakota__dark;
   }
 
   &__item {
     border: 2px solid #d56f3e;
-    background: #fff;
     overflow: hidden;
+    background-color: #F5F5F5;
+    margin: 0.06rem 0;
 
     &[open] {
+      background-color: $white;
       .accordion__icon {
         transform: rotate(180deg);
       }
@@ -103,7 +105,7 @@
   }
 
   &__heading {
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 500;
     margin: 0;
     padding-right: 1rem;
@@ -168,7 +170,7 @@
   .accordion {
 
     &__explication {
-      font-size: 1.5rem;
+      font-size: 2em;
       padding: 1.5rem;
     }
 
@@ -177,7 +179,7 @@
     }
 
     &__heading {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
     }
 
     &__content {
@@ -227,7 +229,7 @@
     }
 
     &__heading {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
     }
 
     &__content {

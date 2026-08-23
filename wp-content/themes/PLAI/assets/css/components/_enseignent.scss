@@ -20,7 +20,7 @@
     color: $black;
     text-align: center;
     border: 1px solid $tarakota__dark;
-    font-size: 1.25rem;
+    font-size: 2rem;
     margin: 2.5rem auto;
     width: 100%;
     font-weight: 700;
@@ -32,10 +32,11 @@
     margin-bottom: 1.5rem;
     line-height: 1.8;
   }
-
+  .enseignant-page__able ul{
+    margin-left: 5%;
+  }
   ul {
     margin: 1rem 0;
-    padding-left: 1.5rem;
 
     li {
       margin-bottom: .75rem;
@@ -55,21 +56,55 @@
   }
 }
 .enseignant-page__able p:first-of-type{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
+
+.redirections__liste{
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style-type: none;
+  gap: 1.25rem;
+  width: 100%;
+  margin: 5% auto;
+}
+
 .redirections {
-  border: 1px solid $tarakota__dark;
+  //border: 1px solid $tarakota__dark;
   border-radius: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
 
   &__title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    color: $black;
   }
 }
 
+.redirections:hover{
+  .redirections__title{
+  color: $white;
+
+  }
+  background-color: $tarakota__extra__dark;
+  color: $white;
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+.redirections h3:hover{
+
+}
 /* ==========================
    TABLETTE
    min-width: 768px
@@ -91,11 +126,29 @@
     p,
     div,
     li {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
+      li::before{
+        content: "★"; /* Remplacez par le symbole ou l'emoji de votre choix */
+        color: $tarakota__dark; /* Change la couleur de la puce */
+        font-weight: bold;
+        display: inline-block;
+        width: 1.2em; /* Gère l'espace après la puce */
+        margin-left: -1.2em;
+      }
     }
-  }
 
+  }
+  .redirections__liste{
+    padding: 1rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+  }
   .redirections {
+    background-color: $bg-container;
+    box-shadow: 0px 0px 20px 5px $bg-container;
+    -webkit-box-shadow: 0px 0px 20px 5px $bg-container;
 
     &__title {
     }
@@ -119,10 +172,9 @@
   .enseignement div, .enseignement p{
     margin: 2.5% auto;
   }
-  .enseignement ul {
-    list-style: none;
-    list-style-type: circle;
-    margin-left: 5%;
+  .enseignement ul:first-of-type {
+
+    //margin-left: 5%;
     margin-top: 1%;
 
     &::before {
@@ -135,13 +187,18 @@
       background-image: url("../../icons/arrow.svg");
     }
   }
+  .redirections__liste{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .redirections{
     margin-bottom: 5%;
 
     &__title{
       font-size: 2rem;
       font-weight: 600;
-      margin: 2.5% auto;
+      margin: 2.5% 0;
     }
   }
 }

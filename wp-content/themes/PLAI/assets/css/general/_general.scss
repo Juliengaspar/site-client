@@ -9,7 +9,7 @@ $white: #ffffff;
 $black: #000000;
 
 // VARIABLES
-$bg-section: #dcd6d2;
+$bg-section: #f6ceb5;
 $bg-container: #e6b992;
 $card-bg: #eeeeee;
 $text: #111;
@@ -51,5 +51,7 @@ $transition: 0.3s ease;
   border-width: 0;
 }
 .main{
-  margin: 5%;
+  margin: 5% auto;
+  padding: 2.5%;
+  max-width: 1440px;
 }

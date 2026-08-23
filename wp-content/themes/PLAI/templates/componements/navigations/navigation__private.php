@@ -1,6 +1,11 @@
-<nav class="header__nav" aria-label="Navigation principale">
-    <button class="burger-menu" aria-label="Ouvrir ou fermer le menu" aria-expanded="false">
-        <span class="burger-menu__line"></span>
+<nav class="private__nav" aria-label="Navigation private">
+    <button
+            class="burger-menu"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="menu-private"
+    >        <span class="burger-menu__line"></span>
         <span class="burger-menu__line"></span>
         <span class="burger-menu__line"></span>
     </button>
@@ -9,6 +14,7 @@
     wp_nav_menu([
             'theme_location' => 'navigation__private',
             'container'      => false,
+            'menu_id'        => 'menu-private',
             'menu_class'     => 'menu-private',
             'fallback_cb'    => false,
             'depth'          => 1,
