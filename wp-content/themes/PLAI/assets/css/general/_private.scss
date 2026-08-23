@@ -1,115 +1,18 @@
 @use 'general' as *;
-
-
-/* ========================================
-   NAVIGATION
-======================================== */
-
-.private__nav {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
+.header__nav{
   background-color: $black;
-
-  padding: 0.75rem 1rem;
-
-  z-index: 1000;
 }
+.private__nav{
 
-
-/* ========================================
-   BURGER
-======================================== */
-
-.burger-menu {
-  display: flex;
-
-  width: 3rem;
-  height: 3rem;
-
-  padding: 0;
-  margin: 0;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 0.35rem;
-
-  background: transparent;
-  border: 0;
-
-  cursor: pointer;
-
-  z-index: 1001;
-
-  &__line {
-    display: block;
-
-    width: 1.75rem;
-    height: 0.15rem;
-
-    background-color: $white;
-    border-radius: 999px;
-
-    transition:
-            transform 0.25s ease,
-            opacity 0.25s ease;
-  }
-
-  /* Burger → croix */
-
-  &.active {
-
-    .burger-menu__line:nth-child(1) {
-      transform: translateY(0.5rem) rotate(45deg);
-    }
-
-    .burger-menu__line:nth-child(2) {
-      opacity: 0;
-    }
-
-    .burger-menu__line:nth-child(3) {
-      transform: translateY(-0.5rem) rotate(-45deg);
-    }
-  }
-
-  &:focus-visible {
-    outline: 0.15rem solid $fille-ariane;
-    outline-offset: 0.2rem;
-  }
 }
-
-
-/* ========================================
-   MENU
-======================================== */
-
 .menu-private {
-
-  position: absolute;
-
-  top: 100%;
-  left: 0;
-  right: 0;
-
-  display: flex;
-  flex-direction: column;
-
+  width: 100%;
   margin: 0;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
 
   list-style: none;
 
-  background-color: $black;
-
-  visibility: hidden;
-  opacity: 0;
-
-  transform: translateY(-0.5rem);
+  transform: translate(-50%, -0.5rem);
 
   transition:
           opacity 0.25s ease,
@@ -117,43 +20,35 @@
           visibility 0.25s ease;
 
   /* Menu ouvert */
-
   &.active {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
-
-
-  /* --------------------------------
-     ITEM
-  -------------------------------- */
 
   li {
     width: 100%;
   }
-
-
-  /* --------------------------------
-     LIEN
-  -------------------------------- */
 
   a {
     position: relative;
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
+    width: 100%;
     min-height: 3rem;
 
     padding: 0.75rem 1rem;
 
     color: $white;
-
     text-decoration: none;
 
     font-size: 1rem;
     font-weight: 500;
+
+    text-align: center;
 
     border-radius: 0.5rem;
 
@@ -163,7 +58,9 @@
 
     &:hover,
     &:focus-visible {
-      background-color: rgba(255, 255, 255, 0.08);
+      font-size: 1.5rem;
+      background-color: $tarakota__dark;
+      color: $white;
     }
 
     &:focus-visible {
@@ -172,11 +69,7 @@
     }
   }
 
-
-  /* --------------------------------
-     PAGE ACTIVE
-  -------------------------------- */
-
+  /* PAGE ACTIVE */
   li.current-menu-item > a,
   li.current_page_item > a,
   a[aria-current="page"] {
@@ -207,7 +100,6 @@
   }
 }
 
-
 /* ========================================
    TABLETTE
 ======================================== */
@@ -215,7 +107,9 @@
 @media screen and (min-width: 768px) {
 
   .private__nav {
+    background-color: $black;
     padding: 0.75rem 2rem;
+    width: 100%;
   }
 
 
@@ -225,7 +119,7 @@
 
 
   .menu-private {
-
+margin: 1% 25%;
     position: static;
 
     flex-direction: row;
@@ -297,11 +191,8 @@
 
 
   .menu-private {
-
+    display: flex;
     gap: 0.75rem;
-    margin: 1% auto;
-
-
     a {
 
       min-height: 3rem;

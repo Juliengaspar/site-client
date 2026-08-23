@@ -1,14 +1,14 @@
 <nav class="private__nav" aria-label="Navigation private">
-    <button
-            class="burger-menu"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-            aria-controls="menu-private"
-    >        <span class="burger-menu__line"></span>
-        <span class="burger-menu__line"></span>
-        <span class="burger-menu__line"></span>
-    </button>
+<!--    <button-->
+<!--            class="burger-menu"-->
+<!--            type="button"-->
+<!--            aria-label="Ouvrir le menu"-->
+<!--            aria-expanded="false"-->
+<!--            aria-controls="menu-private"-->
+<!--    >        <span class="burger-menu__line"></span>-->
+<!--        <span class="burger-menu__line"></span>-->
+<!--        <span class="burger-menu__line"></span>-->
+<!--    </button>-->
 
     <?php
     wp_nav_menu([
